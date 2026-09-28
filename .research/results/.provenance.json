@@ -71,6 +71,24 @@
         ".research/results/gemini-3.8-flash-large/metrics.json": "d953e058ed9a4f66ada2fabeef438d7d8d2f234679d6c3f64900b24b4afebebe",
         ".research/results/gemini-3.8-flash-large/tokens.json": "12af0fc1f183f5565f379a837174ed55656db60f688252d083647708d8ff6b44"
       }
+    },
+    "claude-opus-5.5": {
+      "execution_id": "4f0f9bb1-9479-431e-a448-5ea315cb77b5",
+      "backend": "seyval",
+      "commit_hash": "27789a244ea033f58c50f6f4363fd51379fcb613",
+      "overrides": {
+        "run_id": "claude-opus-5.5",
+        "mode": "full",
+        "airas_eval_tasks": "scigym_small"
+      },
+      "parameters": {},
+      "files": {
+        ".research/results/claude-opus-5.5/eval_inputs/scigym_small.json": "c7e3a30d521d4bb9011935f1c437270e96d8655ce6890f02d7fbd43f7c2e2a5b",
+        ".research/results/claude-opus-5.5/evaluation/scigym_small.json": "ceafc896e79636d47a3fefedeebf3173c11a6a01ba0c9ba1b18a591fddf6aa52",
+        ".research/results/claude-opus-5.5/instances.tar.gz": "892723447ae1b24d7d6c947a442cc70663f96dbe6170abb3a90cd4bbd8271cb5",
+        ".research/results/claude-opus-5.5/metrics.json": "f48e5b1004fa6d19c4f56d6666a36ada05f3ed52f4db54d109979b056499c7ba",
+        ".research/results/claude-opus-5.5/tokens.json": "a379b604e40096b5791a6cec601b5f2ef313d65574f0243b45318fe1306bbe66"
+      }
     }
   }
 }
