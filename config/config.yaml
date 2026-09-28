@@ -1,18 +1,11 @@
-# Main configuration for Hydra
-# This file will be populated by AI code generator based on experimental design
-
-defaults:
-  - _self_
-  - run: ???  # loads from config/run/, accessible as 'run=' in CLI
-
-# Execution mode: full, sanity, or pilot
 mode: full
-
-# Results output directory
 results_dir: .research/results
 
-# WandB configuration (will be set by AI agent)
-wandb:
-  entity: ???
-  project: ???
-  mode: online
+data_dir: /data1/rkp00041/scigym_improvement/data/scigym_sbml/small
+base_url: https://ai-gateway.vercel.sh/v1
+max_iterations: 20
+eval_debug_rounds: 3
+temperature: 1.0
+max_tokens: 32768
+workers: 16
+instance_timeout: 14400  # 1 件 1 試行の上限秒。超えたら最初からやり直す（LLM のコードが ODE の中で止まる件がある）
