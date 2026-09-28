@@ -1,1 +1,690 @@
-{}
+{
+  "literature": [
+    {
+      "id": "s1",
+      "title": "Measuring Scientific Capabilities of Language Models with a Systems Biology Dry Lab",
+      "authors": [
+        "Haonan Duan",
+        "Stephen Zhewen Lu",
+        "Caitlin Fiona Harrigan",
+        "Nishkrit Desai",
+        "Jiarui Lu",
+        "Michał Koziarski",
+        "Leonardo Cotta",
+        "Chris J. Maddison"
+      ],
+      "year": 2025,
+      "venue": "arXiv preprint arXiv:2507.02083 (NeurIPS 2025 Datasets and Benchmarks Track)",
+      "arxiv_id": "2507.02083",
+      "url": "https://arxiv.org/pdf/2507.02083",
+      "bibkey": "duan-2025-measuring",
+      "verified_by": "arxiv",
+      "verified_at": "2026-09-28T05:47:49+00:00",
+      "fulltext": {
+        "path": ".research/sources/s1/fulltext.txt",
+        "sha256": "da6c8d3dcbbd8c768ee7735346726853026ccc88a9b03d475dc293e347c378fd"
+      },
+      "parser": "pymupdf 1.26.6",
+      "passages": [
+        {
+          "id": "s1.p1",
+          "node_type": "setup",
+          "quote": "We evaluated six models from three frontier model families, each represented by their professional and mini variants: Anthropic’s Claude-3.7-Sonnet-20250219 (P) and Claude-3.5-Haiku-20241022 (M); Google’s Gemini-2.5-Pro-Preview-03-25 (P) and Gemini-2.5-Flash-Preview-04-17 (M); and OpenAI’s GPT-4.1-2025-04-14 (P) and GPT-4.1-Mini-2025-04-14 (M)."
+        },
+        {
+          "id": "s1.p2",
+          "node_type": "setup",
+          "quote": "Due to computational resource constraints, we restricted our evaluation to SCIGYM-small, with a total of 137 tasks."
+        },
+        {
+          "id": "s1.p3",
+          "node_type": "setup",
+          "quote": "The agent may submit its final model and conclude the discovery process at any point, subject to a maximum iteration limit (20 in our benchmark)."
+        },
+        {
+          "id": "s1.p4",
+          "node_type": "setup",
+          "quote": "If the submitted model is invalid or cannot be simulated, we allow for 3 additional debugging iterations before evaluating against the incomplete SBML structure."
+        },
+        {
+          "id": "s1.p5",
+          "node_type": "result",
+          "quote": "Gemini-2.5-Flash 0.4181 0.1527 0.1071 0.1217 0.2399 0.1839 0.2005 GPT-4.1-mini 0.6007 0.1516 0.1253 0.1320 0.2530 0.2313 0.2322 Claude-3.5-Haiku 0.6281 0.0858 0.0421 0.0530 0.1454 0.0805 0.0987 Gemini-2.5-Pro 0.3212 0.2138 0.1664 0.1817 0.3781 0.3219 0.3383 GPT-4.1 0.4611 0.2067 0.1597 0.1740 0.3517 0.2888 0.3038 Claude-3.7-Sonnet 0.3615 0.1780 0.1698 0.1688 0.3160 0.3170 0.3047"
+        },
+        {
+          "id": "s1.p6",
+          "node_type": "claim",
+          "quote": "Our results show that across all model families, pro variants consistently outperform their mini counterparts, with both lower STE errors and higher RMS scores."
+        },
+        {
+          "id": "s1.p7",
+          "node_type": "claim",
+          "quote": "Among all models evaluated, Gemini-Pro achieved the best overall performance."
+        },
+        {
+          "id": "s1.p8",
+          "node_type": "definition",
+          "quote": "We consider two reactions \"matched\" if they have identical sets of reactants and products. In the second, more stringent version, we additionally require matching modifiers."
+        },
+        {
+          "id": "s1.p9",
+          "node_type": "definition",
+          "quote": "We employ the Symmetric Mean Absolute Percentage Error (SMAPE) (Makridakis, 1993), which normalizes errors relative to magnitude."
+        },
+        {
+          "id": "s1.p10",
+          "node_type": "result",
+          "quote": "Table 1: Pro models outperform their mini counterparts in SCIGYM, with Gemini dominating in both size categories. We report the average Simulation Trajectory Error (STE) and Reaction Matching Score (RMS) across all benchmark instances."
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "kind": "repository",
+      "title": "h4duan/SciGym",
+      "authors": [
+        "h4duan"
+      ],
+      "year": 2025,
+      "url": "https://github.com/h4duan/SciGym",
+      "commit": "88a7b93609e35b6ecb4eb343d816d6ff09256c6a",
+      "bibkey": "h4duan-2025-scigym",
+      "verified_by": "git",
+      "verified_at": "2026-09-28T05:47:50+00:00",
+      "fulltext": {
+        "path": ".research/sources/s2/fulltext.txt",
+        "sha256": "ef43f447563987d222448b49dc32ea96f55b0df79e5ea614f247dc36166bc6f2"
+      },
+      "parser": "git show",
+      "passages": [
+        {
+          "id": "s2.p1",
+          "node_type": "setup",
+          "quote": "temperature: 1.0"
+        },
+        {
+          "id": "s2.p2",
+          "node_type": "setup",
+          "quote": "max_iterations: 5"
+        },
+        {
+          "id": "s2.p3",
+          "node_type": "setup",
+          "quote": "eval_debug_rounds: 5"
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "kind": "airas_record",
+      "title": "SciGym Table 1 の事前登録再現: 現行 API の Gemini 2.5 と GPT-4.1 で論文の平均 STE は戻るか",
+      "authors": [
+        "auto-res2/scigym-table1-reproduction (AIRAS)"
+      ],
+      "year": 2026,
+      "url": "https://github.com/auto-res2/scigym-table1-reproduction",
+      "commit": "4e9a531369741dd40e96224216012b4d29a91cb0",
+      "bibkey": "scigymtable1reproduction-2026-scigym",
+      "verified_by": "airas_records",
+      "verified_at": "2026-09-28T05:47:51+00:00",
+      "fulltext": {
+        "path": ".research/sources/s3/fulltext.txt",
+        "sha256": "58bb3ea61c46b3291bdff2ec55eeca5ca2ca68ef7e3f6f99d0e97781a90f9fd8"
+      },
+      "parser": "git show",
+      "passages": [
+        {
+          "id": "s3.p1",
+          "node_type": "claim",
+          "quote": "現行の Gemini-2.5-Pro（google/gemini-2.5-pro）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の 0.3212 を 0.05 より大きくは上回らない。"
+        },
+        {
+          "id": "s3.p2",
+          "node_type": "result",
+          "quote": "\"ste\": 0.4147808242008851"
+        },
+        {
+          "id": "s3.p3",
+          "node_type": "result",
+          "quote": "\"ste\": 0.446518293359178"
+        },
+        {
+          "id": "s3.p4",
+          "node_type": "result",
+          "quote": "\"ste\": 0.5080406539411971"
+        },
+        {
+          "id": "s3.p5",
+          "node_type": "result",
+          "quote": "\"ste\": 0.6017182919967209"
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "kind": "airas_record",
+      "title": "SciGym-small における open-weight モデルの事前登録評価: RIKYU の推論 API で提供される 8 モデルは論文の GPT-4.1-mini に届くか",
+      "authors": [
+        "auto-res2/scigym-rikyu-open-models (AIRAS)"
+      ],
+      "year": 2026,
+      "url": "https://github.com/auto-res2/scigym-rikyu-open-models",
+      "commit": "448f37a09a0b08100c7106ae09d7dfdb474c5372",
+      "bibkey": "scigymrikyuopenmodels-2026-scigym",
+      "verified_by": "airas_records",
+      "verified_at": "2026-09-28T05:47:56+00:00",
+      "fulltext": {
+        "path": ".research/sources/s4/fulltext.txt",
+        "sha256": "0b78acd15b4b3ecf545d3c43ff0e4bbc9e6eb8efb975d34fb7a77a14a82161bf"
+      },
+      "parser": "git show",
+      "passages": [
+        {
+          "id": "s4.p1",
+          "node_type": "claim",
+          "quote": "RIKYU の推論 API（OpenAI 互換）で提供される open-weight モデル 6 種（deepseek-v4.1-flash、glm-5.2、kimi-k2.6、kimi-k3、qwen3.6-35b、qwen3.8-27b）は、SciGym 公開コードの Controller をそのまま用いて SciGym-small 137 件を最大 20 反復で解かせたとき、いずれも平均 Simulation Trajectory Error（STE）が論文 Table 1 の GPT-4.1-mini（0.6007）の水準に届く（0.05 より大きくは上回らない）。"
+        },
+        {
+          "id": "s4.p2",
+          "node_type": "result",
+          "quote": "\"trajectory_smape\": 0.21004969535683385"
+        },
+        {
+          "id": "s4.p3",
+          "node_type": "result",
+          "quote": "\"trajectory_smape\": 0.22507247610652192"
+        },
+        {
+          "id": "s4.p4",
+          "node_type": "result",
+          "quote": "\"trajectory_smape\": 0.24046025032909796"
+        },
+        {
+          "id": "s4.p5",
+          "node_type": "result",
+          "quote": "\"trajectory_smape\": 0.24793430926739368"
+        },
+        {
+          "id": "s4.p6",
+          "node_type": "result",
+          "quote": "\"trajectory_smape\": 0.4570888053620998"
+        }
+      ]
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "h1",
+      "statement": "2026 年 9 月時点で Vercel AI Gateway から利用できる各社の最新モデル 6 種（OpenAI の gpt-6-sol と gpt-6-luna、Anthropic の claude-opus-5.5 と claude-sonnet-5、Google の gemini-3.1-pro-preview と gemini-3.8-flash）は、SciGym 公開コードの Controller をそのまま用いて論文と同じ条件（SciGym-small 137 件、最大 20 反復、temperature 1.0）で解かせたとき、いずれも平均 Simulation Trajectory Error（STE）が論文 Table 1 の最良行（Gemini-2.5-Pro の 0.3212）以下である。",
+      "assumptions": [
+        "temperature 1.0 での 1 回実行の平均 STE（137 件平均）の実行間変動が判定に対して十分小さいこと。先行する Table 1 再現では件ごとの STE の標準偏差はおよそ 0.27、137 件平均の標準誤差はおよそ 0.02 であった（c1〜c6）",
+        "Vercel AI Gateway 経由の各モデルが、提供元の API から直接呼んだ場合と同じ能力で応答すること。reasoning の強さは各モデルの既定値のまま変えない（c1〜c6）",
+        "論文の 6 モデルは 2025 年春の版であり、本研究の 6 モデルは 2026 年 9 月時点の各社の最新版であること。世代の差を測るのが目的なので、同名モデルの再現は求めない（c1〜c6）",
+        "aarch64 向けの libroadrunner 2.7.0 と antimony 2.14.0 が、論文環境の libroadrunner 2.8.0 と同じ軌道と評価値を与えること（c1〜c6）",
+        "平均 STE が「論文の最良行に届くか」を代表すること。RMS（modifier あり / なし）と NTS は同じ実行から表として報告するが、判定基準には用いない（c1〜c6）",
+        "ゲートウェイの予算超過（HTTP 402）で run が途中で止まらないこと。止まった場合はその run を最初からやり直す（c1〜c6）"
+      ],
+      "grounded_on": [
+        "s1.p1",
+        "s1.p5",
+        "s1.p10",
+        "s3.p2",
+        "s4.p2"
+      ],
+      "claims": [
+        {
+          "id": "c1",
+          "statement": "gpt-6-sol（openai/gpt-6-sol）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。",
+          "rationale": "OpenAI の現行世代の推論モデルが論文の最良行に届けば、h1 の gpt-6-sol の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d1",
+              "summary": "公式 Controller（max_iterations=20、eval_debug_rounds=3、temperature=1.0、max_tokens=32768、摂動は初期濃度変更のみ）で SciGym-small 137 件を 1 件 1 プロセスで解かせ、提出モデルと公式データを評価層 scigym_small（公式 Evaluator）で採点する。モデルは Vercel AI Gateway の openai/gpt-6-sol。",
+              "runs": [
+                {
+                  "run_id": "gpt-6-sol",
+                  "description": "gpt-6-sol で SciGym-small 137 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "cites_passages": [
+                    "s1.p3"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p2",
+            "s1.p3",
+            "s1.p4",
+            "s1.p5",
+            "s1.p10",
+            "s4.p2"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "gpt-6-sol",
+            "reference": 0.3212,
+            "op": "<=",
+            "reference_passage": "s1.p5"
+          },
+          "prediction": {
+            "low": -0.2,
+            "high": 0.0,
+            "basis": "open-weight の kimi-k2.6 / kimi-k3 / deepseek-v4.1-flash が同条件で 0.21〜0.24 に達した（s4.p2〜s4.p4）。商用の最新モデルはそれと同等かそれ以上を予測する"
+          }
+        },
+        {
+          "id": "c2",
+          "statement": "gpt-6-luna（openai/gpt-6-luna）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。",
+          "rationale": "OpenAI の最小クラスのモデルが論文の最良行に届けば、h1 の gpt-6-luna の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d2",
+              "summary": "d1 と同じ設定でモデルを openai/gpt-6-luna に替える。",
+              "runs": [
+                {
+                  "run_id": "gpt-6-luna",
+                  "description": "gpt-6-luna で SciGym-small 137 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "cites_passages": [
+                    "s1.p3"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p2",
+            "s1.p3",
+            "s1.p4",
+            "s1.p5",
+            "s1.p10",
+            "s4.p5"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "gpt-6-luna",
+            "reference": 0.3212,
+            "op": "<=",
+            "reference_passage": "s1.p5"
+          },
+          "prediction": {
+            "low": -0.15,
+            "high": 0.05,
+            "basis": "open-weight の 27B〜35B 級（qwen3.8-27b 0.25、qwen3.6-35b 0.46）が同条件で最良行の前後に分かれた（s4.p5、s4.p6）。最小クラスの商用モデルはその中間を予測する"
+          }
+        },
+        {
+          "id": "c3",
+          "statement": "claude-opus-5.5（anthropic/claude-opus-5.5）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。",
+          "rationale": "Anthropic の現行の上位モデルが論文の最良行に届けば、h1 の claude-opus-5.5 の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d3",
+              "summary": "d1 と同じ設定でモデルを anthropic/claude-opus-5.5 に替える。",
+              "runs": [
+                {
+                  "run_id": "claude-opus-5.5",
+                  "description": "claude-opus-5.5 で SciGym-small 137 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "cites_passages": [
+                    "s1.p3"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p2",
+            "s1.p3",
+            "s1.p4",
+            "s1.p5",
+            "s1.p10",
+            "s4.p3"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "claude-opus-5.5",
+            "reference": 0.3212,
+            "op": "<=",
+            "reference_passage": "s1.p5"
+          },
+          "prediction": {
+            "low": -0.2,
+            "high": 0.0,
+            "basis": "c1 と同じ（s4.p2〜s4.p4）"
+          }
+        },
+        {
+          "id": "c4",
+          "statement": "claude-sonnet-5（anthropic/claude-sonnet-5）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。",
+          "rationale": "Anthropic の中位モデルが論文の最良行に届けば、h1 の claude-sonnet-5 の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d4",
+              "summary": "d1 と同じ設定でモデルを anthropic/claude-sonnet-5 に替える。",
+              "runs": [
+                {
+                  "run_id": "claude-sonnet-5",
+                  "description": "claude-sonnet-5 で SciGym-small 137 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "cites_passages": [
+                    "s1.p3"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p2",
+            "s1.p3",
+            "s1.p4",
+            "s1.p5",
+            "s1.p10",
+            "s4.p4"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "claude-sonnet-5",
+            "reference": 0.3212,
+            "op": "<=",
+            "reference_passage": "s1.p5"
+          },
+          "prediction": {
+            "low": -0.2,
+            "high": 0.0,
+            "basis": "中位の商用モデルは open-weight の上位（0.21〜0.25）に近いと予測する（s4.p2〜s4.p5）"
+          }
+        },
+        {
+          "id": "c5",
+          "statement": "gemini-3.1-pro-preview（google/gemini-3.1-pro-preview）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。",
+          "rationale": "論文で最良だった Gemini Pro 系の現行版が自らの旧版の値に届けば、h1 の gemini-3.1-pro-preview の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d5",
+              "summary": "d1 と同じ設定でモデルを google/gemini-3.1-pro-preview に替える。",
+              "runs": [
+                {
+                  "run_id": "gemini-3.1-pro",
+                  "description": "gemini-3.1-pro-preview で SciGym-small 137 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "cites_passages": [
+                    "s1.p3"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p2",
+            "s1.p3",
+            "s1.p4",
+            "s1.p5",
+            "s1.p7",
+            "s1.p10",
+            "s3.p2"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "gemini-3.1-pro",
+            "reference": 0.3212,
+            "op": "<=",
+            "reference_passage": "s1.p5"
+          },
+          "prediction": {
+            "low": -0.2,
+            "high": 0.0,
+            "basis": "c1 と同じ。なお現行 API の gemini-2.5-pro の再実行は 0.4148 で論文値を再現しなかった（s3.p2）ため、旧版との差は環境差を含む"
+          }
+        },
+        {
+          "id": "c6",
+          "statement": "gemini-3.8-flash（google/gemini-3.8-flash）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。",
+          "rationale": "Gemini Flash 系の現行版が論文の最良行に届けば、h1 の gemini-3.8-flash の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d6",
+              "summary": "d1 と同じ設定でモデルを google/gemini-3.8-flash に替える。",
+              "runs": [
+                {
+                  "run_id": "gemini-3.8-flash",
+                  "description": "gemini-3.8-flash で SciGym-small 137 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "cites_passages": [
+                    "s1.p3"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p2",
+            "s1.p3",
+            "s1.p4",
+            "s1.p5",
+            "s1.p10",
+            "s3.p3"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "gemini-3.8-flash",
+            "reference": 0.3212,
+            "op": "<=",
+            "reference_passage": "s1.p5"
+          },
+          "prediction": {
+            "low": -0.15,
+            "high": 0.05,
+            "basis": "c2 と同じ。現行 API の gemini-2.5-flash の再実行は 0.4465 だった（s3.p3）が、世代が進んだ分を見込む"
+          }
+        }
+      ],
+      "tables": [
+        {
+          "key": "table1",
+          "caption": "SciGym-small 137 件における最新モデル 6 種の平均 STE（低いほど良い）、論文 Table 1 の最良行（Gemini-2.5-Pro、0.3212）との差、Reaction Matching Score の適合率 / 再現率 / F1（modifier なし・あり、高いほど良い）、有効な提出件数。",
+          "columns": [
+            {
+              "header": "STE $\\downarrow$",
+              "ref_path": "trajectory_smape",
+              "round": 3
+            },
+            {
+              "header": "$\\Delta$ vs Gemini-2.5-Pro",
+              "ref_path": "trajectory_smape",
+              "reference": {
+                "passage": "s1.p5",
+                "values": {
+                  "gpt-6-sol": 0.3212,
+                  "gpt-6-luna": 0.3212,
+                  "claude-opus-5.5": 0.3212,
+                  "claude-sonnet-5": 0.3212,
+                  "gemini-3.1-pro": 0.3212,
+                  "gemini-3.8-flash": 0.3212
+                }
+              },
+              "round": 3
+            },
+            {
+              "header": "P",
+              "ref_path": "reaction_precision",
+              "round": 3
+            },
+            {
+              "header": "R",
+              "ref_path": "reaction_recall",
+              "round": 3
+            },
+            {
+              "header": "F1",
+              "ref_path": "reaction_f1",
+              "round": 3
+            },
+            {
+              "header": "P$_m$",
+              "ref_path": "reaction_precision_with_modifiers",
+              "round": 3
+            },
+            {
+              "header": "R$_m$",
+              "ref_path": "reaction_recall_with_modifiers",
+              "round": 3
+            },
+            {
+              "header": "F1$_m$",
+              "ref_path": "reaction_f1_with_modifiers",
+              "round": 3
+            },
+            {
+              "header": "n\\_valid",
+              "ref_path": "n_valid_submissions",
+              "round": 0
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "gpt-6-sol",
+              "label": "gpt-6-sol"
+            },
+            {
+              "run_id": "gpt-6-luna",
+              "label": "gpt-6-luna"
+            },
+            {
+              "run_id": "claude-opus-5.5",
+              "label": "claude-opus-5.5"
+            },
+            {
+              "run_id": "claude-sonnet-5",
+              "label": "claude-sonnet-5"
+            },
+            {
+              "run_id": "gemini-3.1-pro",
+              "label": "gemini-3.1-pro-preview"
+            },
+            {
+              "run_id": "gemini-3.8-flash",
+              "label": "gemini-3.8-flash"
+            }
+          ]
+        },
+        {
+          "key": "tokens",
+          "caption": "各 run の評価件数、有効な SBML が提出された件数、トークン消費。出力トークンには reasoning を含む。",
+          "columns": [
+            {
+              "header": "n\\_instances",
+              "ref_path": "n_instances",
+              "round": 0
+            },
+            {
+              "header": "n\\_valid\\_submissions",
+              "ref_path": "n_valid_submissions",
+              "round": 0
+            },
+            {
+              "header": "入力トークン",
+              "ref_path": "input_tokens",
+              "round": 0
+            },
+            {
+              "header": "出力トークン",
+              "ref_path": "output_tokens",
+              "round": 0
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "gpt-6-sol",
+              "label": "gpt-6-sol"
+            },
+            {
+              "run_id": "gpt-6-luna",
+              "label": "gpt-6-luna"
+            },
+            {
+              "run_id": "claude-opus-5.5",
+              "label": "claude-opus-5.5"
+            },
+            {
+              "run_id": "claude-sonnet-5",
+              "label": "claude-sonnet-5"
+            },
+            {
+              "run_id": "gemini-3.1-pro",
+              "label": "gemini-3.1-pro-preview"
+            },
+            {
+              "run_id": "gemini-3.8-flash",
+              "label": "gemini-3.8-flash"
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "ギャップ: SciGym 論文（s1）は 2025 年春の 6 モデルの Table 1 を報告しているが、その後の世代で同じ課題がどこまで解けるようになったかは示されていない。先行する AIRAS の研究は同名モデルの再現（s3）と open-weight モデルの評価（s4）を行った。本研究は同じ Controller・同じ条件で 2026 年 9 月時点の各社最新 6 モデルを走らせ、論文の Table 1 をそのまま並べて報告する。"
+      ]
+    }
+  ]
+}

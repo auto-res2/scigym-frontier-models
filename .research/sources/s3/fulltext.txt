@@ -1,0 +1,1294 @@
+==> .research/record.json <==
+{
+  "literature": [
+    {
+      "id": "s1",
+      "title": "Measuring Scientific Capabilities of Language Models with a Systems Biology Dry Lab",
+      "authors": [
+        "Haonan Duan",
+        "Stephen Zhewen Lu",
+        "Caitlin Fiona Harrigan",
+        "Nishkrit Desai",
+        "Jiarui Lu",
+        "Michał Koziarski",
+        "Leonardo Cotta",
+        "Chris J. Maddison"
+      ],
+      "year": 2025,
+      "venue": "arXiv preprint arXiv:2507.02083 (NeurIPS 2025 Datasets and Benchmarks Track)",
+      "arxiv_id": "2507.02083",
+      "url": "https://arxiv.org/pdf/2507.02083",
+      "bibkey": "duan-2025-measuring",
+      "verified_by": "arxiv",
+      "verified_at": "2026-09-24T09:42:10+00:00",
+      "fulltext": {
+        "path": ".research/sources/s1/fulltext.txt",
+        "sha256": "da6c8d3dcbbd8c768ee7735346726853026ccc88a9b03d475dc293e347c378fd"
+      },
+      "parser": "pymupdf 1.26.6",
+      "passages": [
+        {
+          "id": "s1.p1",
+          "node_type": "setup",
+          "quote": "We evaluated six models from three frontier model families, each represented by their professional and mini variants: Anthropic’s Claude-3.7-Sonnet-20250219 (P) and Claude-3.5-Haiku-20241022 (M); Google’s Gemini-2.5-Pro-Preview-03-25 (P) and Gemini-2.5-Flash-Preview-04-17 (M); and OpenAI’s GPT-4.1-2025-04-14 (P) and GPT-4.1-Mini-2025-04-14 (M).",
+          "judgments": [
+            {
+              "text_sha256": "57dcb2b17c66859d96a094fc41a624c03a5700bf8945296fd7fc8f010fc553f7",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "a806549dfabce0bb87883035528923eb61c6b8da81496a9095d6ec4e45b86a8e",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
+        },
+        {
+          "id": "s1.p2",
+          "node_type": "setup",
+          "quote": "Due to computational resource constraints, we restricted our evaluation to SCIGYM-small, with a total of 137 tasks.",
+          "judgments": [
+            {
+              "text_sha256": "644e3f8f72efc1074567fb97ecf740efd45b4a631c5ea078db6c3e453850faa8",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
+        },
+        {
+          "id": "s1.p3",
+          "node_type": "setup",
+          "quote": "The agent may submit its final model and conclude the discovery process at any point, subject to a maximum iteration limit (20 in our benchmark).",
+          "judgments": [
+            {
+              "text_sha256": "4ab7f355239feb0a3b8b3b01fc1b1206b36420fde543d3e69febce4dd8319930",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
+        },
+        {
+          "id": "s1.p4",
+          "node_type": "setup",
+          "quote": "If the submitted model is invalid or cannot be simulated, we allow for 3 additional debugging iterations before evaluating against the incomplete SBML structure.",
+          "judgments": [
+            {
+              "text_sha256": "4ab7f355239feb0a3b8b3b01fc1b1206b36420fde543d3e69febce4dd8319930",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "f7622eff66dc4b23395b7679e6b8a23a0561becd4ee3b879723827784ccec608",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
+        },
+        {
+          "id": "s1.p5",
+          "node_type": "result",
+          "quote": "Gemini-2.5-Flash 0.4181 0.1527 0.1071 0.1217 0.2399 0.1839 0.2005 GPT-4.1-mini 0.6007 0.1516 0.1253 0.1320 0.2530 0.2313 0.2322 Claude-3.5-Haiku 0.6281 0.0858 0.0421 0.0530 0.1454 0.0805 0.0987 Gemini-2.5-Pro 0.3212 0.2138 0.1664 0.1817 0.3781 0.3219 0.3383 GPT-4.1 0.4611 0.2067 0.1597 0.1740 0.3517 0.2888 0.3038 Claude-3.7-Sonnet 0.3615 0.1780 0.1698 0.1688 0.3160 0.3170 0.3047",
+          "judgments": [
+            {
+              "text_sha256": "bfc8b9890281d9e9606c18854775cdc296a6f5c2f082a8655b6d40d8642d386a",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text accurately refers to the STE values for the models listed, as reported in the quoted Table 1 passage."
+            },
+            {
+              "text_sha256": "826ed52e7594c2856bca5552dcbb7f426c63487a7afb0324c46d4da1fe21d226",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "9bed77d275c9f85bcfaa05bab369fbb753340aed36a1564d1d0cdc91dd191708",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "c06a3cff16ee3213d9f6ec4603b143d53d87aa1f9f814bc1fd66cf15e4375d8d",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
+        },
+        {
+          "id": "s1.p6",
+          "node_type": "claim",
+          "quote": "Our results show that across all model families, pro variants consistently outperform their mini counterparts, with both lower STE errors and higher RMS scores.",
+          "judgments": [
+            {
+              "text_sha256": "967c1e28d588f03d814700286737387f249a743c686e7ae4568200563043fe5f",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "0aa251a43ce9ed751c09779154ae360677801a26b58587aa0ddeb9890193a944",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text accurately restates the claim that pro variants outperform mini variants, which is clearly stated in the quoted passage and supported by the source context."
+            }
+          ]
+        },
+        {
+          "id": "s1.p7",
+          "node_type": "claim",
+          "quote": "Among all models evaluated, Gemini-Pro achieved the best overall performance.",
+          "judgments": [
+            {
+              "text_sha256": "967c1e28d588f03d814700286737387f249a743c686e7ae4568200563043fe5f",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "20ebb76b4dc20d0100e2cac5d57eead8cfdd895d6b35306641d94cb5c33be836",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
+        },
+        {
+          "id": "s1.p8",
+          "node_type": "definition",
+          "quote": "We consider two reactions \"matched\" if they have identical sets of reactants and products. In the second, more stringent version, we additionally require matching modifiers.",
+          "judgments": [
+            {
+              "text_sha256": "d1847a8d5d289becac7844cb6763f0818301c693931eab8db81d7525a9669099",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text accurately describes the definition of RMS and its stricter version given in the original passage, and refers to it as also considering a version that requires matching modifiers, consistent with the source."
+            }
+          ]
+        },
+        {
+          "id": "s1.p9",
+          "node_type": "definition",
+          "quote": "We employ the Symmetric Mean Absolute Percentage Error (SMAPE) (Makridakis, 1993), which normalizes errors relative to magnitude.",
+          "judgments": [
+            {
+              "text_sha256": "d1847a8d5d289becac7844cb6763f0818301c693931eab8db81d7525a9669099",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
+        },
+        {
+          "id": "s1.p10",
+          "node_type": "result",
+          "quote": "Table 1: Pro models outperform their mini counterparts in SCIGYM, with Gemini dominating in both size categories. We report the average Simulation Trajectory Error (STE) and Reaction Matching Score (RMS) across all benchmark instances.",
+          "judgments": [
+            {
+              "text_sha256": "57dcb2b17c66859d96a094fc41a624c03a5700bf8945296fd7fc8f010fc553f7",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "kind": "repository",
+      "title": "h4duan/SciGym",
+      "authors": [
+        "h4duan"
+      ],
+      "year": 2025,
+      "url": "https://github.com/h4duan/SciGym",
+      "commit": "88a7b93609e35b6ecb4eb343d816d6ff09256c6a",
+      "bibkey": "h4duan-2025-scigym",
+      "verified_by": "git",
+      "verified_at": "2026-09-24T09:42:11+00:00",
+      "fulltext": {
+        "path": ".research/sources/s2/fulltext.txt",
+        "sha256": "268fd64875a5956a7094d1ee646584dc8fc56c289ef4142ba93b694524cad209"
+      },
+      "parser": "git show",
+      "passages": [
+        {
+          "id": "s2.p1",
+          "node_type": "setup",
+          "quote": "temperature: 1.0",
+          "judgments": [
+            {
+              "text_sha256": "57dcb2b17c66859d96a094fc41a624c03a5700bf8945296fd7fc8f010fc553f7",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text claims that the evaluation was done with temperature 1.0, and the source passage (a config) shows 'temperature: 1.0', which supports this statement."
+            },
+            {
+              "text_sha256": "f7622eff66dc4b23395b7679e6b8a23a0561becd4ee3b879723827784ccec608",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The config file explicitly states 'temperature: 1.0', exactly as used in the citing text; no qualifiers in context are omitted or reversed."
+            }
+          ]
+        },
+        {
+          "id": "s2.p2",
+          "node_type": "setup",
+          "quote": "max_iterations: 5",
+          "judgments": [
+            {
+              "text_sha256": "f7622eff66dc4b23395b7679e6b8a23a0561becd4ee3b879723827784ccec608",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
+        },
+        {
+          "id": "s2.p3",
+          "node_type": "setup",
+          "quote": "eval_debug_rounds: 5",
+          "judgments": [
+            {
+              "text_sha256": "f7622eff66dc4b23395b7679e6b8a23a0561becd4ee3b879723827784ccec608",
+              "model": "gpt-4.1",
+              "supported": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "h1",
+      "statement": "SciGym 論文の Table 1 のうち Gemini-2.5-Pro、Gemini-2.5-Flash、GPT-4.1、GPT-4.1-mini の 4 行は、公開コードの Controller をそのまま用い、現在 API で提供されている同名モデル（Gemini 2 種は GA 版、GPT-4.1 2 種は論文と同じ 2025-04-14 スナップショット）で SciGym-small 137 件を最大 20 反復で解かせたとき、各モデルの平均 Simulation Trajectory Error（STE）が論文値から 0.05 以内に収まる形で再現される。",
+      "assumptions": [
+        "同名モデルの現行版（Gemini-2.5-Pro / Flash の GA 版、GPT-4.1 / 4.1-mini の 2025-04-14 スナップショット）が、論文で使われた版と同等の能力を持つこと（c1〜c4。Gemini はプレビュー版が提供終了のため GA 版で代替する）",
+        "aarch64 向けの libroadrunner 2.7.0 と antimony 2.14.0 が、論文環境の libroadrunner 2.8.0 と同じ軌道と評価値を与えること（c1〜c4）",
+        "temperature 1.0 での 1 回実行の平均 STE（137 件平均）の実行間変動が 0.05 より十分小さいこと（c1〜c4）",
+        "Vercel AI Gateway の OpenAI 互換エンドポイント経由の各モデルが、各社の公式 API と同じ応答分布を持つこと（c1〜c4）",
+        "平均 STE が Table 1 の再現性を代表すること。RMS（modifier あり / なし）は同じ実行から表として報告するが、判定基準には用いない（c1〜c4）"
+      ],
+      "grounded_on": [
+        "s1.p1",
+        "s1.p5",
+        "s1.p10"
+      ],
+      "claims": [
+        {
+          "id": "c1",
+          "statement": "現行の Gemini-2.5-Pro（google/gemini-2.5-pro）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の 0.3212 を 0.05 より大きくは上回らない。",
+          "rationale": "Table 1 で最良とされた行がそのまま再現されることは、論文の主結果が特定のプレビュー版や実行環境に依存していないことの直接の証拠であり、h1 の Gemini-2.5-Pro 行を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d1",
+              "summary": "公式 Controller（max_iterations=20、eval_debug_rounds=3、temperature=1.0、摂動は初期濃度変更のみ）で SciGym-small 137 件を 1 件 1 プロセスで解かせ、各件の evaluation.json の observe_smape の平均を ste、rp_* / rpm_* の平均を rms_* / rmsm_* として集計する。モデルは Vercel AI Gateway 経由の google/gemini-2.5-pro。",
+              "runs": [
+                {
+                  "run_id": "gemini-2.5-pro",
+                  "description": "google/gemini-2.5-pro で SciGym-small 137 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "results": [
+                    {
+                      "id": "36185297-0a71-4130-8140-7d1e58c94375",
+                      "commit": "11698d515484975d84b62fbe09f7df654eb0daf8",
+                      "eval_inputs": {
+                        "path": ".research/results/gemini-2.5-pro/eval_inputs/binary_classification.json",
+                        "sha256": "9052f5e06187021cd79673c7218ea2208970f2edf6890b1751a2ab9b076c1331"
+                      },
+                      "eval_report": {
+                        "task_type": "binary_classification",
+                        "task_signature": "binary_classification/v1@0db1a6a525b6",
+                        "inputs_sha256": "9277da1dfc9ed85ab3b542c91f6d40217973d48f1ff2fc520904dd780a6b40a3",
+                        "versions": {
+                          "airas-eval": "0.10.0",
+                          "numpy": "1.26.4",
+                          "scikit-learn": "1.7.2"
+                        },
+                        "metrics": {
+                          "accuracy": 0.17906066536203522,
+                          "balanced_accuracy": 0.12248995983935743,
+                          "f1": 0.30373443983402487,
+                          "matthews_corrcoef": -0.6733065804554523,
+                          "precision": 0.39956331877729256,
+                          "recall": 0.24497991967871485
+                        },
+                        "inputs_summary": {
+                          "n_examples": 1022.0
+                        },
+                        "skipped": {
+                          "missing_dependency": {},
+                          "missing_optional_input": [
+                            "auroc",
+                            "average_precision",
+                            "log_loss",
+                            "brier_score",
+                            "expected_calibration_error"
+                          ],
+                          "not_applicable": {},
+                          "undefined_on_data": {}
+                        }
+                      },
+                      "metrics": {
+                        "n_instances": 137,
+                        "n_success": 112,
+                        "n_timed_out": 25,
+                        "ste": 0.4147808242008851,
+                        "rms_precision": 0.31441605839416065,
+                        "rms_recall": 0.27541999768277137,
+                        "rms_f1": 0.2843692672481853,
+                        "rmsm_precision": 0.17069864442127214,
+                        "rmsm_recall": 0.13088576063028615,
+                        "rmsm_f1": 0.14264699209954682,
+                        "input_tokens": 32346906,
+                        "output_tokens": 3964227,
+                        "micro_rms_precision": 0.39956331877729256,
+                        "micro_rms_recall": 0.24497991967871485,
+                        "micro_rms_f1": 0.30373443983402487
+                      }
+                    }
+                  ],
+                  "cites_passages": [
+                    "s1.p1"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p5",
+            "s1.p10",
+            "s1.p3",
+            "s1.p2",
+            "s1.p7"
+          ],
+          "verified": true,
+          "verdict": "refuted",
+          "criterion": {
+            "metric": "ste",
+            "subject": "gemini-2.5-pro",
+            "reference": 0.3212,
+            "op": "<=",
+            "margin": 0.05,
+            "reference_passage": "s1.p5"
+          },
+          "prediction": {
+            "low": -0.05,
+            "high": 0.05,
+            "basis": "論文 Table 1 の 1 回実行の平均値。137 件平均の標準誤差はおよそ 0.02 と見積もり、モデル版の差を含めても ±0.05 に収まると予測する"
+          }
+        },
+        {
+          "id": "c2",
+          "statement": "現行の Gemini-2.5-Flash（google/gemini-2.5-flash）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の 0.4181 を 0.05 より大きくは上回らない。",
+          "rationale": "Gemini 系の mini 変種の行が再現されることで、h1 の Gemini-2.5-Flash 行を担い、c1 と合わせて Gemini 系の pro / mini の関係が論文どおりかを読めるようにする。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d2",
+              "summary": "d1 と同じ設定で、モデルを google/gemini-2.5-flash に替える。",
+              "runs": [
+                {
+                  "run_id": "gemini-2.5-flash",
+                  "description": "google/gemini-2.5-flash で SciGym-small 137 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "results": [
+                    {
+                      "id": "2dd9448e-9ac1-4ab2-9248-2924d63e9132",
+                      "commit": "78add4dbc882cceb0f78b348297dc660440d1763",
+                      "eval_inputs": {
+                        "path": ".research/results/gemini-2.5-flash/eval_inputs/binary_classification.json",
+                        "sha256": "4c669749499498a9feceb08d3a87eb75a154c53eade98b2f85b4bb8a45954f4f"
+                      },
+                      "eval_report": {
+                        "task_type": "binary_classification",
+                        "task_signature": "binary_classification/v1@0db1a6a525b6",
+                        "inputs_sha256": "b908c9206fc475d47c589175e493ce704af44cc0f6edd4dbc7efe14538468cba",
+                        "versions": {
+                          "airas-eval": "0.10.0",
+                          "numpy": "1.26.4",
+                          "scikit-learn": "1.7.2"
+                        },
+                        "metrics": {
+                          "accuracy": 0.13309024612579762,
+                          "balanced_accuracy": 0.09772423025435073,
+                          "f1": 0.23491552695092519,
+                          "matthews_corrcoef": -0.7534772065900299,
+                          "precision": 0.29435483870967744,
+                          "recall": 0.19544846050870146
+                        },
+                        "inputs_summary": {
+                          "n_examples": 1097.0
+                        },
+                        "skipped": {
+                          "missing_dependency": {},
+                          "missing_optional_input": [
+                            "auroc",
+                            "average_precision",
+                            "log_loss",
+                            "brier_score",
+                            "expected_calibration_error"
+                          ],
+                          "not_applicable": {},
+                          "undefined_on_data": {}
+                        }
+                      },
+                      "metrics": {
+                        "n_instances": 137,
+                        "n_success": 136,
+                        "ste": 0.446518293359178,
+                        "rms_precision": 0.28362877997914504,
+                        "rms_recall": 0.23269899200556132,
+                        "rms_f1": 0.24731653180558294,
+                        "rmsm_precision": 0.15990615224191865,
+                        "rmsm_recall": 0.12264511644073686,
+                        "rmsm_f1": 0.1343831553685568,
+                        "input_tokens": 48858545,
+                        "output_tokens": 7738168,
+                        "micro_rms_precision": 0.29435483870967744,
+                        "micro_rms_recall": 0.19544846050870146,
+                        "micro_rms_f1": 0.23491552695092519
+                      }
+                    }
+                  ],
+                  "cites_passages": [
+                    "s1.p1"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p5",
+            "s1.p10",
+            "s1.p3",
+            "s1.p2",
+            "s1.p6"
+          ],
+          "verified": true,
+          "verdict": "supported",
+          "criterion": {
+            "metric": "ste",
+            "subject": "gemini-2.5-flash",
+            "reference": 0.4181,
+            "op": "<=",
+            "margin": 0.05,
+            "reference_passage": "s1.p5"
+          },
+          "prediction": {
+            "low": -0.05,
+            "high": 0.05,
+            "basis": "論文 Table 1 の 1 回実行の平均値。137 件平均の標準誤差はおよそ 0.02 と見積もり、モデル版の差を含めても ±0.05 に収まると予測する"
+          }
+        },
+        {
+          "id": "c3",
+          "statement": "GPT-4.1（openai/gpt-4.1、2025-04-14 スナップショット）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の 0.4611 を 0.05 より大きくは上回らない。",
+          "rationale": "論文と同じ日付スナップショットが使える唯一の pro モデルであり、モデル版の差を含まない最も純粋な再現条件として h1 の GPT-4.1 行を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d3",
+              "summary": "d1 と同じ設定で、モデルを openai/gpt-4.1 に替える。",
+              "runs": [
+                {
+                  "run_id": "gpt-4.1",
+                  "description": "openai/gpt-4.1 で SciGym-small 137 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "results": [
+                    {
+                      "id": "75c6df5e-ecd7-4dd5-bb43-454623442db6",
+                      "commit": "2bfc3322a1d25cf81ada9f5ed1d925be7315ea35",
+                      "eval_inputs": {
+                        "path": ".research/results/gpt-4.1/eval_inputs/binary_classification.json",
+                        "sha256": "868c90cbcd38371c7dd05487918ebbe0e12e8cdf7ad39ff17817a7bd47c0cc78"
+                      },
+                      "eval_report": {
+                        "task_type": "binary_classification",
+                        "task_signature": "binary_classification/v1@0db1a6a525b6",
+                        "inputs_sha256": "ce5553eb4eb8a61dc3be40cf3a97739c4aec9f8f90496838f0a6bcd6e490be86",
+                        "versions": {
+                          "airas-eval": "0.10.0",
+                          "numpy": "1.26.4",
+                          "scikit-learn": "1.7.2"
+                        },
+                        "metrics": {
+                          "accuracy": 0.15309734513274337,
+                          "balanced_accuracy": 0.11579651941097724,
+                          "f1": 0.26554105909439757,
+                          "matthews_corrcoef": -0.7275412744245865,
+                          "precision": 0.31115107913669066,
+                          "recall": 0.23159303882195448
+                        },
+                        "inputs_summary": {
+                          "n_examples": 1130.0
+                        },
+                        "skipped": {
+                          "missing_dependency": {},
+                          "missing_optional_input": [
+                            "auroc",
+                            "average_precision",
+                            "log_loss",
+                            "brier_score",
+                            "expected_calibration_error"
+                          ],
+                          "not_applicable": {},
+                          "undefined_on_data": {}
+                        }
+                      },
+                      "metrics": {
+                        "n_instances": 137,
+                        "n_success": 137,
+                        "ste": 0.5080406539411971,
+                        "rms_precision": 0.3105802412467798,
+                        "rms_recall": 0.2670258370988298,
+                        "rms_f1": 0.2718337234265687,
+                        "rmsm_precision": 0.19245189117451889,
+                        "rmsm_recall": 0.15418259761325448,
+                        "rmsm_f1": 0.16143166710780998,
+                        "input_tokens": 38206200,
+                        "output_tokens": 1229341,
+                        "micro_rms_precision": 0.31115107913669066,
+                        "micro_rms_recall": 0.23159303882195448,
+                        "micro_rms_f1": 0.26554105909439757
+                      }
+                    }
+                  ],
+                  "cites_passages": [
+                    "s1.p1"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p5",
+            "s1.p10",
+            "s1.p3",
+            "s1.p2"
+          ],
+          "verified": true,
+          "verdict": "supported",
+          "criterion": {
+            "metric": "ste",
+            "subject": "gpt-4.1",
+            "reference": 0.4611,
+            "op": "<=",
+            "margin": 0.05,
+            "reference_passage": "s1.p5"
+          },
+          "prediction": {
+            "low": -0.05,
+            "high": 0.05,
+            "basis": "論文 Table 1 の 1 回実行の平均値。同じスナップショットなので差は実行の揺らぎとシミュレータ差のみで、137 件平均の標準誤差およそ 0.02 の範囲に収まると予測する"
+          }
+        },
+        {
+          "id": "c4",
+          "statement": "GPT-4.1-mini（openai/gpt-4.1-mini、2025-04-14 スナップショット）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の 0.6007 を 0.05 より大きくは上回らない。",
+          "rationale": "同じスナップショットが使える mini モデルの行を担い、c3 と合わせて OpenAI 系の pro / mini の関係が論文どおりかを読めるようにする。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d4",
+              "summary": "d1 と同じ設定で、モデルを openai/gpt-4.1-mini に替える。",
+              "runs": [
+                {
+                  "run_id": "gpt-4.1-mini",
+                  "description": "openai/gpt-4.1-mini で SciGym-small 137 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "results": [
+                    {
+                      "id": "06d48a31-a50b-4c21-8494-4b3a7d575592",
+                      "commit": "2bfc3322a1d25cf81ada9f5ed1d925be7315ea35",
+                      "eval_inputs": {
+                        "path": ".research/results/gpt-4.1-mini/eval_inputs/binary_classification.json",
+                        "sha256": "0fd7634ae567cdc119f3a49e62aa7909cc5c3eebb1c29334056080d86c9e03e2"
+                      },
+                      "eval_report": {
+                        "task_type": "binary_classification",
+                        "task_signature": "binary_classification/v1@0db1a6a525b6",
+                        "inputs_sha256": "ea062059a3e57bbdd3603f5daeb57520c758a61e3c35c2143e894b5c554ea8bf",
+                        "versions": {
+                          "airas-eval": "0.10.0",
+                          "numpy": "1.26.4",
+                          "scikit-learn": "1.7.2"
+                        },
+                        "metrics": {
+                          "accuracy": 0.1443210930828352,
+                          "balanced_accuracy": 0.11311914323962517,
+                          "f1": 0.25223880597014925,
+                          "matthews_corrcoef": -0.7438051823538574,
+                          "precision": 0.28499156829679595,
+                          "recall": 0.22623828647925034
+                        },
+                        "inputs_summary": {
+                          "n_examples": 1171.0
+                        },
+                        "skipped": {
+                          "missing_dependency": {},
+                          "missing_optional_input": [
+                            "auroc",
+                            "average_precision",
+                            "log_loss",
+                            "brier_score",
+                            "expected_calibration_error"
+                          ],
+                          "not_applicable": {},
+                          "undefined_on_data": {}
+                        }
+                      },
+                      "metrics": {
+                        "n_instances": 137,
+                        "n_success": 137,
+                        "ste": 0.6017182919967209,
+                        "rms_precision": 0.29148284805219116,
+                        "rms_recall": 0.25510079944386516,
+                        "rms_f1": 0.25877700968941847,
+                        "rmsm_precision": 0.1838881313333868,
+                        "rmsm_recall": 0.14119742787626,
+                        "rmsm_f1": 0.15107800808914904,
+                        "input_tokens": 38253239,
+                        "output_tokens": 873529,
+                        "micro_rms_precision": 0.28499156829679595,
+                        "micro_rms_recall": 0.22623828647925034,
+                        "micro_rms_f1": 0.25223880597014925
+                      }
+                    }
+                  ],
+                  "cites_passages": [
+                    "s1.p1"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p5",
+            "s1.p10",
+            "s1.p3",
+            "s1.p2",
+            "s1.p6"
+          ],
+          "verified": true,
+          "verdict": "supported",
+          "criterion": {
+            "metric": "ste",
+            "subject": "gpt-4.1-mini",
+            "reference": 0.6007,
+            "op": "<=",
+            "margin": 0.05,
+            "reference_passage": "s1.p5"
+          },
+          "prediction": {
+            "low": -0.05,
+            "high": 0.05,
+            "basis": "論文 Table 1 の 1 回実行の平均値。同じスナップショットなので差は実行の揺らぎとシミュレータ差のみで、137 件平均の標準誤差およそ 0.02 の範囲に収まると予測する"
+          }
+        }
+      ],
+      "tables": [
+        {
+          "key": "table1",
+          "caption": "SciGym-small 137 件における平均 STE（低いほど良い）と Reaction Matching Score（高いほど良い）。論文 Table 1 の Gemini / OpenAI の 4 行に対応する。",
+          "columns": [
+            {
+              "header": "STE $\\downarrow$",
+              "ref_path": "ste",
+              "round": 4
+            },
+            {
+              "header": "RMS w/ mod. P",
+              "ref_path": "rmsm_precision",
+              "round": 4
+            },
+            {
+              "header": "RMS w/ mod. R",
+              "ref_path": "rmsm_recall",
+              "round": 4
+            },
+            {
+              "header": "RMS w/ mod. F1",
+              "ref_path": "rmsm_f1",
+              "round": 4
+            },
+            {
+              "header": "RMS w/o mod. P",
+              "ref_path": "rms_precision",
+              "round": 4
+            },
+            {
+              "header": "RMS w/o mod. R",
+              "ref_path": "rms_recall",
+              "round": 4
+            },
+            {
+              "header": "RMS w/o mod. F1",
+              "ref_path": "rms_f1",
+              "round": 4
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "gemini-2.5-flash",
+              "label": "Gemini-2.5-Flash"
+            },
+            {
+              "run_id": "gpt-4.1-mini",
+              "label": "GPT-4.1-mini"
+            },
+            {
+              "run_id": "gemini-2.5-pro",
+              "label": "Gemini-2.5-Pro"
+            },
+            {
+              "run_id": "gpt-4.1",
+              "label": "GPT-4.1"
+            }
+          ]
+        },
+        {
+          "key": "tokens",
+          "caption": "各 run の完走件数とトークン消費。n\\_success は有効な SBML が提出された件数、n\\_timed\\_out は 3 試行とも終わらず不完全 SBML の採点値で代用した件数（gemini-2.5-pro の 25 件はゲートウェイの予算超過による HTTP 402）。Gemini の出力トークンには思考トークンを含む。",
+          "columns": [
+            {
+              "header": "n\\_success",
+              "ref_path": "n_success",
+              "round": 0
+            },
+            {
+              "header": "n\\_timed\\_out",
+              "ref_path": "n_timed_out",
+              "round": 0
+            },
+            {
+              "header": "入力トークン",
+              "ref_path": "input_tokens",
+              "round": 0
+            },
+            {
+              "header": "出力トークン",
+              "ref_path": "output_tokens",
+              "round": 0
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "gemini-2.5-pro",
+              "label": "Gemini-2.5-Pro"
+            },
+            {
+              "run_id": "gemini-2.5-flash",
+              "label": "Gemini-2.5-Flash"
+            },
+            {
+              "run_id": "gpt-4.1",
+              "label": "GPT-4.1"
+            },
+            {
+              "run_id": "gpt-4.1-mini",
+              "label": "GPT-4.1-mini"
+            }
+          ]
+        },
+        {
+          "key": "tokens",
+          "caption": "各 run の完走件数とトークン消費。n\\_success は有効な SBML が提出された件数（137 件中）。gemini-2.5-pro の不足分 25 件はゲートウェイの予算超過（HTTP 402）で 3 試行とも終わらず、不完全 SBML の採点値で代用した件。Gemini の出力トークンには思考トークンを含む。",
+          "columns": [
+            {
+              "header": "n\\_success",
+              "ref_path": "n_success",
+              "round": 0
+            },
+            {
+              "header": "入力トークン",
+              "ref_path": "input_tokens",
+              "round": 0
+            },
+            {
+              "header": "出力トークン",
+              "ref_path": "output_tokens",
+              "round": 0
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "gemini-2.5-pro",
+              "label": "Gemini-2.5-Pro"
+            },
+            {
+              "run_id": "gemini-2.5-flash",
+              "label": "Gemini-2.5-Flash"
+            },
+            {
+              "run_id": "gpt-4.1",
+              "label": "GPT-4.1"
+            },
+            {
+              "run_id": "gpt-4.1-mini",
+              "label": "GPT-4.1-mini"
+            }
+          ]
+        },
+        {
+          "key": "table1",
+          "caption": "SciGym-small 137 件における平均 STE（低いほど良い）と Reaction Matching Score（高いほど良い）。P / R / F1 は適合率 / 再現率 / F1、添字 m は modifier の一致まで要求する厄格版。論文 Table 1 の Gemini / OpenAI の 4 行に対応する。",
+          "columns": [
+            {
+              "header": "STE $\\downarrow$",
+              "ref_path": "ste",
+              "round": 4
+            },
+            {
+              "header": "P$_{m}$",
+              "ref_path": "rmsm_precision",
+              "round": 3
+            },
+            {
+              "header": "R$_{m}$",
+              "ref_path": "rmsm_recall",
+              "round": 3
+            },
+            {
+              "header": "F1$_{m}$",
+              "ref_path": "rmsm_f1",
+              "round": 3
+            },
+            {
+              "header": "P",
+              "ref_path": "rms_precision",
+              "round": 3
+            },
+            {
+              "header": "R",
+              "ref_path": "rms_recall",
+              "round": 3
+            },
+            {
+              "header": "F1",
+              "ref_path": "rms_f1",
+              "round": 3
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "gemini-2.5-flash",
+              "label": "Gemini-2.5-Flash"
+            },
+            {
+              "run_id": "gpt-4.1-mini",
+              "label": "GPT-4.1-mini"
+            },
+            {
+              "run_id": "gemini-2.5-pro",
+              "label": "Gemini-2.5-Pro"
+            },
+            {
+              "run_id": "gpt-4.1",
+              "label": "GPT-4.1"
+            }
+          ]
+        }
+      ],
+      "charts": [
+        {
+          "path": "ste_by_model.png",
+          "format": "png",
+          "spec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "width": 360,
+            "height": 220,
+            "title": "SciGym-small 137 件の平均 STE（低いほど良い）",
+            "data": {
+              "values": [
+                {
+                  "model": "Gemini-2.5-Pro",
+                  "ste": "metric:gemini-2.5-pro.ste"
+                },
+                {
+                  "model": "Gemini-2.5-Flash",
+                  "ste": "metric:gemini-2.5-flash.ste"
+                },
+                {
+                  "model": "GPT-4.1",
+                  "ste": "metric:gpt-4.1.ste"
+                },
+                {
+                  "model": "GPT-4.1-mini",
+                  "ste": "metric:gpt-4.1-mini.ste"
+                }
+              ]
+            },
+            "mark": {
+              "type": "bar",
+              "color": "#4C78A8",
+              "clip": true
+            },
+            "encoding": {
+              "x": {
+                "field": "model",
+                "type": "nominal",
+                "sort": null,
+                "axis": {
+                  "labelAngle": 0,
+                  "title": null
+                }
+              },
+              "y": {
+                "field": "ste",
+                "type": "quantitative",
+                "axis": {
+                  "title": "平均 STE"
+                },
+                "scale": {
+                  "domain": [
+                    0,
+                    0.7
+                  ]
+                }
+              }
+            }
+          },
+          "renders": [
+            {
+              "renderer": "vl-convert-python 1.9.0"
+            }
+          ]
+        },
+        {
+          "path": "rms_f1_by_model.png",
+          "format": "png",
+          "spec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "width": 360,
+            "height": 220,
+            "title": "SciGym-small 137 件の平均 RMS F1（高いほど良い）",
+            "data": {
+              "values": [
+                {
+                  "model": "Gemini-2.5-Pro",
+                  "variant": "w/o modifiers",
+                  "f1": "metric:gemini-2.5-pro.rms_f1"
+                },
+                {
+                  "model": "Gemini-2.5-Pro",
+                  "variant": "with modifiers",
+                  "f1": "metric:gemini-2.5-pro.rmsm_f1"
+                },
+                {
+                  "model": "Gemini-2.5-Flash",
+                  "variant": "w/o modifiers",
+                  "f1": "metric:gemini-2.5-flash.rms_f1"
+                },
+                {
+                  "model": "Gemini-2.5-Flash",
+                  "variant": "with modifiers",
+                  "f1": "metric:gemini-2.5-flash.rmsm_f1"
+                },
+                {
+                  "model": "GPT-4.1",
+                  "variant": "w/o modifiers",
+                  "f1": "metric:gpt-4.1.rms_f1"
+                },
+                {
+                  "model": "GPT-4.1",
+                  "variant": "with modifiers",
+                  "f1": "metric:gpt-4.1.rmsm_f1"
+                },
+                {
+                  "model": "GPT-4.1-mini",
+                  "variant": "w/o modifiers",
+                  "f1": "metric:gpt-4.1-mini.rms_f1"
+                },
+                {
+                  "model": "GPT-4.1-mini",
+                  "variant": "with modifiers",
+                  "f1": "metric:gpt-4.1-mini.rmsm_f1"
+                }
+              ]
+            },
+            "mark": {
+              "type": "bar",
+              "clip": true
+            },
+            "encoding": {
+              "x": {
+                "field": "model",
+                "type": "nominal",
+                "sort": null,
+                "axis": {
+                  "labelAngle": 0,
+                  "title": null
+                }
+              },
+              "xOffset": {
+                "field": "variant"
+              },
+              "color": {
+                "field": "variant",
+                "type": "nominal",
+                "title": null,
+                "scale": {
+                  "range": [
+                    "#4C78A8",
+                    "#F58518"
+                  ]
+                }
+              },
+              "y": {
+                "field": "f1",
+                "type": "quantitative",
+                "axis": {
+                  "title": "平均 RMS F1"
+                },
+                "scale": {
+                  "domain": [
+                    0,
+                    0.4
+                  ]
+                }
+              }
+            }
+          },
+          "renders": [
+            {
+              "renderer": "vl-convert-python 1.9.0"
+            }
+          ]
+        },
+        {
+          "path": "ste_by_model.png",
+          "format": "png",
+          "spec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "width": 360,
+            "height": 220,
+            "title": "Mean STE on SciGym-small (137 instances, lower is better)",
+            "data": {
+              "values": [
+                {
+                  "model": "Gemini-2.5-Pro",
+                  "ste": "metric:gemini-2.5-pro.ste"
+                },
+                {
+                  "model": "Gemini-2.5-Flash",
+                  "ste": "metric:gemini-2.5-flash.ste"
+                },
+                {
+                  "model": "GPT-4.1",
+                  "ste": "metric:gpt-4.1.ste"
+                },
+                {
+                  "model": "GPT-4.1-mini",
+                  "ste": "metric:gpt-4.1-mini.ste"
+                }
+              ]
+            },
+            "mark": {
+              "type": "bar",
+              "color": "#4C78A8"
+            },
+            "encoding": {
+              "x": {
+                "field": "model",
+                "type": "nominal",
+                "sort": null,
+                "axis": {
+                  "labelAngle": 0,
+                  "title": null
+                }
+              },
+              "y": {
+                "field": "ste",
+                "type": "quantitative",
+                "axis": {
+                  "title": "mean STE"
+                },
+                "scale": {
+                  "domain": [
+                    0,
+                    0.7
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "path": "rms_f1_by_model.png",
+          "format": "png",
+          "spec": {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "width": 360,
+            "height": 220,
+            "title": "Mean RMS F1 on SciGym-small (137 instances, higher is better)",
+            "data": {
+              "values": [
+                {
+                  "model": "Gemini-2.5-Pro",
+                  "variant": "w/o modifiers",
+                  "f1": "metric:gemini-2.5-pro.rms_f1"
+                },
+                {
+                  "model": "Gemini-2.5-Pro",
+                  "variant": "with modifiers",
+                  "f1": "metric:gemini-2.5-pro.rmsm_f1"
+                },
+                {
+                  "model": "Gemini-2.5-Flash",
+                  "variant": "w/o modifiers",
+                  "f1": "metric:gemini-2.5-flash.rms_f1"
+                },
+                {
+                  "model": "Gemini-2.5-Flash",
+                  "variant": "with modifiers",
+                  "f1": "metric:gemini-2.5-flash.rmsm_f1"
+                },
+                {
+                  "model": "GPT-4.1",
+                  "variant": "w/o modifiers",
+                  "f1": "metric:gpt-4.1.rms_f1"
+                },
+                {
+                  "model": "GPT-4.1",
+                  "variant": "with modifiers",
+                  "f1": "metric:gpt-4.1.rmsm_f1"
+                },
+                {
+                  "model": "GPT-4.1-mini",
+                  "variant": "w/o modifiers",
+                  "f1": "metric:gpt-4.1-mini.rms_f1"
+                },
+                {
+                  "model": "GPT-4.1-mini",
+                  "variant": "with modifiers",
+                  "f1": "metric:gpt-4.1-mini.rmsm_f1"
+                }
+              ]
+            },
+            "mark": "bar",
+            "encoding": {
+              "x": {
+                "field": "model",
+                "type": "nominal",
+                "sort": null,
+                "axis": {
+                  "labelAngle": 0,
+                  "title": null
+                }
+              },
+              "xOffset": {
+                "field": "variant"
+              },
+              "color": {
+                "field": "variant",
+                "type": "nominal",
+                "title": null,
+                "scale": {
+                  "range": [
+                    "#4C78A8",
+                    "#F58518"
+                  ]
+                }
+              },
+              "y": {
+                "field": "f1",
+                "type": "quantitative",
+                "axis": {
+                  "title": "mean RMS F1"
+                },
+                "scale": {
+                  "domain": [
+                    0,
+                    0.4
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ],
+      "notes": [
+        "ギャップ: SciGym 論文（s1）は 6 モデルを各 1 回走らせた 137 件平均を Table 1 として報告しているが、実行間の分散も、別環境・別時点での再現性も示していない。Gemini の 2 モデルは提供終了したプレビュー版で評価されている（s1.p1）。公開コード（s2）の Controller をそのまま使って、現在入手できる同名モデルで同じ数値が戻るかは示されていない。本研究はその再現を、Claude を除く 4 モデルについて事前登録のうえ行う。Claude-3.7-Sonnet と Claude-3.5-Haiku は利用する Vercel AI Gateway に無いため対象外とする。",
+        "判定基準と予測区間の根拠: 各 claim は (平均 STE − 論文値) ≤ 0.05 を反証線とする。0.05 は Table 1 の隣り合うモデル間の最小差（Gemini-2.5-Pro 0.3212 と Claude-3.7-Sonnet 0.3615 の 0.04）とほぼ同じで、これより大きく外れると Table 1 の順位付けの粒度で再現に失敗したことになる。1 件の STE は [0, 1] の値で標準偏差を 0.25 程度と見積もると 137 件平均の標準誤差は約 0.02 であり、2 つの 1 回実行の差の標準誤差は約 0.03 になる。予測区間は ±0.05 とし、criterion を満たしつつ区間を下に外れた場合（現行版が論文より大きく良い）はそのとおり報告する。基準は片側（悪化方向）なので、GA 版 Gemini が論文より良い結果を出しても claim は成立する。",
+        "RMS（modifier あり / なし）の適合率・再現率・F1 は同じ実行から table1 として報告し、各モデルの F1 が論文値 ±0.05 に入ることを予測するが、1 claim に 1 基準しか置けないため判定には用いない。論文の順序関係（pro が mini より低い STE と高い RMS、s1.p6; Gemini-Pro が最良、s1.p7）も表から読み取って報告する。",
+        "計算資源: 実行は Seyval の BYO 計算資源 RIKYU（Slurm、GB200 ノード、aarch64、144 CPU）で行う。GPU は使わないが RIKYU の資源単位が GPU のため 1 GPU を要求する。LLM は Vercel AI Gateway（https://ai-gateway.vercel.sh/v1、OpenAI 互換）経由で呼ぶ。データは RIKYU 上の /data1/rkp00041/scigym_improvement/data/scigym_sbml/small（Hugging Face h4duan/scigym-sbml の small split と同一内容、137 件）を読み取り専用で参照する。",
+        "論文設定からの逸脱（事前に宣言）: (1) Gemini-2.5-Pro / Flash は GA 版（プレビュー版は提供終了）。(2) aarch64 に wheel が無いため libroadrunner 2.8.0 → 2.7.0、antimony → 2.14.0、rrplugins / phrasedml は除外。(3) max_iterations は論文どおり 20（公開 config の既定 5、s2.p2 は動作確認用）。eval_debug_rounds は論文本文の 3（s1.p4）に合わせる（公開 config の既定は 5、s2.p3）。temperature は公開 config の 1.0（s2.p1）。(4) 応答の max_tokens は 32768（公式 GPT エージェントの既定 8192 では thinking を出すモデルの本文が空になり得るため）。(5) 137 件は 1 件 1 プロセスで並列に実行する。順次実行との違いは無い設計だが、API のレート制限による失敗は再実行で埋める。",
+        "run と claim の対応: gemini-2.5-pro → c1、gemini-2.5-flash → c2、gpt-4.1 → c3、gpt-4.1-mini → c4。各 run の metrics.json は ste（observe_smape の 137 件平均）、rms_precision / rms_recall / rms_f1（rp_* の平均）、rmsm_precision / rmsm_recall / rmsm_f1（rpm_* の平均）、n_instances、n_success を持つ。提出 SBML が無効で success=false の件は公式評価どおり partial.xml の採点値で平均に含める。",
+        "段階: sanity は 1 件（BIOMD0000000027）を max_iterations=2 で、pilot は sorted した 137 件から 14 件おきに選んだ 10 件を 20 反復で回し、コストと所要時間を測る。claim の判定は mode=full の結果だけで行い、sanity / pilot の結果は記録に取り込まない。",
+        "2026-09-24 追記（gemini-2.5-pro の full 実行前に宣言）: gemini-2.5-pro の最初の full 実行（Seyval run dab607f9）は 137 件中 135 件を終えた後、BIOMD0000000487 と BIOMD0000000932 の 2 件が 1〜2.5 時間進捗しないまま止まった。LLM が書いたコードの simulate() が硬い ODE で C ライブラリ内に留まり、公式 Controller の 3 分タイムアウト（SIGALRM）が効かないためと推定する。この run は中止し、gemini-2.5-pro は 137 件すべてを撮り直す。撮り直しでは 1 件 1 試行あたり 90 分の強制タイムアウト（プロセス kill）を設け、3 試行とも終わらない件は公式の『有効な SBML が提出されなかった』場合と同じく不完全 SBML の採点値（success=false）で平均に含め、その件数を metrics.json の n_timed_out に記録する。gpt-4.1、gpt-4.1-mini、gemini-2.5-flash の結果はこの変更前の実行のもので、タイムアウトは発生していない（全件が evaluation.json を持つ）。また gpt-4.1 / gpt-4.1-mini / gemini-2.5-flash では、Seyval の出力一覧が 1000 ファイルで打ち切られ取り込めなかったため、完了した run の出力を inputs_from_runs で復元し、反復ごとのコードファイルを削って集計だけをやり直した run（LLM 呼び出しなし、指標は元の run と同一）から結果を取り込んだ。",
+        "2026-09-25 追記（gemini-2.5-pro の結果取り込み前に宣言）: gemini-2.5-pro の撮り直し run（Seyval run a34d1034、コミット 9cccf95）は 137 件を完走し、強制タイムアウトに掛かった件は無かった。ただし実行中に Vercel AI Gateway のチーム予算（200 USD）を超過し、以降の API 呼び出しが HTTP 402（quota_for_entity_exceeded）で失敗したため、25 件が 3 試行とも途中で終わり、フォールバックとして不完全 SBML の採点値（success=false、metrics.json の n_timed_out=25 に計上）で平均に含まれている。この 25 件の失敗はモデルの能力ではなく実行側の予算上限による。利用者の判断でこの run をそのまま gemini-2.5-pro の結果として確定し、C1 の判定はこの値で行う。結果の節では、完走した 112 件だけの平均を参考値として併記するが、事前登録の判定基準には用いない。gpt-4.1、gpt-4.1-mini、gemini-2.5-flash の実行は予算超過の前に完了しており影響を受けていない。"
+      ]
+    }
+  ]
+}
+==> .research/latex/iclr2024/claims.tex <==
+% AUTO-GENERATED by the update_record tool. DO NOT EDIT.
+% verify_paper regenerates this file from record.json and the run outputs
+% and fails on any difference, so manual edits always surface.
+\noindent\textbf{Hypothesis 1.} SciGym 論文の Table 1 のうち Gemini-2.5-Pro、Gemini-2.5-Flash、GPT-4.1、GPT-4.1-mini の 4 行は、公開コードの Controller をそのまま用い、現在 API で提供されている同名モデル（Gemini 2 種は GA 版、GPT-4.1 2 種は論文と同じ 2025-04-14 スナップショット）で SciGym-small 137 件を最大 20 反復で解かせたとき、各モデルの平均 Simulation Trajectory Error（STE）が論文値から 0.05 以内に収まる形で再現される。~\cite[s1.p1, s1.p5, s1.p10]{duan-2025-measuring}
+\begin{enumerate}
+\item[\textbf{Claim 1}] 現行の Gemini-2.5-Pro（google/gemini-2.5-pro）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の 0.3212 を 0.05 より大きくは上回らない。~\cite[s1.p1, s1.p2, s1.p3, s1.p4, s1.p5, s1.p7, s1.p10]{duan-2025-measuring}, \cite[s2.p1]{h4duan-2025-scigym}
+  \emph{Rationale:} Table 1 で最良とされた行がそのまま再現されることは、論文の主結果が特定のプレビュー版や実行環境に依存していないことの直接の証拠であり、h1 の Gemini-2.5-Pro 行を担う。
+  \emph{Criterion:} \texttt{\detokenize{gemini-2.5-pro}}.\texttt{\detokenize{ste}} $-$ 0.3212 $\leq 0.05$.
+  \emph{Prediction:} $[-0.05, 0.05]$ (論文 Table 1 の 1 回実行の平均値。137 件平均の標準誤差はおよそ 0.02 と見積もり、モデル版の差を含めても ±0.05 に収まると予測する).
+  \emph{Observed:} 0.0935808.
+  \emph{Verdict:} refuted.
+\item[\textbf{Claim 2}] 現行の Gemini-2.5-Flash（google/gemini-2.5-flash）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の 0.4181 を 0.05 より大きくは上回らない。~\cite[s1.p1, s1.p2, s1.p3, s1.p4, s1.p5, s1.p6, s1.p10]{duan-2025-measuring}, \cite[s2.p1]{h4duan-2025-scigym}
+  \emph{Rationale:} Gemini 系の mini 変種の行が再現されることで、h1 の Gemini-2.5-Flash 行を担い、c1 と合わせて Gemini 系の pro / mini の関係が論文どおりかを読めるようにする。
+  \emph{Criterion:} \texttt{\detokenize{gemini-2.5-flash}}.\texttt{\detokenize{ste}} $-$ 0.4181 $\leq 0.05$.
+  \emph{Prediction:} $[-0.05, 0.05]$ (論文 Table 1 の 1 回実行の平均値。137 件平均の標準誤差はおよそ 0.02 と見積もり、モデル版の差を含めても ±0.05 に収まると予測する).
+  \emph{Observed:} 0.0284183.
+  \emph{Verdict:} supported.
+\item[\textbf{Claim 3}] GPT-4.1（openai/gpt-4.1、2025-04-14 スナップショット）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の 0.4611 を 0.05 より大きくは上回らない。~\cite[s1.p1, s1.p2, s1.p3, s1.p4, s1.p5, s1.p10]{duan-2025-measuring}, \cite[s2.p1]{h4duan-2025-scigym}
+  \emph{Rationale:} 論文と同じ日付スナップショットが使える唯一の pro モデルであり、モデル版の差を含まない最も純粋な再現条件として h1 の GPT-4.1 行を担う。
+  \emph{Criterion:} \texttt{\detokenize{gpt-4.1}}.\texttt{\detokenize{ste}} $-$ 0.4611 $\leq 0.05$.
+  \emph{Prediction:} $[-0.05, 0.05]$ (論文 Table 1 の 1 回実行の平均値。同じスナップショットなので差は実行の揺らぎとシミュレータ差のみで、137 件平均の標準誤差およそ 0.02 の範囲に収まると予測する).
+  \emph{Observed:} 0.0469407.
+  \emph{Verdict:} supported.
+\item[\textbf{Claim 4}] GPT-4.1-mini（openai/gpt-4.1-mini、2025-04-14 スナップショット）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文の 0.6007 を 0.05 より大きくは上回らない。~\cite[s1.p1, s1.p2, s1.p3, s1.p4, s1.p5, s1.p6, s1.p10]{duan-2025-measuring}, \cite[s2.p1]{h4duan-2025-scigym}
+  \emph{Rationale:} 同じスナップショットが使える mini モデルの行を担い、c3 と合わせて OpenAI 系の pro / mini の関係が論文どおりかを読めるようにする。
+  \emph{Criterion:} \texttt{\detokenize{gpt-4.1-mini}}.\texttt{\detokenize{ste}} $-$ 0.6007 $\leq 0.05$.
+  \emph{Prediction:} $[-0.05, 0.05]$ (論文 Table 1 の 1 回実行の平均値。同じスナップショットなので差は実行の揺らぎとシミュレータ差のみで、137 件平均の標準誤差およそ 0.02 の範囲に収まると予測する).
+  \emph{Observed:} 0.00101829.
+  \emph{Verdict:} supported.
+\end{enumerate}
+\noindent\emph{Assumed, so that the claims together imply Hypothesis 1:}
+\begin{itemize}
+\item 同名モデルの現行版（Gemini-2.5-Pro / Flash の GA 版、GPT-4.1 / 4.1-mini の 2025-04-14 スナップショット）が、論文で使われた版と同等の能力を持つこと（c1〜c4。Gemini はプレビュー版が提供終了のため GA 版で代替する）
+\item aarch64 向けの libroadrunner 2.7.0 と antimony 2.14.0 が、論文環境の libroadrunner 2.8.0 と同じ軌道と評価値を与えること（c1〜c4）
+\item temperature 1.0 での 1 回実行の平均 STE（137 件平均）の実行間変動が 0.05 より十分小さいこと（c1〜c4）
+\item Vercel AI Gateway の OpenAI 互換エンドポイント経由の各モデルが、各社の公式 API と同じ応答分布を持つこと（c1〜c4）
+\item 平均 STE が Table 1 の再現性を代表すること。RMS（modifier あり / なし）は同じ実行から表として報告するが、判定基準には用いない（c1〜c4）
+\end{itemize}
