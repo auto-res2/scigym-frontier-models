@@ -19,6 +19,7 @@ from scigym.api import LLM  # noqa: E402
 from scigym.controller import Controller  # noqa: E402
 
 BUDGET_EXCEEDED = 42  # 予算超過（HTTP 402）。Gateway の予算が尽きたら main.py は run 全体を止める（件が欠けた run を残さない）
+CONTEXT_OVERFLOW = 43  # 会話が文脈長を超えた。main.py はやり直さず「提出に至らなかった件」として数える
 
 
 class OpenAICompatible(LLM):
@@ -50,6 +51,9 @@ class OpenAICompatible(LLM):
             except openai.APIStatusError as exc:
                 if exc.status_code == 402:
                     sys.exit(BUDGET_EXCEEDED)
+                if exc.status_code == 400 and any(w in str(exc).lower() for w in ("context", "maximum", "too long", "max_tokens")):
+                    print(f"context overflow after {len(self.messages)} messages: {exc}", flush=True)
+                    sys.exit(CONTEXT_OVERFLOW)
                 if exc.status_code < 500 or attempt == 29:
                     raise
                 print(f"gateway {exc.status_code}; retry {attempt + 1} after 60s", flush=True)  # 上流の一時的な不調は待って呼び直す

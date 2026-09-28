@@ -1,7 +1,7 @@
 mode: full
 results_dir: .research/results
 
-data_dir: /data1/rkp00041/scigym_improvement/data/scigym_sbml/small
+data_root: /data1/rkp00041/scigym_improvement/data/scigym_sbml  # small / large の親。run の yaml の split で選ぶ
 base_url: https://ai-gateway.vercel.sh/v1
 max_iterations: 20
 eval_debug_rounds: 3

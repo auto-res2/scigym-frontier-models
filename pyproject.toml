@@ -24,4 +24,4 @@ exclude-dependencies = ["rrplugins", "phrasedml", "python-libnuml", "python-libc
 eval = ["airas-eval[scigym]"]
 
 [tool.uv.sources]
-airas-eval = { git = "https://github.com/airas-org/airas-eval", tag = "v0.12.5" }
+airas-eval = { git = "https://github.com/airas-org/airas-eval", tag = "v0.13.0" }

@@ -1,2 +1,2 @@
 model: anthropic/claude-sonnet-5
-split: small
+split: large

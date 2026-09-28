@@ -1,4 +1,4 @@
-"""1 つの run（= 1 モデル）で SciGym-small を解かせ、評価層 scigym_small の入力ファイルを書く。モデルは Vercel AI Gateway 経由。"""
+"""1 つの run（= 1 モデル × 1 split）で SciGym を解かせ、評価層 scigym_<split> の入力ファイルを書く。モデルは Vercel AI Gateway 経由。"""
 
 import json
 import shutil
@@ -12,6 +12,7 @@ from types import SimpleNamespace
 import yaml
 
 BUDGET_EXCEEDED = 42
+CONTEXT_OVERFLOW = 43
 
 
 def cli_args():
@@ -23,6 +24,8 @@ def run_instance(cfg, run_dir, instance):
     out = run_dir / "instances" / instance.name
     if (out / "evaluation.json").exists():
         return 0
+    if (out / "context_overflow").exists():
+        return 0  # 文脈長を超えた件。やり直しても同じなので「提出なし」として不完全モデルで採点する
     if (out / "stdout.txt").exists() and (out / "stdout.txt").read_text().count("killed after") >= 3:
         return 0  # 3 試行とも上限で打ち切られた件。公式の「有効な提出なし」と同じく不完全モデルで採点する
     args = {
@@ -43,9 +46,29 @@ def run_instance(cfg, run_dir, instance):
         except subprocess.TimeoutExpired:
             print(f"[{instance.name}] killed after {cfg.instance_timeout}s", file=log)
             return 1
+    if proc.returncode == CONTEXT_OVERFLOW:
+        (out / "context_overflow").touch()
     if not (out / "evaluation.json").exists():  # 失敗した run の作業ディレクトリは残らないので原因を標準出力へ
         print(f"[{instance.name}] no evaluation.json; log tail:", *(out / "stdout.txt").read_text().splitlines()[-25:], sep="\n  ")
+    if (out / "evaluation.json").exists() or (out / "context_overflow").exists():
+        checkpoint(run_dir, instance.name)
     return proc.returncode
+
+
+def checkpoint(run_dir, name):
+    """終わった件を 1 件 1 書庫で残す。job が 4 日上限で打ち切られても、集めた書庫から続きを実行できる"""
+    out = run_dir / "instances" / name
+    shutil.rmtree(out / "codes", ignore_errors=True)  # 反復ごとのコードは chat_history.yaml に含まれる
+    (out / "chat_history_readable.txt").unlink(missing_ok=True)
+    (run_dir / "checkpoints").mkdir(parents=True, exist_ok=True)
+    with tarfile.open(run_dir / "checkpoints" / f"{name}.tar.gz", "w:gz") as tar:
+        tar.add(out, arcname=f"instances/{name}")
+
+
+def iterations_used(out):
+    """提出までに使った反復数。chat_history.yaml の Iteration 0 は初期プロンプトなので除く"""
+    history = json.loads((out / "chat_history.yaml").read_text())
+    return max(len(history) - 1, 0)
 
 
 def main():
@@ -56,20 +79,21 @@ def main():
     cfg["run"] = yaml.safe_load(open(f"config/run/{run_id}.yaml"))
     # 生成が遅いモデルは run の yaml で並列度と試行上限を上書きする（API はバッチ処理で 1 要求あたりの速度が落ちない）
     cfg.update({k: v for k, v in cfg["run"].items() if k in ("workers", "instance_timeout")})
-    cfg = SimpleNamespace(**cfg, run_model=cfg["run"]["model"])
+    split = cfg["run"]["split"]
+    cfg = SimpleNamespace(**cfg, run_model=cfg["run"]["model"], data_dir=f"{cfg['data_root']}/{split}", task=f"scigym_{split}")
     run_dir = Path(cfg.results_dir) / run_id
     instances = sorted(p for p in Path(cfg.data_dir).iterdir() if p.is_dir())
     if cfg.mode == "sanity":
-        instances = [p for p in instances if p.name == "BIOMD0000000027"]
+        instances = instances[:1]
     elif cfg.mode == "pilot":
-        instances = instances[::14]
+        instances = instances[:: max(len(instances) // 10, 1)][:10]
     stage = cfg.mode.upper()
     # 失敗した前 run の件ごとの出力から続きを実行する。Seyval は実行前に .research/results を空にするので resume/ に置く
-    resume = Path("resume") / run_id / "instances.tar.gz"
-    if resume.exists() and not (run_dir / "instances").exists():
+    if not (run_dir / "instances").exists():
         run_dir.mkdir(parents=True, exist_ok=True)
-        with tarfile.open(resume) as tar:
-            tar.extractall(run_dir)
+        for archive in sorted(Path("resume", run_id).glob("**/*.tar.gz")):  # instances.tar.gz か checkpoints/<件>.tar.gz
+            with tarfile.open(archive) as tar:
+                tar.extractall(run_dir)
     # API エラーで evaluation.json が出なかった件は 2 回までやり直す。予算超過（402）は即座に run を止める
     for _ in range(3):
         with ThreadPoolExecutor(cfg.workers) as pool:
@@ -78,18 +102,26 @@ def main():
             print(f"{stage}_VALIDATION: FAIL reason=budget_exceeded")
             sys.exit(1)
     submitted, tokens = {}, {"input_tokens": 0, "output_tokens": 0}
+    iterations, n_overflow = [], 0
     for instance in instances:
         out = run_dir / "instances" / instance.name
-        # Seyval の出力一覧は 1000 ファイルまで。反復ごとのコードは chat_history.yaml に含まれるので削る
-        shutil.rmtree(out / "codes", ignore_errors=True)
-        (out / "chat_history_readable.txt").unlink(missing_ok=True)
+        if (out / "context_overflow").exists():
+            n_overflow += 1
         if not (out / "evaluation.json").exists():
-            continue  # 3 試行とも終わらなかった件: 提出無しとして評価層に渡す
+            continue  # 文脈超過か、3 試行とも終わらなかった件: 提出無しとして評価層に渡す
         submitted[instance.name] = (out / "final_model.xml").read_text() if (out / "final_model.xml").exists() else None
+        iterations.append(iterations_used(out))
         for k, v in json.loads((out / "tokens.json").read_text()).items():
             tokens[k] += v
+    max_iterations = 2 if cfg.mode == "sanity" else cfg.max_iterations
+    tokens |= {
+        "mean_iterations": sum(iterations) / len(iterations) if iterations else 0.0,
+        "n_early_submit": sum(i < max_iterations for i in iterations),  # 上限を使い切らずに自ら提出した件
+        "n_context_overflow": n_overflow,
+        "n_not_finished": len(instances) - len(submitted),
+    }
     (run_dir / "eval_inputs").mkdir(parents=True, exist_ok=True)
-    (run_dir / "eval_inputs" / "scigym_small.json").write_text(json.dumps({"instances": [{
+    (run_dir / "eval_inputs" / f"{cfg.task}.json").write_text(json.dumps({"instances": [{
         "id": p.name,
         "reference_sbml": (p / "truth.xml").read_text(),
         "incomplete_sbml": (p / "partial.xml").read_text(),
@@ -101,7 +133,8 @@ def main():
     with tarfile.open(run_dir / "instances.tar.gz", "w:gz") as tar:
         tar.add(run_dir / "instances", arcname="instances")
     shutil.rmtree(run_dir / "instances")
-    print(f"{stage}_VALIDATION_SUMMARY: {json.dumps({'n_instances': len(instances), 'n_with_submission': sum(v is not None for v in submitted.values()), 'n_not_finished': len(instances) - len(submitted), **tokens})}")
+    shutil.rmtree(run_dir / "checkpoints", ignore_errors=True)  # 全件そろったので件ごとの書庫は不要
+    print(f"{stage}_VALIDATION_SUMMARY: {json.dumps({'n_instances': len(instances), 'n_with_submission': sum(v is not None for v in submitted.values()), **tokens})}")
     print(f"{stage}_VALIDATION: PASS")
 
 
