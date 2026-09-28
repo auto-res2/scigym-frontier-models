@@ -932,6 +932,82 @@
               "label": "gemini-3.8-flash"
             }
           ]
+        },
+        {
+          "key": "tokens",
+          "caption": "各 run の評価件数、有効な SBML が提出された件数、トークン消費。出力トークンには reasoning を含む。",
+          "columns": [
+            {
+              "header": "n\\_instances",
+              "ref_path": "n_instances",
+              "round": 0
+            },
+            {
+              "header": "n\\_valid\\_submissions",
+              "ref_path": "n_valid_submissions",
+              "round": 0
+            },
+            {
+              "header": "入力トークン",
+              "ref_path": "input_tokens",
+              "round": 0
+            },
+            {
+              "header": "出力トークン",
+              "ref_path": "output_tokens",
+              "round": 0
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "gpt-6-sol",
+              "label": "gpt-6-sol small"
+            },
+            {
+              "run_id": "gpt-6-luna",
+              "label": "gpt-6-luna small"
+            },
+            {
+              "run_id": "claude-opus-5.5",
+              "label": "claude-opus-5.5 small"
+            },
+            {
+              "run_id": "claude-sonnet-5",
+              "label": "claude-sonnet-5 small"
+            },
+            {
+              "run_id": "gemini-3.1-pro",
+              "label": "gemini-3.1-pro-preview small"
+            },
+            {
+              "run_id": "gemini-3.8-flash",
+              "label": "gemini-3.8-flash small"
+            },
+            {
+              "run_id": "gpt-6-sol-large",
+              "label": "gpt-6-sol large"
+            },
+            {
+              "run_id": "gpt-6-luna-large",
+              "label": "gpt-6-luna large"
+            },
+            {
+              "run_id": "claude-opus-5.5-large",
+              "label": "claude-opus-5.5 large"
+            },
+            {
+              "run_id": "claude-sonnet-5-large",
+              "label": "claude-sonnet-5 large"
+            },
+            {
+              "run_id": "gemini-3.1-pro-large",
+              "label": "gemini-3.1-pro-preview large"
+            },
+            {
+              "run_id": "gemini-3.8-flash-large",
+              "label": "gemini-3.8-flash large"
+            }
+          ]
         }
       ],
       "notes": [
