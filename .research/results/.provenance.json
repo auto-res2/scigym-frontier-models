@@ -89,6 +89,24 @@
         ".research/results/claude-opus-5.5/metrics.json": "f48e5b1004fa6d19c4f56d6666a36ada05f3ed52f4db54d109979b056499c7ba",
         ".research/results/claude-opus-5.5/tokens.json": "a379b604e40096b5791a6cec601b5f2ef313d65574f0243b45318fe1306bbe66"
       }
+    },
+    "claude-sonnet-5": {
+      "execution_id": "8e709558-34e3-4b7a-9f8c-f9462ef8d589",
+      "backend": "seyval",
+      "commit_hash": "37117cf21295ad5a877538d65f1aafa57e236447",
+      "overrides": {
+        "run_id": "claude-sonnet-5",
+        "mode": "full",
+        "airas_eval_tasks": "scigym_small"
+      },
+      "parameters": {},
+      "files": {
+        ".research/results/claude-sonnet-5/eval_inputs/scigym_small.json": "38cf9a87a2c9b71734a6225b8086293134d1fd4ba10b105c1adee28e68ea8078",
+        ".research/results/claude-sonnet-5/evaluation/scigym_small.json": "a8c76a63381ea7933dd797f560482507eebbd826bdc49eef52633e36704e247b",
+        ".research/results/claude-sonnet-5/instances.tar.gz": "e195412a85daf0fd7e84357dd8f5bed742ca563d8daa7d1f059e4a13243ecb26",
+        ".research/results/claude-sonnet-5/metrics.json": "10ae5b7bbd00f7112df8e7c6e3d55d751a4df65142184418b581cb6d0f7e12a1",
+        ".research/results/claude-sonnet-5/tokens.json": "d345f9d5775346c049eda43ff170fd6c554ab3db16d8b16fc8ddd6f3400a3c54"
+      }
     }
   }
 }
