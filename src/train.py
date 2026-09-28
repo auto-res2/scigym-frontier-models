@@ -27,7 +27,7 @@ class OpenAICompatible(LLM):
 
     def initialize(self, base_url):
         self.client = OpenAI(
-            api_key=os.environ["VERCEL_AI_GATEWAY_API_KEY"], base_url=base_url, max_retries=5, timeout=1800
+            api_key=os.environ["VERCEL_AI_GATEWAY_API_KEY"], base_url=base_url, max_retries=1, timeout=1800
         )
         self.messages = [{"role": "system", "content": self.system_prompt}]
 
@@ -48,6 +48,12 @@ class OpenAICompatible(LLM):
                     max_tokens=max_tokens,
                     temperature=self.temperature,
                 )
+            except (openai.APIConnectionError, openai.APITimeoutError) as exc:
+                if attempt == 29:
+                    raise
+                print(f"connection error ({type(exc).__name__}); retry {attempt + 1} after 60s", flush=True)
+                time.sleep(60)
+                continue
             except openai.APIStatusError as exc:
                 if exc.status_code == 402:
                     sys.exit(BUDGET_EXCEEDED)

@@ -5,6 +5,7 @@ import shutil
 import subprocess
 import tarfile
 import sys
+import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from types import SimpleNamespace
@@ -39,13 +40,20 @@ def run_instance(cfg, run_dir, instance):
         "max_tokens": cfg.max_tokens,
     }
     out.mkdir(parents=True, exist_ok=True)
-    with open(out / "stdout.txt", "a") as log:
-        try:
-            proc = subprocess.run([sys.executable, "-m", "src.train", json.dumps(args)], stdout=log, stderr=subprocess.STDOUT,
-                                  timeout=cfg.instance_timeout)
-        except subprocess.TimeoutExpired:
-            print(f"[{instance.name}] killed after {cfg.instance_timeout}s", file=log)
-            return 1
+    log_path = out / "stdout.txt"
+    with open(log_path, "a") as log:
+        proc = subprocess.Popen([sys.executable, "-m", "src.train", json.dumps(args)], stdout=log, stderr=subprocess.STDOUT)
+        started = time.time()
+        while proc.poll() is None:
+            time.sleep(30)
+            # LLM のコードや提出モデルの評価が ODE の C ライブラリ内で止まると公式の 3 分制限（SIGALRM）が効かない。
+            # Controller は反復ごとに出力するので、出力が止まったままの試行は打ち切って最初からやり直す
+            silent = time.time() - log_path.stat().st_mtime
+            if time.time() - started > cfg.instance_timeout or silent > cfg.stall_timeout:
+                proc.kill()
+                proc.wait()
+                print(f"[{instance.name}] killed after {int(time.time() - started)}s ({int(silent)}s without output)", file=log)
+                return 1
     if proc.returncode == CONTEXT_OVERFLOW:
         (out / "context_overflow").touch()
     if not (out / "evaluation.json").exists():  # 失敗した run の作業ディレクトリは残らないので原因を標準出力へ
