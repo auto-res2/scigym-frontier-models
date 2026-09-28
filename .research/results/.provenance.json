@@ -1,0 +1,22 @@
+{
+  "dirs": {
+    "gpt-6-sol": {
+      "execution_id": "19ce3b6b-db98-4a29-9513-e026dc329e67",
+      "backend": "seyval",
+      "commit_hash": "27789a244ea033f58c50f6f4363fd51379fcb613",
+      "overrides": {
+        "run_id": "gpt-6-sol",
+        "mode": "full",
+        "airas_eval_tasks": "scigym_small"
+      },
+      "parameters": {},
+      "files": {
+        ".research/results/gpt-6-sol/eval_inputs/scigym_small.json": "de2045f9a6bf63ac2e8a3f3a34412bce88d6a49e72a54ca575370f0227e023e5",
+        ".research/results/gpt-6-sol/evaluation/scigym_small.json": "6be0c03bea498733fd3504e8bad66510da6085e568be4723d6cd41176e9c0095",
+        ".research/results/gpt-6-sol/instances.tar.gz": "1bc70fa03e02fdc5d89f8f6e3924c6cb56f3f037f2285d1f36d21b6094463455",
+        ".research/results/gpt-6-sol/metrics.json": "71b8f7cb8976456dfc601d4b1b5b52666e20423cdb13e2bf6a4ba2fab03f72cf",
+        ".research/results/gpt-6-sol/tokens.json": "adc242db6ac51df5477863554de9f14602dd82fc79a010e03aa0821c989d508a"
+      }
+    }
+  }
+}
