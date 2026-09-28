@@ -1,5 +1,6 @@
 """1 つの run（= 1 モデル × 1 split）で SciGym を解かせ、評価層 scigym_<split> の入力ファイルを書く。モデルは Vercel AI Gateway 経由。"""
 
+import gzip
 import json
 import shutil
 import subprocess
@@ -131,7 +132,9 @@ def main():
         "n_not_finished": len(instances) - len(submitted),
     }
     (run_dir / "eval_inputs").mkdir(parents=True, exist_ok=True)
-    (run_dir / "eval_inputs" / f"{cfg.task}.json").write_text(json.dumps({"instances": [{
+    # 評価入力は gzip で書く（large は参照 SBML と提出 SBML で 100 MB 近くなり、取り込みの上限 50 MB を超える）
+    with gzip.open(run_dir / "eval_inputs" / f"{cfg.task}.json.gz", "wt", encoding="utf-8") as f:
+        f.write(json.dumps({"instances": [{
         "id": p.name,
         "reference_sbml": (p / "truth.xml").read_text(),
         "incomplete_sbml": (p / "partial.xml").read_text(),
