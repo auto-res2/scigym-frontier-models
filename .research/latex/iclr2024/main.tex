@@ -15,14 +15,14 @@
 \providecommand{\unverified}[1]{#1}
 \providecommand{\airasrecordlink}[1]{#1}
 
-\title{SciGym-small における 2026 年 9 月時点の最新モデル 6 種の事前登録評価: 論文 Table 1 と同じ条件で測り直す}
+\title{SciGym における 2026 年 9 月時点の最新モデル 6 種の事前登録評価: 論文 Table 1 と同じ条件で small を測り直し、large にも広げる}
 \author{AIRAS}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-SciGym \citep{duan-2025-measuring} は、反応をすべて取り除いた SBML モデルを LLM エージェントに渡し、摂動実験とコード実行を繰り返して反応機構を復元させるベンチマークである。論文の Table 1 は 2025 年春の 3 社のフロンティアモデル 6 つを SciGym-small 137 件で各 1 回走らせた平均値を報告している。本研究は、公開コードの Controller と評価器をそのまま用い、論文と同じ条件（137 件、最大 20 反復、temperature 1.0）で、2026 年 9 月時点で Vercel AI Gateway から利用できる各社の最新モデル 6 種（OpenAI の gpt-6-sol と gpt-6-luna、Anthropic の claude-opus-5.5 と claude-sonnet-5、Google の gemini-3.1-pro-preview と gemini-3.8-flash）を評価し、論文の Table 1 をそのまま並べて報告する。実験前に、6 モデルすべての平均 Simulation Trajectory Error（STE）が論文 Table 1 の最良行（Gemini-2.5-Pro の 0.3212）以下であることを反証線として登録する。Reaction Matching Score（RMS）と Network Topology Score（NTS）は同じ実行から表として報告する。
+SciGym \citep{duan-2025-measuring} は、反応をすべて取り除いた SBML モデルを LLM エージェントに渡し、摂動実験とコード実行を繰り返して反応機構を復元させるベンチマークである。論文の Table 1 は 2025 年春の 3 社のフロンティアモデル 6 つを SciGym-small 137 件で各 1 回走らせた平均値を報告している。本研究は、公開コードの Controller と評価器をそのまま用い、論文と同じ条件（137 件、最大 20 反復、temperature 1.0）で、2026 年 9 月時点で Vercel AI Gateway から利用できる各社の最新モデル 6 種（OpenAI の gpt-6-sol と gpt-6-luna、Anthropic の claude-opus-5.5 と claude-sonnet-5、Google の gemini-3.1-pro-preview と gemini-3.8-flash）を評価し、論文の Table 1 をそのまま並べて報告する。あわせて、論文が評価していない large split 213 件も同じ条件で走らせる。実験前に、small と large のそれぞれで 6 モデルすべての平均 Simulation Trajectory Error（STE）が論文 Table 1 の最良行（Gemini-2.5-Pro の 0.3212）以下であることを反証線として登録する。Reaction Matching Score（RMS）と Network Topology Score（NTS）は同じ実行から表として報告する。
 \end{abstract}
 
 \section{はじめに}
@@ -31,7 +31,7 @@ LLM に科学的発見のサイクル全体（実験の設計、結果の解析�
 
 論文の主結果である Table 1 は、3 社の pro / mini 計 6 モデルを SciGym-small の 137 件で評価した平均値である \cite[s1.p2, s1.p10]{duan-2025-measuring}。評価されたのは 2025 年春の版（Claude-3.7-Sonnet と 3.5-Haiku、Gemini-2.5-Pro と Flash のプレビュー版、GPT-4.1 と 4.1-mini）である \cite[s1.p1]{duan-2025-measuring}。その後 1 年半で各社のモデルは数世代進んだが、同じ閉ループの課題がどこまで解けるようになったかは示されていない。
 
-AIRAS の先行研究は、現行 API の Gemini-2.5-Pro で同じ課題を解かせたときの平均 STE が論文の 0.3212 から 0.05 以内に収まるかを事前登録して検証し \cite[s3.p1]{scigymtable1reproduction-2026-scigym}、また open-weight モデル 6 種が論文の GPT-4.1-mini の水準（0.6007）に届くかを同じプロトコルで評価した \cite[s4.p1]{scigymrikyuopenmodels-2026-scigym}。後者では kimi-k2.6 の平均 STE が \unverified{0.2100} \cite[s4.p2]{scigymrikyuopenmodels-2026-scigym}、kimi-k3 が \unverified{0.2251} \cite[s4.p3]{scigymrikyuopenmodels-2026-scigym} と、論文 Table 1 の最良行 Gemini-2.5-Pro の \unverified{0.3212} \cite[s1.p5]{duan-2025-measuring} を下回った。本研究は同じ Controller、同じ条件で 2026 年 9 月時点の各社最新 6 モデルを走らせ、論文の Table 1 をそのまま並べて世代の差を報告する。
+AIRAS の先行研究は、現行 API の Gemini-2.5-Pro で同じ課題を解かせたときの平均 STE が論文の 0.3212 から 0.05 以内に収まるかを事前登録して検証し \cite[s3.p1]{scigymtable1reproduction-2026-scigym}、また open-weight モデル 6 種が論文の GPT-4.1-mini の水準（0.6007）に届くかを同じプロトコルで評価した \cite[s4.p1]{scigymrikyuopenmodels-2026-scigym}。後者では kimi-k2.6 の平均 STE が \unverified{0.2100} \cite[s4.p2]{scigymrikyuopenmodels-2026-scigym}、kimi-k3 が \unverified{0.2251} \cite[s4.p3]{scigymrikyuopenmodels-2026-scigym} と、論文 Table 1 の最良行 Gemini-2.5-Pro の \unverified{0.3212} \cite[s1.p5]{duan-2025-measuring} を下回った。本研究は同じ Controller、同じ条件で 2026 年 9 月時点の各社最新 6 モデルを走らせ、論文の Table 1 をそのまま並べて世代の差を報告する。論文が計算資源の制約から評価しなかった large split 213 件 \cite[s1.p2]{duan-2025-measuring} にも同じ設定で広げる。
 
 判定は AIRAS の事前登録の枠組みに従い、仮説・判定基準・予測区間・実行条件を実験前に記録へ凍結し、実験後は計測値だけを流し込む。
 
@@ -48,9 +48,9 @@ SciGym \citep{duan-2025-measuring} は、単一スキルを測る既存のベン
 \input{claims.tex}
 
 \paragraph{判定基準と予測区間の根拠.}
-各主張の反証線は「（当該モデルの平均 STE）$-$ \unverified{0.3212} $\le 0$」である。\unverified{0.3212} は論文 Table 1 の最良行 Gemini-2.5-Pro の STE \cite[s1.p5]{duan-2025-measuring} であり、6 行すべてに同じ基準を置く。1 年半後の各社の最新モデルが、論文時点の最良に届くかどうかを問う。予測区間は上位モデル（gpt-6-sol、claude-opus-5.5、claude-sonnet-5、gemini-3.1-pro-preview）で $[-0.20, 0]$、最小クラス（gpt-6-luna、gemini-3.8-flash）で $[-0.15, 0.05]$ とする。根拠は open-weight の上位モデルが同条件で kimi-k2.6 \unverified{0.2100} \cite[s4.p2]{scigymrikyuopenmodels-2026-scigym}、kimi-k3 \unverified{0.2251} \cite[s4.p3]{scigymrikyuopenmodels-2026-scigym}、deepseek-v4.1-flash \unverified{0.2405} \cite[s4.p4]{scigymrikyuopenmodels-2026-scigym} に達したことと、27B〜35B 級が 0.25 と 0.46 に分かれたこと \cite[s4.p5, s4.p6]{scigymrikyuopenmodels-2026-scigym} である。1 件の STE の標準偏差を 0.27 程度と見積もると 137 件平均の標準誤差は約 0.02 で、差が 0.02 未満のときは結論が揺らぎうることを前提として記録する。
+仮説 1（small）の各主張の反証線は「（当該モデルの平均 STE）$-$ \unverified{0.3212} $\le 0$」である。\unverified{0.3212} は論文 Table 1 の最良行 Gemini-2.5-Pro の STE \cite[s1.p5]{duan-2025-measuring} であり、6 行すべてに同じ基準を置く。1 年半後の各社の最新モデルが、論文時点の最良に届くかどうかを問う。仮説 2（large）も同じ基準を置く。large には論文の公表値が無いので、small での最良行を絶対水準の基準とし、予測区間は上位モデルで $[-0.10, 0.10]$、最小クラスで $[-0.05, 0.15]$ と幅を広く取る。予測区間は上位モデル（gpt-6-sol、claude-opus-5.5、claude-sonnet-5、gemini-3.1-pro-preview）で $[-0.20, 0]$、最小クラス（gpt-6-luna、gemini-3.8-flash）で $[-0.15, 0.05]$ とする。根拠は open-weight の上位モデルが同条件で kimi-k2.6 \unverified{0.2100} \cite[s4.p2]{scigymrikyuopenmodels-2026-scigym}、kimi-k3 \unverified{0.2251} \cite[s4.p3]{scigymrikyuopenmodels-2026-scigym}、deepseek-v4.1-flash \unverified{0.2405} \cite[s4.p4]{scigymrikyuopenmodels-2026-scigym} に達したことと、27B〜35B 級が 0.25 と 0.46 に分かれたこと \cite[s4.p5, s4.p6]{scigymrikyuopenmodels-2026-scigym} である。1 件の STE の標準偏差を 0.27 程度と見積もると 137 件平均の標準誤差は約 0.02 で、差が 0.02 未満のときは結論が揺らぎうることを前提として記録する。
 
-RMS（modifier あり / なし）と NTS も同じ実行から表として報告するが、1 つの主張に置ける判定基準は 1 つであるため、判定には用いない。各社の上位と下位の差も表で示すにとどめ、主張にはしない。
+RMS（modifier あり / なし）と NTS も同じ実行から表として報告するが、1 つの主張に置ける判定基準は 1 つであるため、判定には用いない。各社の上位と下位の差、small と large の難易度差も表で示すにとどめ、主張にはしない。
 
 \section{方法}
 \label{sec:method}
@@ -61,7 +61,7 @@ RMS（modifier あり / なし）と NTS も同じ実行から表として報告
 ループ、プロンプト、実験の実行はすべて公開コード \citep{h4duan-2025-scigym} の \texttt{Controller} をそのまま用いる。本研究が書くのは、(1) OpenAI 互換 API でモデルを呼ぶ \texttt{LLM} 実装（公式の GPT 実装と同じく、システムプロンプトと全履歴を毎回送る）、(2) インスタンスごとに 1 プロセスで Controller を起動し、137 件を並列に走らせる駆動部、(3) 各インスタンスの提出モデルと公式データを評価層の入力ファイルに書き出す部分だけである。公式コードでは履歴がクラス属性として定義されており 1 プロセスで複数件を走らせると履歴が持ち越されるが、1 件 1 プロセスとすることでこの問題を避ける。
 
 \paragraph{指標.}
-採点は評価層 airas-eval のベンチマークパック \texttt{scigym\_small} が行う。パックは公式リリースの 137 件（truth / partial / sedml）を sha256 で固定し、公開コードの \texttt{Evaluator}（コミット 88a7b93）で提出モデルを採点して、STE（\texttt{trajectory\_smape}）、RMS の適合率・再現率・F1（modifier なし \texttt{reaction\_*}、あり \texttt{reaction\_*\_with\_modifiers}）、NTS の F1（\texttt{topology\_f1}）を 137 件の単純平均で返す。提出 SBML が無い、または無効な件は、公式評価どおり不完全 SBML の採点値で平均に含める。
+採点は評価層 airas-eval のベンチマークパック \texttt{scigym\_small}（137 件）と \texttt{scigym\_large}（213 件）が行う。パックは公式リリースの各件（truth / partial / sedml）を sha256 で固定し、公開コードの \texttt{Evaluator}（コミット 88a7b93）で提出モデルを採点して、STE（\texttt{trajectory\_smape}）、RMS の適合率・再現率・F1（modifier なし \texttt{reaction\_*}、あり \texttt{reaction\_*\_with\_modifiers}）、NTS の F1（\texttt{topology\_f1}）を件の単純平均で返す。提出 SBML が無い、または無効な件は、公式評価どおり不完全 SBML の採点値で平均に含める。
 
 \section{実験設計}
 \label{sec:design}
@@ -69,7 +69,7 @@ RMS（modifier あり / なし）と NTS も同じ実行から表として報告
 Vercel AI Gateway（OpenAI 互換）経由で、2026 年 9 月時点の各社の最新モデルを上位と下位の 2 つずつ用いる: openai/gpt-6-sol と openai/gpt-6-luna、anthropic/claude-opus-5.5 と anthropic/claude-sonnet-5、google/gemini-3.1-pro-preview と google/gemini-3.8-flash。論文の pro / mini の構図に対応させるが、各社の製品構成に厳密な対応は無く、料金と提供元の位置づけから選んだ。reasoning の強さは各モデルの既定値のまま変えない。
 
 \paragraph{データ.}
-SciGym-small の 137 件 \cite[s1.p2]{duan-2025-measuring}（Hugging Face \texttt{h4duan/scigym-sbml} の small split と同一内容の RIKYU 上のコピー）を用いる。評価層は各件の内容を公式リリースの sha256 と照合する。
+SciGym の公式リリース（Hugging Face \texttt{h4duan/scigym-sbml}）のうち、論文が評価対象とした small split 137 件 \cite[s1.p2]{duan-2025-measuring} に加え、論文では評価されていない large split 213 件を用いる（いずれも RIKYU 上のコピー）。large の真のモデルの SBML は small のおよそ 3.5 倍長い。評価層は各件の内容を公式リリースの sha256 と照合する。1 run は 1 モデル × 1 split で、計 12 run である。
 
 \paragraph{設定.}
 \texttt{max\_iterations} は論文どおり 20 \cite[s1.p3]{duan-2025-measuring}（公開 config の既定値は 5 \cite[s2.p2]{h4duan-2025-scigym}）、\texttt{eval\_debug\_rounds} は論文本文の 3 \cite[s1.p4]{duan-2025-measuring}（公開 config の既定値は 5 \cite[s2.p3]{h4duan-2025-scigym}）、\texttt{temperature} は公開 config の 1.0 \cite[s2.p1]{h4duan-2025-scigym}、摂動は初期濃度の変更のみとする。応答のトークン上限は 32768 とし、reasoning で使い切った応答は上限を倍にして呼び直す。本文が空で返った呼び出しは呼び直し、reasoning 側に本文が入っていればそれを用いる。各モデル、各インスタンスを 1 回ずつ実行する。ゲートウェイの予算超過（HTTP 402）が起きた run は途中の件を残さず最初からやり直す。
@@ -78,16 +78,16 @@ SciGym-small の 137 件 \cite[s1.p2]{duan-2025-measuring}（Hugging Face \textt
 実行は Seyval を通じて RIKYU（Slurm、GB200 ノード、aarch64）で行い、LLM は Vercel AI Gateway を呼ぶ。GPU は使わないが、資源の単位が GPU であるため 1 GPU を要求する。環境は Dockerfile と \texttt{uv.lock} で固定する。aarch64 向けの wheel が無いため、libroadrunner は公式の 2.8.0 ではなく 2.7.0、antimony は 2.14.0 を用い、rrplugins と phrasedml は除外する。この差でシミュレーション結果がわずかに変わる可能性があり、仮説の前提として記録する。
 
 \paragraph{段階.}
-sanity は 1 件（BIOMD0000000027）を 2 反復で走らせて配管を確かめる。pilot は sorted した 137 件から 14 件おきに選んだ 10 件を 20 反復で走らせ、1 件あたりの所要時間と費用を測る。主張の判定は full（137 件）の結果だけで行い、sanity と pilot の結果は記録に取り込まない。
+sanity は各 split の先頭 1 件を 2 反復で走らせて配管を確かめる。pilot は sorted した件から等間隔に 10 件を 20 反復で走らせ、1 件あたりの所要時間と費用を測る。主張の判定は full（small 137 件、large 213 件）の結果だけで行い、sanity と pilot の結果は記録に取り込まない。
 
 \paragraph{run と主張の対応.}
-\texttt{gpt-6-sol} $\to$ Claim 1、\texttt{gpt-6-luna} $\to$ Claim 2、\texttt{claude-opus-5.5} $\to$ Claim 3、\texttt{claude-sonnet-5} $\to$ Claim 4、\texttt{gemini-3.1-pro} $\to$ Claim 5、\texttt{gemini-3.8-flash} $\to$ Claim 6。
+small: \texttt{gpt-6-sol} $\to$ Claim 1、\texttt{gpt-6-luna} $\to$ Claim 2、\texttt{claude-opus-5.5} $\to$ Claim 3、\texttt{claude-sonnet-5} $\to$ Claim 4、\texttt{gemini-3.1-pro} $\to$ Claim 5、\texttt{gemini-3.8-flash} $\to$ Claim 6。large: 同じ順で \texttt{gpt-6-sol-large} $\to$ Claim 7 から \texttt{gemini-3.8-flash-large} $\to$ Claim 12。
 
 % ===== airas: post-experiment sections, filled once runs exist =====
 
 \section{結果}
 \label{sec:results}
-実験は未実施である。実行後にこの節へ、各 run の平均 STE、論文最良行との差、RMS、有効提出件数を \texttt{table1} として、論文 Table 1 の 6 行と並べた対比表とともに記入する。
+実験は未実施である。実行後にこの節へ、small の各 run の平均 STE、論文最良行との差、RMS、有効提出件数を \texttt{table1}、large を \texttt{large} として、論文 Table 1 の 6 行と並べた対比表とともに記入する。
 
 \section{考察}
 \label{sec:discussion}
