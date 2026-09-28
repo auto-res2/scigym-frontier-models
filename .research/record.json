@@ -52,6 +52,16 @@
               "text_sha256": "4bd14d32a3be6184688e08a37048bba190762c34821cf097d7696cd278217f46",
               "model": "gpt-4.1",
               "supported": true
+            },
+            {
+              "text_sha256": "5f2a0b5523867b8399a813a44f8b75718011bc1415e672910d838e07db259e3e",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "6962b93197a327a1b5fee4d1518f2d4f3b002150b4aa79a98b0969c4454ae2d5",
+              "model": "gpt-4.1",
+              "supported": true
             }
           ]
         },
@@ -109,6 +119,16 @@
               "model": "gpt-4.1",
               "supported": true,
               "reason": "The citing text states that 0.3212 is the STE for Gemini-2.5-Pro from Table 1, which is correctly taken from the quoted passage and matches its context."
+            },
+            {
+              "text_sha256": "1aef4a2a5c42c2bb899c666e7996ac2204c9e2fe4c9bc56d29876235b7d31a3f",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "b013efaa5c1b55f8b1cf17a931de7579b1a5a6f334af002d04ebb1856531f356",
+              "model": "gpt-4.1",
+              "supported": true
             }
           ]
         },
@@ -266,6 +286,11 @@
               "text_sha256": "b3f213a20caa46e74d6c116f12116fcd819cb11bd42886d52ccb2c4a9bddc68a",
               "model": "gpt-4.1",
               "supported": true
+            },
+            {
+              "text_sha256": "313257ad96828abc8a9b0d9fcdd16fe51bed5453be4aac998c287140fc1de03e",
+              "model": "gpt-4.1",
+              "supported": true
             }
           ]
         },
@@ -333,6 +358,11 @@
               "text_sha256": "b3f213a20caa46e74d6c116f12116fcd819cb11bd42886d52ccb2c4a9bddc68a",
               "model": "gpt-4.1",
               "supported": true
+            },
+            {
+              "text_sha256": "1aef4a2a5c42c2bb899c666e7996ac2204c9e2fe4c9bc56d29876235b7d31a3f",
+              "model": "gpt-4.1",
+              "supported": true
             }
           ]
         },
@@ -364,6 +394,18 @@
               "model": "gpt-4.1",
               "supported": true,
               "reason": "The citing text uses the quoted value 0.2100 for kimi-k2.6's trajectory_smape, which is supported by the quoted data (\"trajectory_smape\": 0.210049...), and does not overstate or misrepresent the passage in this context."
+            },
+            {
+              "text_sha256": "1aef4a2a5c42c2bb899c666e7996ac2204c9e2fe4c9bc56d29876235b7d31a3f",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text reports the average STE (0.2100) for kimi-k2.6, which matches the 'trajectory_smape' value 0.210049... reported in the quoted passage; the paraphrase is faithful and correctly linked to the metric and model discussed."
+            },
+            {
+              "text_sha256": "e4045a48a8cedf0223c7ca9d8861214276030e4c84f88c172922e84bc44b0768",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text refers to the value 0.2100 as the trajectory_smape achieved by kimi-k2.6, which matches the quoted passage and the full context, and does not go beyond what is stated."
             }
           ]
         },
@@ -395,6 +437,18 @@
               "model": "gpt-4.1",
               "supported": true,
               "reason": "The citing text identifies the value 0.2251 (rounded from 0.225072...) as the trajectory_smape for kimi-k3 from Table 1, and the quoted passage confirms this exact metric, supporting the claim faithfully and in context."
+            },
+            {
+              "text_sha256": "1aef4a2a5c42c2bb899c666e7996ac2204c9e2fe4c9bc56d29876235b7d31a3f",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The cited passage reports 'trajectory_smape' as 0.22507247610652192, which directly supports the citing text's reference to kimi-k3 の平均 STE が 0.2251."
+            },
+            {
+              "text_sha256": "e03761ed005dcb08498c9a1f2db536211e9e9444398ab543943ca73ed0c1f685",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text attributes the value (0.2251, rounded) for kimi-k3 from the quoted metric (`trajectory_smape`), which is accurate and supported by the passage's context."
             }
           ]
         },
@@ -420,6 +474,12 @@
               "model": "gpt-4.1",
               "supported": true,
               "reason": "The citing text accurately describes that deepseek-v4.1-flash achieved a trajectory_smape of 0.2405, which matches the quoted value from the cited passage."
+            },
+            {
+              "text_sha256": "343ede68035da4e6deb44561f05c989728ce746df5cd1420adb2019ea7680567",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text accurately states that deepseek-v4.1-flash attained a trajectory_smape of approximately 0.2405 (quoting 0.2405 for 0.24046025), which matches the quoted passage and is supported by the source in context."
             }
           ]
         },
@@ -439,6 +499,12 @@
               "model": "gpt-4.1",
               "supported": true,
               "reason": "The citing text faithfully represents that a 27B-35B model achieved a trajectory_smape of approximately 0.25, as reported by the quoted passage."
+            },
+            {
+              "text_sha256": "8bbe58509c221d141b2fcdcee26d586595514a746f185a49b2a35fc0e34bccfc",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text uses the value '0.25' as a rounded figure, and the source's 'trajectory_smape' is about 0.248, which is faithful for summarizing the distribution as being around 0.25. No qualifiers or important context are omitted."
             }
           ]
         },
@@ -458,6 +524,12 @@
               "model": "gpt-4.1",
               "supported": true,
               "reason": "The quoted passage provides the value 0.4570888053620998 for trajectory_smape, which is used as the figure for the 27B〜35B級 model, matching the claim in the citing text."
+            },
+            {
+              "text_sha256": "8bbe58509c221d141b2fcdcee26d586595514a746f185a49b2a35fc0e34bccfc",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text refers to a 27B class result achieving a value of 0.46, and the quoted passage provides an exact value of 'trajectory_smape': 0.457..., which in context rounds to 0.46; thus, the citation faithfully reflects the source data."
             }
           ]
         }
