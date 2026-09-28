@@ -68,6 +68,11 @@
               "model": "gpt-4.1",
               "supported": false,
               "reason": "The cited passage only says the evaluation was restricted to SCIGYM-small for resource reasons; it does not provide any of the quantitative claims about performance on the large split that the citing text reports."
+            },
+            {
+              "text_sha256": "4a0ccd90597d394db5a10e01806a9cc88d80549825eed68bd144c6a428a902dc",
+              "model": "gpt-4.1",
+              "supported": true
             }
           ]
         },
@@ -175,6 +180,11 @@
             },
             {
               "text_sha256": "a4e13af84d4770738a21af7a23cb9882b0204d5a1e4ab979bcd9c44e515a5f2a",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "b9364fc55cee7fbee491d564275e5510e79b671bef2d153729d60bcf5b6cdfbd",
               "model": "gpt-4.1",
               "supported": true
             }
@@ -570,6 +580,12 @@
               "model": "gpt-4.1",
               "supported": false,
               "reason": "The quoted passage only provides a single metric value ('trajectory_smape') for an unspecified model/case, and does not support any claim about one model outperforming another (e.g., qwen3.8-27b versus qwen3.6-35b) or the comparison between generations or model sizes."
+            },
+            {
+              "text_sha256": "b9364fc55cee7fbee491d564275e5510e79b671bef2d153729d60bcf5b6cdfbd",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text accurately quotes the s4.p5 passage's 'trajectory_smape' value (0.2479) and uses it as a metric for the model in question; it does not rely on further context or misrepresent the data."
             }
           ]
         },
@@ -601,6 +617,12 @@
               "model": "gpt-4.1",
               "supported": false,
               "reason": "The cited passage only contains a single metric value; it does not support the claim about 'qwen3.8-27b outperforming qwen3.6-35b', nor the comparison between model generations and scales. Context linking the result to model comparison or trends is missing."
+            },
+            {
+              "text_sha256": "9714e2b6cfc9e475505cd02dc0ef8e34fbdc340e499be5a5a7a7eb22bfde83a5",
+              "model": "gpt-4.1",
+              "supported": false,
+              "reason": "The passage only provides the metric value for trajectory_smape (0.4571) but does not specify the model, its size, its vintage (generation), or any context about 'qwen3.6-35b.' The citing text attributes this number to a specific model and uses it for a broader claim, which is not supported by the quoted passage alone."
             }
           ]
         }
