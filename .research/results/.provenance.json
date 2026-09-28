@@ -73,9 +73,9 @@
       }
     },
     "claude-opus-5.5": {
-      "execution_id": "4f0f9bb1-9479-431e-a448-5ea315cb77b5",
+      "execution_id": "68d86342-5154-46dd-a018-d8ebffc31661",
       "backend": "seyval",
-      "commit_hash": "27789a244ea033f58c50f6f4363fd51379fcb613",
+      "commit_hash": "66be44d2212fbffeedb6caa0b5b6c3116f5fdc00",
       "overrides": {
         "run_id": "claude-opus-5.5",
         "mode": "full",
@@ -83,9 +83,9 @@
       },
       "parameters": {},
       "files": {
-        ".research/results/claude-opus-5.5/eval_inputs/scigym_small.json": "c7e3a30d521d4bb9011935f1c437270e96d8655ce6890f02d7fbd43f7c2e2a5b",
-        ".research/results/claude-opus-5.5/evaluation/scigym_small.json": "ceafc896e79636d47a3fefedeebf3173c11a6a01ba0c9ba1b18a591fddf6aa52",
-        ".research/results/claude-opus-5.5/instances.tar.gz": "892723447ae1b24d7d6c947a442cc70663f96dbe6170abb3a90cd4bbd8271cb5",
+        ".research/results/claude-opus-5.5/eval_inputs/scigym_small.json.gz": "10a7a6618126adf5877aa0cc586de9fe3ef5df1a435899d9d62e5cbad2a793b3",
+        ".research/results/claude-opus-5.5/evaluation/scigym_small.json": "7c20380f3c59fbc923d4126eaf6025ccc58140547830a8a508855239dfb25911",
+        ".research/results/claude-opus-5.5/instances.tar.gz": "679883b5de81832527668ca1935af35f6647fa7b61c36374f6f9acdb381fa059",
         ".research/results/claude-opus-5.5/metrics.json": "f48e5b1004fa6d19c4f56d6666a36ada05f3ed52f4db54d109979b056499c7ba",
         ".research/results/claude-opus-5.5/tokens.json": "a379b604e40096b5791a6cec601b5f2ef313d65574f0243b45318fe1306bbe66"
       }

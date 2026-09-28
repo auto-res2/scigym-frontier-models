@@ -26,7 +26,7 @@
     "inputs_sha256": "2b9143a03f067ec23a474d3d6e287aee9043bbed2dbc6a0792a30e1d7af7c73d",
     "task_signature": "scigym_small/v1@139c6084495c",
     "versions": {
-      "airas-eval": "0.13.0",
+      "airas-eval": "0.13.1",
       "libroadrunner": "2.7.0",
       "python-libsbml": "5.20.4",
       "scigym": "0.0.1"
