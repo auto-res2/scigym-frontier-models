@@ -125,6 +125,24 @@
         ".research/results/gemini-3.1-pro/metrics.json": "a23503c853854494519fde32e06baef309b9c28e587d7257b70bdc6cfe5d107a",
         ".research/results/gemini-3.1-pro/tokens.json": "85f071f3091a9cc1031f314e2855dad45bf4f6809c68fa4c2234ae5f715bfefe"
       }
+    },
+    "claude-sonnet-5-large": {
+      "execution_id": "fbad883d-72ee-4c53-a420-15804d1cd7f1",
+      "backend": "seyval",
+      "commit_hash": "37117cf21295ad5a877538d65f1aafa57e236447",
+      "overrides": {
+        "run_id": "claude-sonnet-5-large",
+        "mode": "full",
+        "airas_eval_tasks": "scigym_large"
+      },
+      "parameters": {},
+      "files": {
+        ".research/results/claude-sonnet-5-large/eval_inputs/scigym_large.json": "fac635b195f5950770add872f1d5075d7f966298a9fe2c71384aa3d2f27401a6",
+        ".research/results/claude-sonnet-5-large/evaluation/scigym_large.json": "8970af7e97c2f8a6ba2cbb15c4d0666a9dccc708cde86447663d7d5db590cea1",
+        ".research/results/claude-sonnet-5-large/instances.tar.gz": "e727acb438165492c7dec300f8107b1446b5db7815736470ec69be3f148121a5",
+        ".research/results/claude-sonnet-5-large/metrics.json": "7cca7b6c229128bf768b2f2a4caf2c72faa031093ca93006dadf5601fdbb8ed1",
+        ".research/results/claude-sonnet-5-large/tokens.json": "d72fe9c49f4e1247cd296977f50363f24b88ad0ab77b441e1b0543f45b8ad64e"
+      }
     }
   }
 }
