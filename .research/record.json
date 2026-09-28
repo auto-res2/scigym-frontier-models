@@ -62,6 +62,12 @@
               "text_sha256": "6962b93197a327a1b5fee4d1518f2d4f3b002150b4aa79a98b0969c4454ae2d5",
               "model": "gpt-4.1",
               "supported": true
+            },
+            {
+              "text_sha256": "4e212ba919d58624a3c66a92f96da0bc7828c4864926246820698dad7226ae47",
+              "model": "gpt-4.1",
+              "supported": false,
+              "reason": "The cited passage only says the evaluation was restricted to SCIGYM-small for resource reasons; it does not provide any of the quantitative claims about performance on the large split that the citing text reports."
             }
           ]
         },
@@ -129,6 +135,31 @@
               "text_sha256": "b013efaa5c1b55f8b1cf17a931de7579b1a5a6f334af002d04ebb1856531f356",
               "model": "gpt-4.1",
               "supported": true
+            },
+            {
+              "text_sha256": "a83c23ed120fcbe80d2f7b89d66b4dd6bdf9711a9fde2c03ffe080c766418f0f",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "039c4e0ef6a663140593baecd7925f74a3d83c7c75043b0e60761a4b13d659f9",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "b64732a18b6f6c10619af1efaac91ffa30b787a4f8c675e2ca080ebddaa2cd9a",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "484ab7b8399504cbd29e7d9ee7982d799eb27ff2b4c3d5a4ab783f0098fd961d",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "0c9087a5432d4e8af0f734f323f73e26bedb7e0646bce6d286f959948b1d0c7d",
+              "model": "gpt-4.1",
+              "supported": true
             }
           ]
         },
@@ -139,6 +170,11 @@
           "judgments": [
             {
               "text_sha256": "9cd4ca6bcc9b55bc54ce95fb2ba7f54de7477276bd9e4ed5b24c3414a24d8024",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "a4e13af84d4770738a21af7a23cb9882b0204d5a1e4ab979bcd9c44e515a5f2a",
               "model": "gpt-4.1",
               "supported": true
             }
@@ -163,6 +199,11 @@
           "judgments": [
             {
               "text_sha256": "9cd4ca6bcc9b55bc54ce95fb2ba7f54de7477276bd9e4ed5b24c3414a24d8024",
+              "model": "gpt-4.1",
+              "supported": true
+            },
+            {
+              "text_sha256": "0f0dc5b2bfb835561677ae6f7ec58acd0d8d88572a275c2fa3c2d03ad8dbc79f",
               "model": "gpt-4.1",
               "supported": true
             }
@@ -304,6 +345,12 @@
               "model": "gpt-4.1",
               "supported": true,
               "reason": "The citing text accurately reports the exact value 0.4148 (rounded) for Gemini-2.5-Pro, matching the 'ste' value in the source passage."
+            },
+            {
+              "text_sha256": "23e6648684ea81920e306cfb17c2bff721f481a9bb3274d108beeb0c266147d0",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The passage gives the value 0.4148 for 'ste' as cited in the text, so the citation is accurate and supported."
             }
           ]
         },
@@ -406,6 +453,18 @@
               "model": "gpt-4.1",
               "supported": true,
               "reason": "The citing text refers to the value 0.2100 as the trajectory_smape achieved by kimi-k2.6, which matches the quoted passage and the full context, and does not go beyond what is stated."
+            },
+            {
+              "text_sha256": "8aefe36a0b0044131ff0f1dcbd33cc4cfef3848dec9c43ef76eb74c1609cec44",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The cited value for kimi-k2.6's trajectory_smape (0.2100) matches the quoted passage (0.210049...), and claiming it is the best open-weight from prior work with that metric is supported by the passage."
+            },
+            {
+              "text_sha256": "e19faf8545c789b8da28a7e63593d855a8e9cf60b9a4ce04e6e29ee5d5ca9888",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The cited passage provides the value 0.2100 for 'trajectory_smape', which is presented accurately in the citing text; there is no overstatement or misrepresentation."
             }
           ]
         },
@@ -505,6 +564,12 @@
               "model": "gpt-4.1",
               "supported": true,
               "reason": "The citing text uses the value '0.25' as a rounded figure, and the source's 'trajectory_smape' is about 0.248, which is faithful for summarizing the distribution as being around 0.25. No qualifiers or important context are omitted."
+            },
+            {
+              "text_sha256": "a4e13af84d4770738a21af7a23cb9882b0204d5a1e4ab979bcd9c44e515a5f2a",
+              "model": "gpt-4.1",
+              "supported": false,
+              "reason": "The quoted passage only provides a single metric value ('trajectory_smape') for an unspecified model/case, and does not support any claim about one model outperforming another (e.g., qwen3.8-27b versus qwen3.6-35b) or the comparison between generations or model sizes."
             }
           ]
         },
@@ -530,6 +595,12 @@
               "model": "gpt-4.1",
               "supported": true,
               "reason": "The citing text refers to a 27B class result achieving a value of 0.46, and the quoted passage provides an exact value of 'trajectory_smape': 0.457..., which in context rounds to 0.46; thus, the citation faithfully reflects the source data."
+            },
+            {
+              "text_sha256": "a4e13af84d4770738a21af7a23cb9882b0204d5a1e4ab979bcd9c44e515a5f2a",
+              "model": "gpt-4.1",
+              "supported": false,
+              "reason": "The cited passage only contains a single metric value; it does not support the claim about 'qwen3.8-27b outperforming qwen3.6-35b', nor the comparison between model generations and scales. Context linking the result to model comparison or trends is missing."
             }
           ]
         }
