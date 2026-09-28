@@ -49,3 +49,49 @@
 \item 平均 STE が「論文の最良行に届くか」を代表すること。RMS（modifier あり / なし）と NTS は同じ実行から表として報告するが、判定基準には用いない（c1〜c6）
 \item ゲートウェイの予算超過（HTTP 402）で run が途中で止まらないこと。止まった場合はその run を最初からやり直す（c1〜c6）
 \end{itemize}
+\noindent\textbf{Hypothesis 2.} 同じ 6 モデル（gpt-6-sol、gpt-6-luna、claude-opus-5.5、claude-sonnet-5、gemini-3.1-pro-preview、gemini-3.8-flash）は、同じ Controller と条件（最大 20 反復、temperature 1.0）で、論文が評価していないより大きな系からなる SciGym-large 213 件を解かせたときも、いずれも平均 STE が論文 Table 1（SciGym-small）の最良行 Gemini-2.5-Pro の 0.3212 以下になる。~\cite[s1.p2, s1.p5, s1.p10]{duan-2025-measuring}, \cite[s4.p2]{scigymrikyuopenmodels-2026-scigym}
+\begin{enumerate}
+\item[\textbf{Claim 7}] gpt-6-sol（openai/gpt-6-sol）で SciGym-large 213 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。~\cite[s1.p2, s1.p3, s1.p4, s1.p5]{duan-2025-measuring}, \cite[s4.p2]{scigymrikyuopenmodels-2026-scigym}, \cite[s2.p1]{h4duan-2025-scigym}
+  \emph{Rationale:} small での水準をより大きな系でも保てば、h2 の gpt-6-sol の部分を担う。
+  \emph{Criterion:} \texttt{\detokenize{gpt-6-sol-large}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.3212 $\leq 0$.
+  \emph{Prediction:} $[-0.1, 0.1]$ (small での予測（open-weight の上位が 0.21〜0.24、s4.p2〜s4.p4）に、系が大きくなる分の悪化を見込む。先行値が無く幅を広く取る).
+  \emph{Observed:} pending.
+  \emph{Verdict:} pending.
+\item[\textbf{Claim 8}] gpt-6-luna（openai/gpt-6-luna）で SciGym-large 213 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。~\cite[s1.p2, s1.p3, s1.p4, s1.p5]{duan-2025-measuring}, \cite[s4.p5]{scigymrikyuopenmodels-2026-scigym}, \cite[s2.p1]{h4duan-2025-scigym}
+  \emph{Rationale:} c7 と同じ。h2 の gpt-6-luna の部分を担う。
+  \emph{Criterion:} \texttt{\detokenize{gpt-6-luna-large}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.3212 $\leq 0$.
+  \emph{Prediction:} $[-0.05, 0.15]$ (最小クラスのモデルは small でも基準の前後と予測しており、large では上回る可能性が高い（s4.p5、s4.p6）).
+  \emph{Observed:} pending.
+  \emph{Verdict:} pending.
+\item[\textbf{Claim 9}] claude-opus-5.5（anthropic/claude-opus-5.5）で SciGym-large 213 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。~\cite[s1.p2, s1.p3, s1.p4, s1.p5]{duan-2025-measuring}, \cite[s4.p3]{scigymrikyuopenmodels-2026-scigym}, \cite[s2.p1]{h4duan-2025-scigym}
+  \emph{Rationale:} c7 と同じ。h2 の claude-opus-5.5 の部分を担う。
+  \emph{Criterion:} \texttt{\detokenize{claude-opus-5.5-large}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.3212 $\leq 0$.
+  \emph{Prediction:} $[-0.1, 0.1]$ (c7 と同じ).
+  \emph{Observed:} pending.
+  \emph{Verdict:} pending.
+\item[\textbf{Claim 10}] claude-sonnet-5（anthropic/claude-sonnet-5）で SciGym-large 213 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。~\cite[s1.p2, s1.p3, s1.p4, s1.p5]{duan-2025-measuring}, \cite[s4.p4]{scigymrikyuopenmodels-2026-scigym}, \cite[s2.p1]{h4duan-2025-scigym}
+  \emph{Rationale:} c7 と同じ。h2 の claude-sonnet-5 の部分を担う。
+  \emph{Criterion:} \texttt{\detokenize{claude-sonnet-5-large}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.3212 $\leq 0$.
+  \emph{Prediction:} $[-0.1, 0.1]$ (c7 と同じ).
+  \emph{Observed:} pending.
+  \emph{Verdict:} pending.
+\item[\textbf{Claim 11}] gemini-3.1-pro-preview（google/gemini-3.1-pro-preview）で SciGym-large 213 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。~\cite[s1.p2, s1.p3, s1.p4, s1.p5]{duan-2025-measuring}, \cite[s3.p2]{scigymtable1reproduction-2026-scigym}, \cite[s2.p1]{h4duan-2025-scigym}
+  \emph{Rationale:} c7 と同じ。h2 の gemini-3.1-pro-preview の部分を担う。
+  \emph{Criterion:} \texttt{\detokenize{gemini-3.1-pro-large}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.3212 $\leq 0$.
+  \emph{Prediction:} $[-0.1, 0.1]$ (c7 と同じ).
+  \emph{Observed:} pending.
+  \emph{Verdict:} pending.
+\item[\textbf{Claim 12}] gemini-3.8-flash（google/gemini-3.8-flash）で SciGym-large 213 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。~\cite[s1.p2, s1.p3, s1.p4, s1.p5]{duan-2025-measuring}, \cite[s3.p3]{scigymtable1reproduction-2026-scigym}, \cite[s2.p1]{h4duan-2025-scigym}
+  \emph{Rationale:} c7 と同じ。h2 の gemini-3.8-flash の部分を担う。
+  \emph{Criterion:} \texttt{\detokenize{gemini-3.8-flash-large}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.3212 $\leq 0$.
+  \emph{Prediction:} $[-0.05, 0.15]$ (c8 と同じ（s3.p3）).
+  \emph{Observed:} pending.
+  \emph{Verdict:} pending.
+\end{enumerate}
+\noindent\emph{Assumed, so that the claims together imply Hypothesis 2:}
+\begin{itemize}
+\item large split には論文の公表値が無いので、論文の small での最良値を絶対水準の基準とする。small との難易度の差は表で並べて示すが、判定には用いない（c7〜c12）
+\item 213 件平均の実行間変動が判定に対して十分小さいこと。件ごとの標準偏差を 0.27 とすれば平均の標準誤差はおよそ 0.02（c7〜c12）
+\item 評価層 scigym\_large（airas-eval v0.13.0）が公式リリースの large split 213 件を sha256 で固定し、small と同じ公式 Evaluator で採点すること（c7〜c12）
+\item 文脈長や時間切れで提出に至らなかった件は不完全モデルの採点値で平均に含める。ゲートウェイのモデルは文脈長が 400k トークン以上あり、20 反復では超えないと見る（c7〜c12）
+\end{itemize}

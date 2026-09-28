@@ -937,6 +937,417 @@
       "notes": [
         "ギャップ: SciGym 論文（s1）は 2025 年春の 6 モデルの Table 1 を報告しているが、その後の世代で同じ課題がどこまで解けるようになったかは示されていない。先行する AIRAS の研究は同名モデルの再現（s3）と open-weight モデルの評価（s4）を行った。本研究は同じ Controller・同じ条件で 2026 年 9 月時点の各社最新 6 モデルを走らせ、論文の Table 1 をそのまま並べて報告する。"
       ]
+    },
+    {
+      "id": "h2",
+      "statement": "同じ 6 モデル（gpt-6-sol、gpt-6-luna、claude-opus-5.5、claude-sonnet-5、gemini-3.1-pro-preview、gemini-3.8-flash）は、同じ Controller と条件（最大 20 反復、temperature 1.0）で、論文が評価していないより大きな系からなる SciGym-large 213 件を解かせたときも、いずれも平均 STE が論文 Table 1（SciGym-small）の最良行 Gemini-2.5-Pro の 0.3212 以下になる。",
+      "assumptions": [
+        "large split には論文の公表値が無いので、論文の small での最良値を絶対水準の基準とする。small との難易度の差は表で並べて示すが、判定には用いない（c7〜c12）",
+        "213 件平均の実行間変動が判定に対して十分小さいこと。件ごとの標準偏差を 0.27 とすれば平均の標準誤差はおよそ 0.02（c7〜c12）",
+        "評価層 scigym_large（airas-eval v0.13.0）が公式リリースの large split 213 件を sha256 で固定し、small と同じ公式 Evaluator で採点すること（c7〜c12）",
+        "文脈長や時間切れで提出に至らなかった件は不完全モデルの採点値で平均に含める。ゲートウェイのモデルは文脈長が 400k トークン以上あり、20 反復では超えないと見る（c7〜c12）"
+      ],
+      "grounded_on": [
+        "s1.p2",
+        "s1.p5",
+        "s1.p10",
+        "s4.p2"
+      ],
+      "claims": [
+        {
+          "id": "c7",
+          "statement": "gpt-6-sol（openai/gpt-6-sol）で SciGym-large 213 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。",
+          "rationale": "small での水準をより大きな系でも保てば、h2 の gpt-6-sol の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d7",
+              "summary": "d1 と同じ設定でデータを SciGym-large 213 件（公式リリースの large split）に替え、評価層 scigym_large で採点する。モデルは openai/gpt-6-sol。",
+              "runs": [
+                {
+                  "run_id": "gpt-6-sol-large",
+                  "description": "gpt-6-sol で SciGym-large 213 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "cites_passages": [
+                    "s1.p3"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p2",
+            "s1.p3",
+            "s1.p4",
+            "s1.p5",
+            "s4.p2"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "gpt-6-sol-large",
+            "reference": 0.3212,
+            "op": "<=",
+            "reference_passage": "s1.p5"
+          },
+          "prediction": {
+            "low": -0.1,
+            "high": 0.1,
+            "basis": "small での予測（open-weight の上位が 0.21〜0.24、s4.p2〜s4.p4）に、系が大きくなる分の悪化を見込む。先行値が無く幅を広く取る"
+          }
+        },
+        {
+          "id": "c8",
+          "statement": "gpt-6-luna（openai/gpt-6-luna）で SciGym-large 213 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。",
+          "rationale": "c7 と同じ。h2 の gpt-6-luna の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d8",
+              "summary": "d7 と同じ設定でモデルを openai/gpt-6-luna に替える。",
+              "runs": [
+                {
+                  "run_id": "gpt-6-luna-large",
+                  "description": "gpt-6-luna で SciGym-large 213 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "cites_passages": [
+                    "s1.p3"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p2",
+            "s1.p3",
+            "s1.p4",
+            "s1.p5",
+            "s4.p5"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "gpt-6-luna-large",
+            "reference": 0.3212,
+            "op": "<=",
+            "reference_passage": "s1.p5"
+          },
+          "prediction": {
+            "low": -0.05,
+            "high": 0.15,
+            "basis": "最小クラスのモデルは small でも基準の前後と予測しており、large では上回る可能性が高い（s4.p5、s4.p6）"
+          }
+        },
+        {
+          "id": "c9",
+          "statement": "claude-opus-5.5（anthropic/claude-opus-5.5）で SciGym-large 213 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。",
+          "rationale": "c7 と同じ。h2 の claude-opus-5.5 の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d9",
+              "summary": "d7 と同じ設定でモデルを anthropic/claude-opus-5.5 に替える。",
+              "runs": [
+                {
+                  "run_id": "claude-opus-5.5-large",
+                  "description": "claude-opus-5.5 で SciGym-large 213 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "cites_passages": [
+                    "s1.p3"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p2",
+            "s1.p3",
+            "s1.p4",
+            "s1.p5",
+            "s4.p3"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "claude-opus-5.5-large",
+            "reference": 0.3212,
+            "op": "<=",
+            "reference_passage": "s1.p5"
+          },
+          "prediction": {
+            "low": -0.1,
+            "high": 0.1,
+            "basis": "c7 と同じ"
+          }
+        },
+        {
+          "id": "c10",
+          "statement": "claude-sonnet-5（anthropic/claude-sonnet-5）で SciGym-large 213 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。",
+          "rationale": "c7 と同じ。h2 の claude-sonnet-5 の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d10",
+              "summary": "d7 と同じ設定でモデルを anthropic/claude-sonnet-5 に替える。",
+              "runs": [
+                {
+                  "run_id": "claude-sonnet-5-large",
+                  "description": "claude-sonnet-5 で SciGym-large 213 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "cites_passages": [
+                    "s1.p3"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p2",
+            "s1.p3",
+            "s1.p4",
+            "s1.p5",
+            "s4.p4"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "claude-sonnet-5-large",
+            "reference": 0.3212,
+            "op": "<=",
+            "reference_passage": "s1.p5"
+          },
+          "prediction": {
+            "low": -0.1,
+            "high": 0.1,
+            "basis": "c7 と同じ"
+          }
+        },
+        {
+          "id": "c11",
+          "statement": "gemini-3.1-pro-preview（google/gemini-3.1-pro-preview）で SciGym-large 213 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。",
+          "rationale": "c7 と同じ。h2 の gemini-3.1-pro-preview の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d11",
+              "summary": "d7 と同じ設定でモデルを google/gemini-3.1-pro-preview に替える。",
+              "runs": [
+                {
+                  "run_id": "gemini-3.1-pro-large",
+                  "description": "gemini-3.1-pro-preview で SciGym-large 213 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "cites_passages": [
+                    "s1.p3"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p2",
+            "s1.p3",
+            "s1.p4",
+            "s1.p5",
+            "s3.p2"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "gemini-3.1-pro-large",
+            "reference": 0.3212,
+            "op": "<=",
+            "reference_passage": "s1.p5"
+          },
+          "prediction": {
+            "low": -0.1,
+            "high": 0.1,
+            "basis": "c7 と同じ"
+          }
+        },
+        {
+          "id": "c12",
+          "statement": "gemini-3.8-flash（google/gemini-3.8-flash）で SciGym-large 213 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。",
+          "rationale": "c7 と同じ。h2 の gemini-3.8-flash の部分を担う。",
+          "verifier": {
+            "kind": "seyval"
+          },
+          "designs": [
+            {
+              "id": "d12",
+              "summary": "d7 と同じ設定でモデルを google/gemini-3.8-flash に替える。",
+              "runs": [
+                {
+                  "run_id": "gemini-3.8-flash-large",
+                  "description": "gemini-3.8-flash で SciGym-large 213 件を 20 反復で実行",
+                  "params": {
+                    "mode": "full"
+                  },
+                  "cites_passages": [
+                    "s1.p3"
+                  ]
+                }
+              ],
+              "cites_passages": [
+                "s1.p3",
+                "s1.p4",
+                "s2.p1"
+              ]
+            }
+          ],
+          "cites_passages": [
+            "s1.p2",
+            "s1.p3",
+            "s1.p4",
+            "s1.p5",
+            "s3.p3"
+          ],
+          "criterion": {
+            "metric": "trajectory_smape",
+            "subject": "gemini-3.8-flash-large",
+            "reference": 0.3212,
+            "op": "<=",
+            "reference_passage": "s1.p5"
+          },
+          "prediction": {
+            "low": -0.05,
+            "high": 0.15,
+            "basis": "c8 と同じ（s3.p3）"
+          }
+        }
+      ],
+      "tables": [
+        {
+          "key": "large",
+          "caption": "SciGym-large 213 件における最新モデル 6 種の平均 STE（低いほど良い）、論文 Table 1 の最良行（Gemini-2.5-Pro、0.3212）との差、Reaction Matching Score の適合率 / 再現率 / F1（modifier なし・あり）、有効な提出件数。",
+          "columns": [
+            {
+              "header": "STE $\\downarrow$",
+              "ref_path": "trajectory_smape",
+              "round": 3
+            },
+            {
+              "header": "$\\Delta$ vs Gemini-2.5-Pro",
+              "ref_path": "trajectory_smape",
+              "reference": {
+                "passage": "s1.p5",
+                "values": {
+                  "gpt-6-sol-large": 0.3212,
+                  "gpt-6-luna-large": 0.3212,
+                  "claude-opus-5.5-large": 0.3212,
+                  "claude-sonnet-5-large": 0.3212,
+                  "gemini-3.1-pro-large": 0.3212,
+                  "gemini-3.8-flash-large": 0.3212
+                }
+              },
+              "round": 3
+            },
+            {
+              "header": "P",
+              "ref_path": "reaction_precision",
+              "round": 3
+            },
+            {
+              "header": "R",
+              "ref_path": "reaction_recall",
+              "round": 3
+            },
+            {
+              "header": "F1",
+              "ref_path": "reaction_f1",
+              "round": 3
+            },
+            {
+              "header": "P$_m$",
+              "ref_path": "reaction_precision_with_modifiers",
+              "round": 3
+            },
+            {
+              "header": "R$_m$",
+              "ref_path": "reaction_recall_with_modifiers",
+              "round": 3
+            },
+            {
+              "header": "F1$_m$",
+              "ref_path": "reaction_f1_with_modifiers",
+              "round": 3
+            },
+            {
+              "header": "n\\_valid",
+              "ref_path": "n_valid_submissions",
+              "round": 0
+            }
+          ],
+          "rows": [
+            {
+              "run_id": "gpt-6-sol-large",
+              "label": "gpt-6-sol"
+            },
+            {
+              "run_id": "gpt-6-luna-large",
+              "label": "gpt-6-luna"
+            },
+            {
+              "run_id": "claude-opus-5.5-large",
+              "label": "claude-opus-5.5"
+            },
+            {
+              "run_id": "claude-sonnet-5-large",
+              "label": "claude-sonnet-5"
+            },
+            {
+              "run_id": "gemini-3.1-pro-large",
+              "label": "gemini-3.1-pro-preview"
+            },
+            {
+              "run_id": "gemini-3.8-flash-large",
+              "label": "gemini-3.8-flash"
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "2026-09-28: 利用者の指示で large split（213 件）を追加した。small の 6 run（h1）は凍結時のままで、large の 6 run をこの仮説として追記する。反復上限は論文どおり 20 のまま。"
+      ]
     }
   ]
 }
