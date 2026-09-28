@@ -1018,6 +1018,77 @@
                         "n_context_overflow": 0,
                         "n_not_finished": 0
                       }
+                    },
+                    {
+                      "id": "68d86342-5154-46dd-a018-d8ebffc31661",
+                      "commit": "66be44d2212fbffeedb6caa0b5b6c3116f5fdc00",
+                      "eval_inputs": {
+                        "path": ".research/results/claude-opus-5.5/eval_inputs/scigym_small.json.gz",
+                        "sha256": "10a7a6618126adf5877aa0cc586de9fe3ef5df1a435899d9d62e5cbad2a793b3"
+                      },
+                      "eval_report": {
+                        "task_type": "scigym_small",
+                        "task_signature": "scigym_small/v1@139c6084495c",
+                        "inputs_sha256": "2b9143a03f067ec23a474d3d6e287aee9043bbed2dbc6a0792a30e1d7af7c73d",
+                        "versions": {
+                          "airas-eval": "0.13.1",
+                          "libroadrunner": "2.7.0",
+                          "python-libsbml": "5.20.4",
+                          "scigym": "0.0.1"
+                        },
+                        "metrics": {
+                          "reaction_f1": 0.6593786133717435,
+                          "reaction_f1_vs_best_published": 0.32107861337174354,
+                          "reaction_f1_with_modifiers": 0.4508092928015639,
+                          "reaction_precision": 0.6743993638154221,
+                          "reaction_precision_with_modifiers": 0.4611311235398825,
+                          "reaction_recall": 0.6656731549067316,
+                          "reaction_recall_with_modifiers": 0.45532672923183864,
+                          "topology_f1": 0.8323025865326115,
+                          "topology_f1_modifier_product": 0.4029239699156578,
+                          "topology_f1_reactant_modifier": 0.35351573377889167,
+                          "topology_f1_reactant_product": 0.5851186408587576,
+                          "topology_precision": 0.9171229599424664,
+                          "topology_recall": 0.8062142215666649,
+                          "trajectory_smape": 0.06570343988121301,
+                          "trajectory_smape_vs_best_published": -0.25549656011878696
+                        },
+                        "inputs_summary": {
+                          "n_instances": 137.0,
+                          "n_valid_submissions": 137.0
+                        },
+                        "skipped": {
+                          "missing_dependency": {},
+                          "missing_optional_input": [],
+                          "not_applicable": {},
+                          "undefined_on_data": {}
+                        }
+                      },
+                      "metrics": {
+                        "reaction_f1": 0.6593786133717435,
+                        "reaction_f1_vs_best_published": 0.32107861337174354,
+                        "reaction_f1_with_modifiers": 0.4508092928015639,
+                        "reaction_precision": 0.6743993638154221,
+                        "reaction_precision_with_modifiers": 0.4611311235398825,
+                        "reaction_recall": 0.6656731549067316,
+                        "reaction_recall_with_modifiers": 0.45532672923183864,
+                        "topology_f1": 0.8323025865326115,
+                        "topology_f1_modifier_product": 0.4029239699156578,
+                        "topology_f1_reactant_modifier": 0.35351573377889167,
+                        "topology_f1_reactant_product": 0.5851186408587576,
+                        "topology_precision": 0.9171229599424664,
+                        "topology_recall": 0.8062142215666649,
+                        "trajectory_smape": 0.06570343988121301,
+                        "trajectory_smape_vs_best_published": -0.25549656011878696,
+                        "n_instances": 137.0,
+                        "n_valid_submissions": 137.0,
+                        "input_tokens": 21943157,
+                        "output_tokens": 1890512,
+                        "mean_iterations": 12.700729927007298,
+                        "n_early_submit": 133,
+                        "n_context_overflow": 0,
+                        "n_not_finished": 0
+                      }
                     }
                   ],
                   "cites_passages": [
