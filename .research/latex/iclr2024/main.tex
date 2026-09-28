@@ -22,7 +22,7 @@
 \maketitle
 
 \begin{abstract}
-SciGym \citep{duan-2025-measuring} は、反応をすべて取り除いた SBML モデルを LLM エージェントに渡し、摂動実験とコード実行を繰り返して反応機構を復元させるベンチマークである。論文の Table 1 は 2025 年春の 3 社のフロンティアモデル 6 つを SciGym-small 137 件で各 1 回走らせた平均値を報告している。本研究は、公開コードの Controller と評価器をそのまま用い、論文と同じ条件（137 件、最大 20 反復、temperature 1.0）で、2026 年 9 月時点で Vercel AI Gateway から利用できる各社の最新モデル 6 種（OpenAI の gpt-6-sol と gpt-6-luna、Anthropic の claude-opus-5.5 と claude-sonnet-5、Google の gemini-3.1-pro-preview と gemini-3.8-flash）を評価し、論文の Table 1 をそのまま並べて報告する。あわせて、論文が評価していない large split 213 件も同じ条件で走らせる。実験前に、small と large のそれぞれで 6 モデルすべての平均 Simulation Trajectory Error（STE）が論文 Table 1 の最良行（Gemini-2.5-Pro の 0.3212）以下であることを反証線として登録する。Reaction Matching Score（RMS）と Network Topology Score（NTS）は同じ実行から表として報告する。
+SciGym \citep{duan-2025-measuring} は、反応をすべて取り除いた SBML モデルを LLM エージェントに渡し、摂動実験とコード実行を繰り返して反応機構を復元させるベンチマークである。論文の Table 1 は 2025 年春の 3 社のフロンティアモデル 6 つを SciGym-small 137 件で各 1 回走らせた平均値を報告している。本研究は、公開コードの Controller と評価器をそのまま用い、論文と同じ条件（137 件、最大 20 反復、temperature 1.0）で、2026 年 9 月時点で Vercel AI Gateway から利用できる各社の最新モデル 6 種（OpenAI の gpt-6-sol と gpt-6-luna、Anthropic の claude-opus-5.5 と claude-sonnet-5、Google の gemini-3.1-pro-preview と gemini-3.8-flash）を評価し、論文の Table 1 をそのまま並べて報告する。あわせて、論文が評価していない large split 213 件も同じ条件で走らせる。実験前に、small と large のそれぞれで 6 モデルすべての平均 Simulation Trajectory Error（STE）が論文 Table 1 の最良行（Gemini-2.5-Pro の 0.3212）以下であることを反証線として登録する。Reaction Matching Score（RMS）と Network Topology Score（NTS）は同じ実行から表として報告する。結果: small では 6 モデルすべてが論文最良行を下回り（仮説 1 は全主張が支持）、gpt-6-sol と claude-opus-5.5 の STE は 0.05〜0.07 と論文最良の 7 分の 1 から 5 分の 1 に達した。large ではこの 2 モデルだけが論文最良行の水準を保ち、他の 4 モデルは上回った（仮説 2 は 2 主張が支持、4 主張が反証）。claude-opus-5.5 の応答拒否、large での文脈超過、ODE ソルバー内での停止という 3 つの系統的な要因を件数とともに報告する。
 \end{abstract}
 
 \section{はじめに}
@@ -87,15 +87,87 @@ small: \texttt{gpt-6-sol} $\to$ Claim 1、\texttt{gpt-6-luna} $\to$ Claim 2、\t
 
 \section{結果}
 \label{sec:results}
-実験は未実施である。実行後にこの節へ、small の各 run の平均 STE、論文最良行との差、RMS、有効提出件数を \texttt{table1}、large を \texttt{large} として、論文 Table 1 の 6 行と並べた対比表とともに記入する。
+表~\ref{tab:table1} に small（137 件）、表~\ref{tab:large} に large（213 件）の各 run の平均 STE、論文 Table 1 の最良行 Gemini-2.5-Pro（\unverified{0.3212}）\cite[s1.p5]{duan-2025-measuring} との差、RMS の適合率・再現率・F1（modifier なし / あり）、有効な SBML が提出された件数を示す。各値は評価層 \texttt{scigym\_small} / \texttt{scigym\_large} のレポートから記録経由で流し込んだものである。
+
+{\scriptsize\setlength{\tabcolsep}{2.5pt}\input{tables/table1.tex}}
+
+{\scriptsize\setlength{\tabcolsep}{2.5pt}\input{tables/large.tex}}
+
+表~\ref{tab:comparison} は、論文 Table 1 の 6 モデルの値 \cite[s1.p5]{duan-2025-measuring} と本研究の 12 run の値を同じ列構成で並べたものである。論文の値は引用としての転記で未検証の印を付け、本研究の値は記録から流し込んだものをそのまま表示している。
+
+\begin{table}[t]
+  \centering
+  \caption{論文 Table 1（Duan et al. \cite[s1.p5]{duan-2025-measuring}、SciGym-small 137 件、各モデル 1 回実行）と本研究の値の対比。STE は低いほど、RMS の P・R・F1 は高いほど良い。w/ は modifier あり、w/o は modifier なし。上段 6 行は論文からの転記（未検証）、下段は本研究の記録由来の値で、有効提出は有効な SBML が提出された件数（small は 137 件中、large は 213 件中。論文は報告していない）。}
+  \label{tab:comparison}
+  {\scriptsize\setlength{\tabcolsep}{2.5pt}
+  \begin{tabular}{lrrrrrrrr}
+    \hline
+    & STE $\downarrow$ & w/ P & w/ R & w/ F1 & w/o P & w/o R & w/o F1 & 有効提出 \\
+    \hline
+    \multicolumn{9}{l}{\emph{論文 Table 1（2025 年春の 6 モデル、SciGym-small）}} \\
+    Gemini-2.5-Flash & \unverified{0.4181} & \unverified{0.1527} & \unverified{0.1071} & \unverified{0.1217} & \unverified{0.2399} & \unverified{0.1839} & \unverified{0.2005} & --- \\
+    GPT-4.1-mini & \unverified{0.6007} & \unverified{0.1516} & \unverified{0.1253} & \unverified{0.1320} & \unverified{0.2530} & \unverified{0.2313} & \unverified{0.2322} & --- \\
+    Claude-3.5-Haiku & \unverified{0.6281} & \unverified{0.0858} & \unverified{0.0421} & \unverified{0.0530} & \unverified{0.1454} & \unverified{0.0805} & \unverified{0.0987} & --- \\
+    Gemini-2.5-Pro & \unverified{0.3212} & \unverified{0.2138} & \unverified{0.1664} & \unverified{0.1817} & \unverified{0.3781} & \unverified{0.3219} & \unverified{0.3383} & --- \\
+    GPT-4.1 & \unverified{0.4611} & \unverified{0.2067} & \unverified{0.1597} & \unverified{0.1740} & \unverified{0.3517} & \unverified{0.2888} & \unverified{0.3038} & --- \\
+    Claude-3.7-Sonnet & \unverified{0.3615} & \unverified{0.1780} & \unverified{0.1698} & \unverified{0.1688} & \unverified{0.3160} & \unverified{0.3170} & \unverified{0.3047} & --- \\
+    \hline
+    \multicolumn{9}{l}{\emph{本研究、SciGym-small 137 件（2026 年 9 月の 6 モデル）}} \\
+    gpt-6-sol & \airasval{gpt-6-sol.trajectory_smape} & \airasval{gpt-6-sol.reaction_precision_with_modifiers} & \airasval{gpt-6-sol.reaction_recall_with_modifiers} & \airasval{gpt-6-sol.reaction_f1_with_modifiers} & \airasval{gpt-6-sol.reaction_precision} & \airasval{gpt-6-sol.reaction_recall} & \airasval{gpt-6-sol.reaction_f1} & \airasval{gpt-6-sol.n_valid_submissions} \\
+    gpt-6-luna & \airasval{gpt-6-luna.trajectory_smape} & \airasval{gpt-6-luna.reaction_precision_with_modifiers} & \airasval{gpt-6-luna.reaction_recall_with_modifiers} & \airasval{gpt-6-luna.reaction_f1_with_modifiers} & \airasval{gpt-6-luna.reaction_precision} & \airasval{gpt-6-luna.reaction_recall} & \airasval{gpt-6-luna.reaction_f1} & \airasval{gpt-6-luna.n_valid_submissions} \\
+    claude-opus-5.5 & \airasval{claude-opus-5.5.trajectory_smape} & \airasval{claude-opus-5.5.reaction_precision_with_modifiers} & \airasval{claude-opus-5.5.reaction_recall_with_modifiers} & \airasval{claude-opus-5.5.reaction_f1_with_modifiers} & \airasval{claude-opus-5.5.reaction_precision} & \airasval{claude-opus-5.5.reaction_recall} & \airasval{claude-opus-5.5.reaction_f1} & \airasval{claude-opus-5.5.n_valid_submissions} \\
+    claude-sonnet-5 & \airasval{claude-sonnet-5.trajectory_smape} & \airasval{claude-sonnet-5.reaction_precision_with_modifiers} & \airasval{claude-sonnet-5.reaction_recall_with_modifiers} & \airasval{claude-sonnet-5.reaction_f1_with_modifiers} & \airasval{claude-sonnet-5.reaction_precision} & \airasval{claude-sonnet-5.reaction_recall} & \airasval{claude-sonnet-5.reaction_f1} & \airasval{claude-sonnet-5.n_valid_submissions} \\
+    gemini-3.1-pro-preview & \airasval{gemini-3.1-pro.trajectory_smape} & \airasval{gemini-3.1-pro.reaction_precision_with_modifiers} & \airasval{gemini-3.1-pro.reaction_recall_with_modifiers} & \airasval{gemini-3.1-pro.reaction_f1_with_modifiers} & \airasval{gemini-3.1-pro.reaction_precision} & \airasval{gemini-3.1-pro.reaction_recall} & \airasval{gemini-3.1-pro.reaction_f1} & \airasval{gemini-3.1-pro.n_valid_submissions} \\
+    gemini-3.8-flash & \airasval{gemini-3.8-flash.trajectory_smape} & \airasval{gemini-3.8-flash.reaction_precision_with_modifiers} & \airasval{gemini-3.8-flash.reaction_recall_with_modifiers} & \airasval{gemini-3.8-flash.reaction_f1_with_modifiers} & \airasval{gemini-3.8-flash.reaction_precision} & \airasval{gemini-3.8-flash.reaction_recall} & \airasval{gemini-3.8-flash.reaction_f1} & \airasval{gemini-3.8-flash.n_valid_submissions} \\
+    \hline
+    \multicolumn{9}{l}{\emph{本研究、SciGym-large 213 件}} \\
+    gpt-6-sol & \airasval{gpt-6-sol-large.trajectory_smape} & \airasval{gpt-6-sol-large.reaction_precision_with_modifiers} & \airasval{gpt-6-sol-large.reaction_recall_with_modifiers} & \airasval{gpt-6-sol-large.reaction_f1_with_modifiers} & \airasval{gpt-6-sol-large.reaction_precision} & \airasval{gpt-6-sol-large.reaction_recall} & \airasval{gpt-6-sol-large.reaction_f1} & \airasval{gpt-6-sol-large.n_valid_submissions} \\
+    gpt-6-luna & \airasval{gpt-6-luna-large.trajectory_smape} & \airasval{gpt-6-luna-large.reaction_precision_with_modifiers} & \airasval{gpt-6-luna-large.reaction_recall_with_modifiers} & \airasval{gpt-6-luna-large.reaction_f1_with_modifiers} & \airasval{gpt-6-luna-large.reaction_precision} & \airasval{gpt-6-luna-large.reaction_recall} & \airasval{gpt-6-luna-large.reaction_f1} & \airasval{gpt-6-luna-large.n_valid_submissions} \\
+    claude-opus-5.5 & \airasval{claude-opus-5.5-large.trajectory_smape} & \airasval{claude-opus-5.5-large.reaction_precision_with_modifiers} & \airasval{claude-opus-5.5-large.reaction_recall_with_modifiers} & \airasval{claude-opus-5.5-large.reaction_f1_with_modifiers} & \airasval{claude-opus-5.5-large.reaction_precision} & \airasval{claude-opus-5.5-large.reaction_recall} & \airasval{claude-opus-5.5-large.reaction_f1} & \airasval{claude-opus-5.5-large.n_valid_submissions} \\
+    claude-sonnet-5 & \airasval{claude-sonnet-5-large.trajectory_smape} & \airasval{claude-sonnet-5-large.reaction_precision_with_modifiers} & \airasval{claude-sonnet-5-large.reaction_recall_with_modifiers} & \airasval{claude-sonnet-5-large.reaction_f1_with_modifiers} & \airasval{claude-sonnet-5-large.reaction_precision} & \airasval{claude-sonnet-5-large.reaction_recall} & \airasval{claude-sonnet-5-large.reaction_f1} & \airasval{claude-sonnet-5-large.n_valid_submissions} \\
+    gemini-3.1-pro-preview & \airasval{gemini-3.1-pro-large.trajectory_smape} & \airasval{gemini-3.1-pro-large.reaction_precision_with_modifiers} & \airasval{gemini-3.1-pro-large.reaction_recall_with_modifiers} & \airasval{gemini-3.1-pro-large.reaction_f1_with_modifiers} & \airasval{gemini-3.1-pro-large.reaction_precision} & \airasval{gemini-3.1-pro-large.reaction_recall} & \airasval{gemini-3.1-pro-large.reaction_f1} & \airasval{gemini-3.1-pro-large.n_valid_submissions} \\
+    gemini-3.8-flash & \airasval{gemini-3.8-flash-large.trajectory_smape} & \airasval{gemini-3.8-flash-large.reaction_precision_with_modifiers} & \airasval{gemini-3.8-flash-large.reaction_recall_with_modifiers} & \airasval{gemini-3.8-flash-large.reaction_f1_with_modifiers} & \airasval{gemini-3.8-flash-large.reaction_precision} & \airasval{gemini-3.8-flash-large.reaction_recall} & \airasval{gemini-3.8-flash-large.reaction_f1} & \airasval{gemini-3.8-flash-large.n_valid_submissions} \\
+    \hline
+  \end{tabular}}
+\end{table}
+
+\paragraph{主張の判定.}
+仮説 1（small）の各主張の反証線は「（当該モデルの平均 STE）$-$ \unverified{0.3212} $\le 0$」である（第\ref{sec:hypothesis}節）。平均 STE は gpt-6-sol が \airasval{gpt-6-sol.trajectory_smape}、claude-opus-5.5 が \airasval{claude-opus-5.5.trajectory_smape}、gemini-3.8-flash が \airasval{gemini-3.8-flash.trajectory_smape}、gpt-6-luna が \airasval{gpt-6-luna.trajectory_smape}、gemini-3.1-pro-preview が \airasval{gemini-3.1-pro.trajectory_smape}、claude-sonnet-5 が \airasval{claude-sonnet-5.trajectory_smape} で、Claim 1〜6 はすべて基準を満たした。論文最良行との差は $-0.27$ から $-0.07$ で、gpt-6-sol と claude-opus-5.5 の 2 つは事前の予測区間 $[-0.20, 0]$ を下に外れた。すなわち上位 2 モデルは予測より大きく論文の最良を引き離し、先行研究の open-weight 最良である kimi-k2.6 の \unverified{0.2100} \cite[s4.p2]{scigymrikyuopenmodels-2026-scigym} も 4 分の 1 以下の誤差である。残る 4 モデルは予測区間の内側で、論文最良行を 0.07〜0.10 下回るにとどまった。
+
+仮説 2（large）の反証線は同じ基準を large の 213 件に置いたものである。claude-opus-5.5 の \airasval{claude-opus-5.5-large.trajectory_smape}（Claim 9）と gpt-6-sol の \airasval{gpt-6-sol-large.trajectory_smape}（Claim 7）は基準を満たし、予測区間 $[-0.10, 0.10]$ を下に外れた。一方、gpt-6-luna の \airasval{gpt-6-luna-large.trajectory_smape}（Claim 8）、claude-sonnet-5 の \airasval{claude-sonnet-5-large.trajectory_smape}（Claim 10）、gemini-3.1-pro-preview の \airasval{gemini-3.1-pro-large.trajectory_smape}（Claim 11）、gemini-3.8-flash の \airasval{gemini-3.8-flash-large.trajectory_smape}（Claim 12）は基準を上回り、反証された。claude-sonnet-5 と gemini-3.1-pro-preview は予測区間の上限 0.10 も超えた。仮説 2 は 6 主張のうち 2 つが支持、4 つが反証で、全体としては成り立たない。
+
+\paragraph{RMS と NTS.}
+modifier なしの RMS F1 は、small では gemini-3.8-flash が \airasval{gemini-3.8-flash.reaction_f1} で最も高く、claude-opus-5.5 \airasval{claude-opus-5.5.reaction_f1}、gpt-6-sol \airasval{gpt-6-sol.reaction_f1}、gemini-3.1-pro-preview \airasval{gemini-3.1-pro.reaction_f1}、claude-sonnet-5 \airasval{claude-sonnet-5.reaction_f1}、gpt-6-luna \airasval{gpt-6-luna.reaction_f1} と続く。論文 Table 1 の最良 \unverified{0.3383} \cite[s1.p5]{duan-2025-measuring} を 6 モデルすべてが上回り、modifier ありの厳格版 \cite[s1.p8]{duan-2025-measuring} でも論文最良の \unverified{0.1817} を全モデルが上回った。STE の順位（gpt-6-sol $<$ claude-opus-5.5 $<$ gemini-3.8-flash $<$ gpt-6-luna $<$ gemini-3.1-pro-preview $<$ claude-sonnet-5）と RMS F1 の順位は上位で入れ替わる。gemini-3.8-flash は反応の一致では最良だが軌道の誤差は 3 位で、gpt-6-sol は軌道が最もよく合うが反応の一致は 3 位である。すなわち、真の反応集合に近い構造を当てることと、観測される時系列を再現することは別の能力である。large では RMS F1 が claude-opus-5.5 \airasval{claude-opus-5.5-large.reaction_f1}、gemini-3.8-flash \airasval{gemini-3.8-flash-large.reaction_f1}、gpt-6-sol \airasval{gpt-6-sol-large.reaction_f1} の 3 つだけが論文最良の \unverified{0.3383} を保ち、gpt-6-luna は \airasval{gpt-6-luna-large.reaction_f1} まで落ちた。NTS の F1 は small で claude-opus-5.5 が \airasval{claude-opus-5.5.topology_f1} と突出している。
+
+\paragraph{完走件数とトークン.}
+表~\ref{tab:tokens} に各 run の有効提出件数とトークン消費を示す。
+有効な SBML が提出された件数は small では 6 モデルとも 137 件全部で、large では gpt-6-luna の \airasval{gpt-6-luna-large.n_valid_submissions} 件から claude-sonnet-5 と gemini-3.8-flash の 213 件までである。提出に至らなかった件は後述の文脈超過と打ち切りによる。平均反復数は claude-opus-5.5 が small で \airasval{claude-opus-5.5.mean_iterations}、large で \airasval{claude-opus-5.5-large.mean_iterations} と最も少なく、137 件中 \airasval{claude-opus-5.5.n_early_submit} 件を上限の 20 反復を使い切らずに自ら提出した。gpt-6-sol も small で \airasval{gpt-6-sol.n_early_submit} 件を早期に提出している。対照的に claude-sonnet-5 と gemini-3.8-flash は large でほぼ全件が上限まで使った。入力トークンは small で 2,200 万（claude-opus-5.5）から 6,200 万（claude-sonnet-5）、large で 1 億 700 万から 2 億 5,000 万で、large は件数の 1.55 倍に対して 3〜5 倍である。ゲートウェイの定価（キャッシュなし）でトークン数から見積もった費用は 12 run で約 \unverified{2{,}800} USD、最も高いのは claude-sonnet-5 large と claude-opus-5.5 large の各約 \unverified{540} USD、最も安いのは gpt-6-luna small の約 \unverified{6} USD である。
+
+\input{tables/tokens.tex}
+
+\paragraph{実行で起きたこと.}
+事前登録した設計からの逸脱と、実行中に判明した事実を記す。第一に、claude-opus-5.5 は一部の会話状態で応答を拒否した。ゲートウェイの応答は \texttt{finish\_reason} が \texttt{content-filter}、Anthropic 側の停止理由は refusal（category \texttt{reasoning\_extraction}）で、出力トークンは 0 であった。同じ会話状態では何度呼び直しても拒否されるので、その試行は失敗として件を最初からやり直した。small では \unverified{10} 件で拒否が起き、やり直しで全件が有効提出に至った。large では \unverified{2} 件が 3 回の試行とも提出に至らず、公式規約どおり不完全モデルの採点値で平均に含めた。claude-sonnet-5 では拒否は起きなかった。gemini-3.8-flash でも Gemini 側の content filter による空応答が small と large で各 1 件あり、やり直しで提出に至った。第二に、gpt-6-sol の large で 4 件、gpt-6-luna の large で 5 件が、20 反復に達する前にゲートウェイの「入力が文脈長を超えた」という 400 で止まった。大きな系では反復ごとに積み上がる実験データの表が 100 万トークンの窓を超える。これらは提出なしとして平均に含めた。第三に、LLM が書いた解析コードや提出モデルの評価が ODE ソルバーの C ライブラリの中で止まり、公式 Controller の 3 分制限（\texttt{signal.alarm}）が効かない件が large で多発した。当初は 1 試行 4 時間の上限で打ち切っていたが、実行の途中で「出力が 60 分止まった試行を打ち切る」判定を駆動部に加え、その時点で走っていた run をすべて止めて、完了済みの件を引き継いで投げ直した。この変更は Controller、プロンプト、モデルの呼び方、採点には触れておらず、引き継いだ件は変更前と同じ条件で解かれている。打ち切りの回数は gpt-6-luna large で \unverified{24}、gemini-3.1-pro-preview large で \unverified{12}、claude-opus-5.5 large で \unverified{9} で、3 回とも打ち切られて提出に至らなかった件は gpt-6-luna large の \unverified{9} 件と claude-opus-5.5 large の \unverified{2} 件である。第四に、large の評価入力（参照 SBML と提出 SBML）が 1 run で最大 115 MB になり、記録への取り込みの上限 50 MB を超えたため、評価入力を gzip で書くように駆動部と評価層（airas-eval 0.13.1）を変え、既に完了していた large の 4 run（gpt-6-sol、claude-opus-5.5、gpt-6-luna、gemini-3.1-pro-preview）は完了済みの件をそのまま引き継いで採点だけをやり直した。LLM の呼び出しはやり直していない。第五に、gemini-3.1-pro-preview は \texttt{finish\_reason} が \texttt{error} の空応答を small で 8 回返し、いずれも呼び直しで通った。これらの経緯は記録の notes にも残した。
 
 \section{考察}
 \label{sec:discussion}
-実験は未実施である。
+\paragraph{論文から 1 年半で、最良の STE は 7 分の 1 になった.}
+仮説 1 の 6 主張はすべて支持され、2026 年 9 月の各社最新モデルは、論文 Table 1 が 2025 年春の 6 モデルで報告した最良の STE \unverified{0.3212} \cite[s1.p5]{duan-2025-measuring} を、同じ Controller、同じ 137 件、同じ 20 反復で全員が下回った。上位 2 モデル（gpt-6-sol、claude-opus-5.5）の STE は 0.05〜0.07 で、論文最良の 7 分の 1 から 5 分の 1、先行研究の open-weight 最良（kimi-k2.6 の \unverified{0.2100} \cite[s4.p2]{scigymrikyuopenmodels-2026-scigym}）の 4 分の 1 以下である。この 2 モデルは反復も使い切らず、半数以上の件で 20 反復に達する前に自ら提出している。SciGym-small はこの 2 モデルにとってほぼ飽和した課題になった。ただし比較対象は論文値の転記であり、本研究で論文の 6 モデルを再実行してはいない。先行する再現では GPT-4.1 系と Gemini-2.5-Flash は論文値の 0.05 以内に収まり、Gemini-2.5-Pro だけが \unverified{0.4148} \cite[s3.p2]{scigymtable1reproduction-2026-scigym} と再現しなかったので、論文最良行の 0.3212 は当時の値としてやや楽観的である可能性があるが、0.1 を超える差はその揺らぎでは説明できない。
+
+\paragraph{各社の上位と下位、そして Gemini の逆転.}
+OpenAI と Anthropic では上位モデルが下位モデルを STE で大きく引き離した（gpt-6-sol 対 gpt-6-luna、claude-opus-5.5 対 claude-sonnet-5）。これは論文が報告した「pro が mini を一貫して上回る」構図 \cite[s1.p6]{duan-2025-measuring} と同じである。Google だけは逆で、gemini-3.8-flash が gemini-3.1-pro-preview を STE でも RMS でも上回った。ゲートウェイの提供モデルでは pro 系が 3.1 のプレビュー版で止まっており、flash 系は 3.8 まで世代が進んでいる。世代の差が規模の差を上回ったと読むのが自然である。先行研究の open-weight モデルでも、同じ Qwen 系で世代の新しい小型の版が古い大型の版を STE で上回っていた。名前の上での上位下位よりも、リリース時期のほうがこの課題の成績を予測する。
+
+\paragraph{large は別の課題である.}
+論文は計算資源の制約から small だけを評価した \cite[s1.p2]{duan-2025-measuring}。本研究の large split では、6 モデルすべてで STE が 0.1〜0.24 悪化し、論文最良行の水準を保てたのは claude-opus-5.5 と gpt-6-sol だけだった。反復を使い切る件が増え、早期提出は claude-opus-5.5 を除いて大きく減った。gpt-6-sol と gpt-6-luna では 100 万トークンの文脈長を超える件まで現れた。large の系は反応数も種数も多く、20 反復の中で実験を設計して機構を絞り込む余地が小さい。反復上限を 20 に固定したベンチマークの設定が、small では飽和しつつある一方で large では制約として効いている。順位は small とおおむね保たれたが、gemini-3.8-flash は large で反応の一致（RMS）は保ったまま軌道の誤差が大きく悪化しており、構造を当てても速度定数が合わない系が増えたことを示す。
+
+\paragraph{Claude の拒否は評価上の系統的な要因である.}
+claude-opus-5.5 の拒否は、SciGym のプロンプトが思考過程を決まった markdown 節で書かせる形式であることに反応した分類器（reasoning extraction）によるものと考えられる。同じ会話状態では再現するが、件を最初からやり直すと別の経路をたどって通ることが多く、small では全件が提出に至った。それでも large では 2 件が提出に至らず、STE を系統的に悪くする方向に働いた。エージェント型のベンチマークで Claude 系を評価するときは、この拒否の件数を報告し、やり直しの規則を事前に決めておく必要がある。claude-sonnet-5 で拒否が起きなかったことから、モデルごとに分類器の閾値が異なる可能性がある。
+
+\paragraph{公式実装の時間制限は C ライブラリの中では効かない.}
+本研究で最も時間を費やしたのは、モデルの能力ではなく打ち切りの設計であった。公式 Controller はコード実行を \texttt{signal.alarm} で 3 分に制限するが、シグナルは Python のバイトコード境界でしか処理されないため、scipy や libroadrunner の中で止まった計算は打ち切れない。large では 1 run あたり 10〜24 件がこの状態になり、4 時間の上限まで待つ設計では run が 24 時間の枠に収まらなかった。出力の停止を外から検出して打ち切る規則を加えることで解決したが、これは公式コードの外側の措置であり、公式の 3 分制限どおりにエージェントに「時間切れ」を返してはいない。ベンチマークの規約を実装どおりに機能させるには、コード実行を別プロセスに委ねて外から止める実装が必要である。
 
 \section{結論}
 \label{sec:conclusion}
-実験は未実施である。
+SciGym 公開コードの Controller を論文と同じ条件で用い、2026 年 9 月時点の各社最新モデル 6 種を SciGym-small 137 件と large 213 件で評価した。small では 6 モデルすべての平均 STE が論文 Table 1 の最良行 \unverified{0.3212} を下回り（仮説 1 は全主張が支持）、gpt-6-sol と claude-opus-5.5 は 0.05〜0.07 と論文最良の 7 分の 1 から 5 分の 1 に達した。large ではこの 2 モデルだけが論文最良行の水準を保ち、他の 4 モデルは上回った（仮説 2 は 2 主張が支持、4 主張が反証）。RMS でも 6 モデルが small で論文最良を上回った。実行では claude-opus-5.5 の拒否、large での文脈超過、ODE ソルバー内での停止という 3 つの系統的な要因が現れ、いずれも件数とともに本文と記録に残した。記録は追記式なので、同じ主張に別の実行結果を後から足すことができる。
 
 \section*{データの利用可能性}
 記録は \airasrecordlink{record.json} にある。実験コード、環境の固定（Dockerfile と \texttt{uv.lock}）、各 run の結果と provenance は同じリポジトリに含まれる。
