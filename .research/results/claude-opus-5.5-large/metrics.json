@@ -1,0 +1,23 @@
+{
+ "reaction_f1": 0.44908444506971545,
+ "reaction_f1_with_modifiers": 0.2722692705029206,
+ "reaction_precision": 0.5162862288836539,
+ "reaction_precision_with_modifiers": 0.3165164303849327,
+ "reaction_recall": 0.4361107255127025,
+ "reaction_recall_with_modifiers": 0.26606059267786525,
+ "topology_f1": 0.5207143665654944,
+ "topology_f1_modifier_product": 0.22285115323776125,
+ "topology_f1_reactant_modifier": 0.17550409306055895,
+ "topology_f1_reactant_product": 0.4058201563597466,
+ "topology_precision": 0.7389851371605276,
+ "topology_recall": 0.486605386728378,
+ "trajectory_smape": 0.16200333912427775,
+ "n_instances": 213.0,
+ "n_valid_submissions": 211.0,
+ "input_tokens": 106576311,
+ "output_tokens": 5211836,
+ "mean_iterations": 15.658767772511847,
+ "n_early_submit": 191,
+ "n_context_overflow": 0,
+ "n_not_finished": 2
+}
