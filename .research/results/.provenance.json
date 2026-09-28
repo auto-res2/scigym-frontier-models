@@ -107,6 +107,24 @@
         ".research/results/claude-sonnet-5/metrics.json": "10ae5b7bbd00f7112df8e7c6e3d55d751a4df65142184418b581cb6d0f7e12a1",
         ".research/results/claude-sonnet-5/tokens.json": "d345f9d5775346c049eda43ff170fd6c554ab3db16d8b16fc8ddd6f3400a3c54"
       }
+    },
+    "gemini-3.1-pro": {
+      "execution_id": "c663fa08-abad-4318-b213-d670337c6c74",
+      "backend": "seyval",
+      "commit_hash": "37117cf21295ad5a877538d65f1aafa57e236447",
+      "overrides": {
+        "run_id": "gemini-3.1-pro",
+        "mode": "full",
+        "airas_eval_tasks": "scigym_small"
+      },
+      "parameters": {},
+      "files": {
+        ".research/results/gemini-3.1-pro/eval_inputs/scigym_small.json": "82ea042dce3bd1fd3f04a41e980c7f6bd5fe56327fcfe2fa149b031190c2a735",
+        ".research/results/gemini-3.1-pro/evaluation/scigym_small.json": "b1fb078ec8bbb24042a5105b7cd4be393534d0191f8e5fac4b539582b530662c",
+        ".research/results/gemini-3.1-pro/instances.tar.gz": "8924dd2bfa5c3e232205bd226bfd2086927bd544ae4084fb477fc3f47aba1624",
+        ".research/results/gemini-3.1-pro/metrics.json": "a23503c853854494519fde32e06baef309b9c28e587d7257b70bdc6cfe5d107a",
+        ".research/results/gemini-3.1-pro/tokens.json": "85f071f3091a9cc1031f314e2855dad45bf4f6809c68fa4c2234ae5f715bfefe"
+      }
     }
   }
 }
