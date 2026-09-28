@@ -187,6 +187,11 @@
               "text_sha256": "b9364fc55cee7fbee491d564275e5510e79b671bef2d153729d60bcf5b6cdfbd",
               "model": "gpt-4.1",
               "supported": true
+            },
+            {
+              "text_sha256": "c5b58e0d2c8361c0a932f2a0d08a97a4ecc7024235e9bffb58c7e4c26e32d1f1",
+              "model": "gpt-4.1",
+              "supported": true
             }
           ]
         },
@@ -420,6 +425,12 @@
               "text_sha256": "1aef4a2a5c42c2bb899c666e7996ac2204c9e2fe4c9bc56d29876235b7d31a3f",
               "model": "gpt-4.1",
               "supported": true
+            },
+            {
+              "text_sha256": "3754c9198c7a9bbeeaead3ae5cf0497b969db2a9d06230ba233189e769328b86",
+              "model": "gpt-4.1",
+              "supported": false,
+              "reason": "The quoted passage only states that all six open-weight models achieve average STE within 0.05 of GPT-4.1-mini, but does not mention or compare the performances of qwen3.8-27b and qwen3.6-35b, nor support the specific claim that the smaller, newer version outperforms the older, larger one."
             }
           ]
         },
@@ -586,6 +597,12 @@
               "model": "gpt-4.1",
               "supported": true,
               "reason": "The citing text accurately quotes the s4.p5 passage's 'trajectory_smape' value (0.2479) and uses it as a metric for the model in question; it does not rely on further context or misrepresent the data."
+            },
+            {
+              "text_sha256": "4593d122479d3c2be0a20ffd5ee432829b65037f1c30cb04917eab0afac0e5f9",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text faithfully reports the 'trajectory_smape' value from the passage as 0.2479 for qwen3.8-27b; no context or qualifiers are lost."
             }
           ]
         },
@@ -623,6 +640,12 @@
               "model": "gpt-4.1",
               "supported": false,
               "reason": "The passage only provides the metric value for trajectory_smape (0.4571) but does not specify the model, its size, its vintage (generation), or any context about 'qwen3.6-35b.' The citing text attributes this number to a specific model and uses it for a broader claim, which is not supported by the quoted passage alone."
+            },
+            {
+              "text_sha256": "c319079318f8372ece133cf7fe63df3a9967523493094b0e6fcd12b2e5fc066b",
+              "model": "gpt-4.1",
+              "supported": true,
+              "reason": "The citing text uses the quoted trajectory_smape value as a metric comparing two models; the source passage directly provides the metric 0.4571 for trajectory_smape, faithfully supporting the citation."
             }
           ]
         }
