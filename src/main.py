@@ -99,7 +99,9 @@ def main():
     # 失敗した前 run の件ごとの出力から続きを実行する。Seyval は実行前に .research/results を空にするので resume/ に置く
     if not (run_dir / "instances").exists():
         run_dir.mkdir(parents=True, exist_ok=True)
-        for archive in sorted(Path("resume", run_id).glob("**/*.tar.gz")):  # instances.tar.gz か checkpoints/<件>.tar.gz
+        # 打ち切った前 run の件ごとの書庫。リポジトリの resume/ か、計算機上の resume_root（書庫が大きく git に置かないとき）
+        sources = [Path("resume", run_id)] + ([Path(cfg.resume_root, run_id)] if getattr(cfg, "resume_root", None) else [])
+        for archive in sorted(a for src in sources for a in src.glob("**/*.tar.gz")):
             with tarfile.open(archive) as tar:
                 tar.extractall(run_dir)
     # API エラーで evaluation.json が出なかった件は 2 回までやり直す。予算超過（402）は即座に run を止める
