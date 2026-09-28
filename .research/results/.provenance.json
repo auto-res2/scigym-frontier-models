@@ -179,6 +179,24 @@
         ".research/results/claude-opus-5.5-large/metrics.json": "f8fe19f9f6bc9ef11ba92627354c46c77dc5523cdb768a46016631afb2d853ac",
         ".research/results/claude-opus-5.5-large/tokens.json": "58336e750f49d238699a1fc85d274d9e5c0ac815a7905c4660babd06afa5fffd"
       }
+    },
+    "gpt-6-luna-large": {
+      "execution_id": "6e28ffd8-8870-49e1-95ea-e3d88e0766b8",
+      "backend": "seyval",
+      "commit_hash": "dd80c3653c0e4e12e216105ff15a9deb450171e8",
+      "overrides": {
+        "run_id": "gpt-6-luna-large",
+        "mode": "full",
+        "airas_eval_tasks": "scigym_large"
+      },
+      "parameters": {},
+      "files": {
+        ".research/results/gpt-6-luna-large/eval_inputs/scigym_large.json.gz": "c923b48cfca55c0897e2d6eff2c4ce4fff5c97e1d58239f08ba6eb623b7111b5",
+        ".research/results/gpt-6-luna-large/evaluation/scigym_large.json": "b7b1aea01dfba83c0745aed6dd941c5fe81c9d7331eb16318265b09faa386260",
+        ".research/results/gpt-6-luna-large/instances.tar.gz": "949740c8905ab81e66eeae54f160585b99a23bcb22b3041cda186c3d60a99381",
+        ".research/results/gpt-6-luna-large/metrics.json": "71a8fd152b3fd0dd761c8974c0de6dc56da06ed705becf697a235fd8b9069a62",
+        ".research/results/gpt-6-luna-large/tokens.json": "da46b997dd6d161b5cc134a3179b1466a7dfda7946f131c6c99e3bb3b02f1c52"
+      }
     }
   }
 }
