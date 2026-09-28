@@ -17,6 +17,24 @@
         ".research/results/gpt-6-sol/metrics.json": "71b8f7cb8976456dfc601d4b1b5b52666e20423cdb13e2bf6a4ba2fab03f72cf",
         ".research/results/gpt-6-sol/tokens.json": "adc242db6ac51df5477863554de9f14602dd82fc79a010e03aa0821c989d508a"
       }
+    },
+    "gemini-3.8-flash": {
+      "execution_id": "f209fad8-3d72-42fa-a80e-b2d52c958a1f",
+      "backend": "seyval",
+      "commit_hash": "27789a244ea033f58c50f6f4363fd51379fcb613",
+      "overrides": {
+        "run_id": "gemini-3.8-flash",
+        "mode": "full",
+        "airas_eval_tasks": "scigym_small"
+      },
+      "parameters": {},
+      "files": {
+        ".research/results/gemini-3.8-flash/eval_inputs/scigym_small.json": "9efacf2441876ab1616e9ed16f65ad2da723519a2539ea545825c3e071cc527d",
+        ".research/results/gemini-3.8-flash/evaluation/scigym_small.json": "522327802f3653cc96985d06b29016f8aa0d0fcaa81924348925a7b394c7f2b2",
+        ".research/results/gemini-3.8-flash/instances.tar.gz": "c0c182f3808899fca984e9812f15ca8aca0ad0b442a2bbaab1de6b96f59e595d",
+        ".research/results/gemini-3.8-flash/metrics.json": "63ebbdba1766e8ab04043a797e28ad6d5b5a30c871b37646a833b1d3f68b87a4",
+        ".research/results/gemini-3.8-flash/tokens.json": "b5bf48e004a24ef645d589568d85df33b15ec1cef81d640e63ea23c09a1bfc01"
+      }
     }
   }
 }
