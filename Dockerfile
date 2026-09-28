@@ -1,4 +1,5 @@
-FROM python:3.11.16-slim-trixie@sha256:be1575ed968de893bd54f4c56315ff7c4736ce522c1bca08fd521731aafc0d76
+# ベースイメージは Docker Hub と同じダイジェストを ECR Public から取る（Seyval のビルダーが Docker Hub からの取得で落ちた）
+FROM public.ecr.aws/docker/library/python:3.11.16-slim-trixie@sha256:be1575ed968de893bd54f4c56315ff7c4736ce522c1bca08fd521731aafc0d76
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
