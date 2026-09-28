@@ -1083,7 +1083,11 @@
         }
       ],
       "notes": [
-        "ギャップ: SciGym 論文（s1）は 2025 年春の 6 モデルの Table 1 を報告しているが、その後の世代で同じ課題がどこまで解けるようになったかは示されていない。先行する AIRAS の研究は同名モデルの再現（s3）と open-weight モデルの評価（s4）を行った。本研究は同じ Controller・同じ条件で 2026 年 9 月時点の各社最新 6 モデルを走らせ、論文の Table 1 をそのまま並べて報告する。"
+        "ギャップ: SciGym 論文（s1）は 2025 年春の 6 モデルの Table 1 を報告しているが、その後の世代で同じ課題がどこまで解けるようになったかは示されていない。先行する AIRAS の研究は同名モデルの再現（s3）と open-weight モデルの評価（s4）を行った。本研究は同じ Controller・同じ条件で 2026 年 9 月時点の各社最新 6 モデルを走らせ、論文の Table 1 をそのまま並べて報告する。",
+        "2026-09-28: claude-opus-5.5 は一部の会話状態で応答を拒否した（finish_reason=content-filter、Anthropic の停止理由は refusal / reasoning_extraction、出力 0 トークン）。同じ会話状態では何度呼び直しても拒否されるため、その試行を失敗として件を反復 0 からやり直した。small では 10 件で拒否が起き、やり直しで全件が有効提出に至った。claude-sonnet-5 では起きなかった。gemini-3.8-flash でも Gemini 側の content filter による空応答が small と large で各 1 件あり、やり直しで提出に至った。",
+        "2026-09-28: LLM のコードや提出モデルの評価が ODE ソルバーの C ライブラリ内で止まり、公式 Controller の 3 分制限（signal.alarm）が効かない件が large で多発した。実行の途中で駆動部（src/main.py）に「出力が 60 分止まった試行を打ち切って反復 0 からやり直す」判定を加え（commit e048118）、走っていた run をすべて止めて完了済みの件を RIKYU 上の resume ディレクトリから引き継いで投げ直した。Controller、プロンプト、モデルの呼び方、採点は変えていない。3 回とも打ち切られた件は提出なしとして不完全モデルで採点した。",
+        "2026-09-28: large の評価入力（参照 SBML + 提出 SBML）が 1 run で最大 115 MB になり、記録への取り込み上限 50 MB を超えた。駆動部が評価入力を gzip で書くようにし（commit 11f2b97、airas-eval 0.13.1）、既に完了していた gpt-6-sol / claude-opus-5.5 / gpt-6-luna / gemini-3.1-pro-preview の large は、完了済みの件をそのまま引き継いで採点だけをやり直す run（f59a5a17 / e98e28b2 / 6e28ffd8 / f605f5e6）を記録の結果とした。LLM の呼び出しはやり直していない。claude-opus-5.5 large の再実行では 3 回打ち切られていた 3 件のうち 1 件が新たに提出に至った。",
+        "2026-09-28: gemini-3.1-pro-preview は finish_reason=error の空応答を small で 8 回返し、いずれも呼び直しで通った。Vercel AI Gateway の予算超過（402）は起きなかった。"
       ]
     },
     {

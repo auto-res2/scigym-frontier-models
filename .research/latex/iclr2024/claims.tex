@@ -7,37 +7,37 @@
   \emph{Rationale:} OpenAI の現行世代の推論モデルが論文の最良行に届けば、h1 の gpt-6-sol の部分を担う。
   \emph{Criterion:} \texttt{\detokenize{gpt-6-sol}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.3212 $\leq 0$.
   \emph{Prediction:} $[-0.2, 0]$ (open-weight の kimi-k2.6 / kimi-k3 / deepseek-v4.1-flash が同条件で 0.21〜0.24 に達した（s4.p2〜s4.p4）。商用の最新モデルはそれと同等かそれ以上を予測する).
-  \emph{Observed:} pending.
+  \emph{Observed:} -0.274004.
   \emph{Verdict:} pending.
 \item[\textbf{Claim 2}] gpt-6-luna（openai/gpt-6-luna）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。~\cite[s1.p2, s1.p3, s1.p4, s1.p5, s1.p10]{duan-2025-measuring}, \cite[s4.p5]{scigymrikyuopenmodels-2026-scigym}, \cite[s2.p1]{h4duan-2025-scigym}
   \emph{Rationale:} OpenAI の最小クラスのモデルが論文の最良行に届けば、h1 の gpt-6-luna の部分を担う。
   \emph{Criterion:} \texttt{\detokenize{gpt-6-luna}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.3212 $\leq 0$.
   \emph{Prediction:} $[-0.15, 0.05]$ (open-weight の 27B〜35B 級（qwen3.8-27b 0.25、qwen3.6-35b 0.46）が同条件で最良行の前後に分かれた（s4.p5、s4.p6）。最小クラスの商用モデルはその中間を予測する).
-  \emph{Observed:} pending.
+  \emph{Observed:} -0.0917086.
   \emph{Verdict:} pending.
 \item[\textbf{Claim 3}] claude-opus-5.5（anthropic/claude-opus-5.5）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。~\cite[s1.p2, s1.p3, s1.p4, s1.p5, s1.p10]{duan-2025-measuring}, \cite[s4.p3]{scigymrikyuopenmodels-2026-scigym}, \cite[s2.p1]{h4duan-2025-scigym}
   \emph{Rationale:} Anthropic の現行の上位モデルが論文の最良行に届けば、h1 の claude-opus-5.5 の部分を担う。
   \emph{Criterion:} \texttt{\detokenize{claude-opus-5.5}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.3212 $\leq 0$.
   \emph{Prediction:} $[-0.2, 0]$ (c1 と同じ（s4.p2〜s4.p4）).
-  \emph{Observed:} pending.
+  \emph{Observed:} -0.255497.
   \emph{Verdict:} pending.
 \item[\textbf{Claim 4}] claude-sonnet-5（anthropic/claude-sonnet-5）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。~\cite[s1.p2, s1.p3, s1.p4, s1.p5, s1.p10]{duan-2025-measuring}, \cite[s4.p4]{scigymrikyuopenmodels-2026-scigym}, \cite[s2.p1]{h4duan-2025-scigym}
   \emph{Rationale:} Anthropic の中位モデルが論文の最良行に届けば、h1 の claude-sonnet-5 の部分を担う。
   \emph{Criterion:} \texttt{\detokenize{claude-sonnet-5}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.3212 $\leq 0$.
   \emph{Prediction:} $[-0.2, 0]$ (中位の商用モデルは open-weight の上位（0.21〜0.25）に近いと予測する（s4.p2〜s4.p5）).
-  \emph{Observed:} pending.
+  \emph{Observed:} -0.0680545.
   \emph{Verdict:} pending.
 \item[\textbf{Claim 5}] gemini-3.1-pro-preview（google/gemini-3.1-pro-preview）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。~\cite[s1.p2, s1.p3, s1.p4, s1.p5, s1.p7, s1.p10]{duan-2025-measuring}, \cite[s3.p2]{scigymtable1reproduction-2026-scigym}, \cite[s2.p1]{h4duan-2025-scigym}
   \emph{Rationale:} 論文で最良だった Gemini Pro 系の現行版が自らの旧版の値に届けば、h1 の gemini-3.1-pro-preview の部分を担う。
   \emph{Criterion:} \texttt{\detokenize{gemini-3.1-pro}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.3212 $\leq 0$.
   \emph{Prediction:} $[-0.2, 0]$ (c1 と同じ。なお現行 API の gemini-2.5-pro の再実行は 0.4148 で論文値を再現しなかった（s3.p2）ため、旧版との差は環境差を含む).
-  \emph{Observed:} pending.
+  \emph{Observed:} -0.0775416.
   \emph{Verdict:} pending.
 \item[\textbf{Claim 6}] gemini-3.8-flash（google/gemini-3.8-flash）で SciGym-small 137 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。~\cite[s1.p2, s1.p3, s1.p4, s1.p5, s1.p10]{duan-2025-measuring}, \cite[s3.p3]{scigymtable1reproduction-2026-scigym}, \cite[s2.p1]{h4duan-2025-scigym}
   \emph{Rationale:} Gemini Flash 系の現行版が論文の最良行に届けば、h1 の gemini-3.8-flash の部分を担う。
   \emph{Criterion:} \texttt{\detokenize{gemini-3.8-flash}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.3212 $\leq 0$.
   \emph{Prediction:} $[-0.15, 0.05]$ (c2 と同じ。現行 API の gemini-2.5-flash の再実行は 0.4465 だった（s3.p3）が、世代が進んだ分を見込む).
-  \emph{Observed:} pending.
+  \emph{Observed:} -0.103458.
   \emph{Verdict:} pending.
 \end{enumerate}
 \noindent\emph{Assumed, so that the claims together imply Hypothesis 1:}
@@ -55,37 +55,37 @@
   \emph{Rationale:} small での水準をより大きな系でも保てば、h2 の gpt-6-sol の部分を担う。
   \emph{Criterion:} \texttt{\detokenize{gpt-6-sol-large}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.3212 $\leq 0$.
   \emph{Prediction:} $[-0.1, 0.1]$ (small での予測（open-weight の上位が 0.21〜0.24、s4.p2〜s4.p4）に、系が大きくなる分の悪化を見込む。先行値が無く幅を広く取る).
-  \emph{Observed:} pending.
+  \emph{Observed:} -0.10363.
   \emph{Verdict:} pending.
 \item[\textbf{Claim 8}] gpt-6-luna（openai/gpt-6-luna）で SciGym-large 213 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。~\cite[s1.p2, s1.p3, s1.p4, s1.p5]{duan-2025-measuring}, \cite[s4.p5]{scigymrikyuopenmodels-2026-scigym}, \cite[s2.p1]{h4duan-2025-scigym}
   \emph{Rationale:} c7 と同じ。h2 の gpt-6-luna の部分を担う。
   \emph{Criterion:} \texttt{\detokenize{gpt-6-luna-large}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.3212 $\leq 0$.
   \emph{Prediction:} $[-0.05, 0.15]$ (最小クラスのモデルは small でも基準の前後と予測しており、large では上回る可能性が高い（s4.p5、s4.p6）).
-  \emph{Observed:} pending.
+  \emph{Observed:} 0.0342854.
   \emph{Verdict:} pending.
 \item[\textbf{Claim 9}] claude-opus-5.5（anthropic/claude-opus-5.5）で SciGym-large 213 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。~\cite[s1.p2, s1.p3, s1.p4, s1.p5]{duan-2025-measuring}, \cite[s4.p3]{scigymrikyuopenmodels-2026-scigym}, \cite[s2.p1]{h4duan-2025-scigym}
   \emph{Rationale:} c7 と同じ。h2 の claude-opus-5.5 の部分を担う。
   \emph{Criterion:} \texttt{\detokenize{claude-opus-5.5-large}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.3212 $\leq 0$.
   \emph{Prediction:} $[-0.1, 0.1]$ (c7 と同じ).
-  \emph{Observed:} pending.
+  \emph{Observed:} -0.159197.
   \emph{Verdict:} pending.
 \item[\textbf{Claim 10}] claude-sonnet-5（anthropic/claude-sonnet-5）で SciGym-large 213 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。~\cite[s1.p2, s1.p3, s1.p4, s1.p5]{duan-2025-measuring}, \cite[s4.p4]{scigymrikyuopenmodels-2026-scigym}, \cite[s2.p1]{h4duan-2025-scigym}
   \emph{Rationale:} c7 と同じ。h2 の claude-sonnet-5 の部分を担う。
   \emph{Criterion:} \texttt{\detokenize{claude-sonnet-5-large}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.3212 $\leq 0$.
   \emph{Prediction:} $[-0.1, 0.1]$ (c7 と同じ).
-  \emph{Observed:} pending.
+  \emph{Observed:} 0.114828.
   \emph{Verdict:} pending.
 \item[\textbf{Claim 11}] gemini-3.1-pro-preview（google/gemini-3.1-pro-preview）で SciGym-large 213 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。~\cite[s1.p2, s1.p3, s1.p4, s1.p5]{duan-2025-measuring}, \cite[s3.p2]{scigymtable1reproduction-2026-scigym}, \cite[s2.p1]{h4duan-2025-scigym}
   \emph{Rationale:} c7 と同じ。h2 の gemini-3.1-pro-preview の部分を担う。
   \emph{Criterion:} \texttt{\detokenize{gemini-3.1-pro-large}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.3212 $\leq 0$.
   \emph{Prediction:} $[-0.1, 0.1]$ (c7 と同じ).
-  \emph{Observed:} pending.
+  \emph{Observed:} 0.159937.
   \emph{Verdict:} pending.
 \item[\textbf{Claim 12}] gemini-3.8-flash（google/gemini-3.8-flash）で SciGym-large 213 件を最大 20 反復で解かせたときの平均 STE は、論文 Table 1 の最良行（Gemini-2.5-Pro）の 0.3212 以下である。~\cite[s1.p2, s1.p3, s1.p4, s1.p5]{duan-2025-measuring}, \cite[s3.p3]{scigymtable1reproduction-2026-scigym}, \cite[s2.p1]{h4duan-2025-scigym}
   \emph{Rationale:} c7 と同じ。h2 の gemini-3.8-flash の部分を担う。
   \emph{Criterion:} \texttt{\detokenize{gemini-3.8-flash-large}}.\texttt{\detokenize{trajectory_smape}} $-$ 0.3212 $\leq 0$.
   \emph{Prediction:} $[-0.05, 0.15]$ (c8 と同じ（s3.p3）).
-  \emph{Observed:} pending.
+  \emph{Observed:} 0.0474597.
   \emph{Verdict:} pending.
 \end{enumerate}
 \noindent\emph{Assumed, so that the claims together imply Hypothesis 2:}
