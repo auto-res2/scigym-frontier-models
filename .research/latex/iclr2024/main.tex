@@ -31,7 +31,7 @@ LLM に科学的発見のサイクル全体（実験の設計、結果の解析�
 
 論文の主結果である Table 1 は、3 社の pro / mini 計 6 モデルを SciGym-small の 137 件で評価した平均値である \cite[s1.p2, s1.p10]{duan-2025-measuring}。評価されたのは 2025 年春の版（Claude-3.7-Sonnet と 3.5-Haiku、Gemini-2.5-Pro と Flash のプレビュー版、GPT-4.1 と 4.1-mini）である \cite[s1.p1]{duan-2025-measuring}。その後 1 年半で各社のモデルは数世代進んだが、同じ閉ループの課題がどこまで解けるようになったかは示されていない。
 
-AIRAS の先行研究は、同名モデルの現行版で Table 1 の 4 行を再実行し \cite[s3.p1]{scigymtable1reproduction-2026-scigym}、また open-weight モデル 8 種を同じプロトコルで評価して \cite[s4.p1]{scigymrikyuopenmodels-2026-scigym}、open-weight の上位モデルが論文の最良行を上回ることを示した。本研究は同じ Controller、同じ条件で 2026 年 9 月時点の各社最新 6 モデルを走らせ、論文の Table 1 をそのまま並べて世代の差を報告する。
+AIRAS の先行研究は、現行 API の Gemini-2.5-Pro で同じ課題を解かせたときの平均 STE が論文の 0.3212 から 0.05 以内に収まるかを事前登録して検証し \cite[s3.p1]{scigymtable1reproduction-2026-scigym}、また open-weight モデル 6 種が論文の GPT-4.1-mini の水準（0.6007）に届くかを同じプロトコルで評価した \cite[s4.p1]{scigymrikyuopenmodels-2026-scigym}。後者では kimi-k2.6 の平均 STE が \unverified{0.2100} \cite[s4.p2]{scigymrikyuopenmodels-2026-scigym}、kimi-k3 が \unverified{0.2251} \cite[s4.p3]{scigymrikyuopenmodels-2026-scigym} と、論文 Table 1 の最良行 Gemini-2.5-Pro の \unverified{0.3212} \cite[s1.p5]{duan-2025-measuring} を下回った。本研究は同じ Controller、同じ条件で 2026 年 9 月時点の各社最新 6 モデルを走らせ、論文の Table 1 をそのまま並べて世代の差を報告する。
 
 判定は AIRAS の事前登録の枠組みに従い、仮説・判定基準・予測区間・実行条件を実験前に記録へ凍結し、実験後は計測値だけを流し込む。
 
@@ -48,7 +48,7 @@ SciGym \citep{duan-2025-measuring} は、単一スキルを測る既存のベン
 \input{claims.tex}
 
 \paragraph{判定基準と予測区間の根拠.}
-各主張の反証線は「（当該モデルの平均 STE）$-$ \unverified{0.3212} $\le 0$」である。\unverified{0.3212} は論文 Table 1 の最良行 Gemini-2.5-Pro の STE \cite[s1.p5]{duan-2025-measuring} であり、6 行すべてに同じ基準を置く。1 年半後の各社の最新モデルが、論文時点の最良に届くかどうかを問う。予測区間は上位モデル（gpt-6-sol、claude-opus-5.5、claude-sonnet-5、gemini-3.1-pro-preview）で $[-0.20, 0]$、最小クラス（gpt-6-luna、gemini-3.8-flash）で $[-0.15, 0.05]$ とする。根拠は open-weight の上位モデルが同条件で 0.21〜0.25 に達したこと \cite[s4.p2, s4.p3, s4.p4]{scigymrikyuopenmodels-2026-scigym} と、27B〜35B 級が 0.25 と 0.46 に分かれたこと \cite[s4.p5, s4.p6]{scigymrikyuopenmodels-2026-scigym} である。1 件の STE の標準偏差を 0.27 程度と見積もると 137 件平均の標準誤差は約 0.02 で、差が 0.02 未満のときは結論が揺らぎうることを前提として記録する。
+各主張の反証線は「（当該モデルの平均 STE）$-$ \unverified{0.3212} $\le 0$」である。\unverified{0.3212} は論文 Table 1 の最良行 Gemini-2.5-Pro の STE \cite[s1.p5]{duan-2025-measuring} であり、6 行すべてに同じ基準を置く。1 年半後の各社の最新モデルが、論文時点の最良に届くかどうかを問う。予測区間は上位モデル（gpt-6-sol、claude-opus-5.5、claude-sonnet-5、gemini-3.1-pro-preview）で $[-0.20, 0]$、最小クラス（gpt-6-luna、gemini-3.8-flash）で $[-0.15, 0.05]$ とする。根拠は open-weight の上位モデルが同条件で kimi-k2.6 \unverified{0.2100} \cite[s4.p2]{scigymrikyuopenmodels-2026-scigym}、kimi-k3 \unverified{0.2251} \cite[s4.p3]{scigymrikyuopenmodels-2026-scigym}、deepseek-v4.1-flash \unverified{0.2405} \cite[s4.p4]{scigymrikyuopenmodels-2026-scigym} に達したことと、27B〜35B 級が 0.25 と 0.46 に分かれたこと \cite[s4.p5, s4.p6]{scigymrikyuopenmodels-2026-scigym} である。1 件の STE の標準偏差を 0.27 程度と見積もると 137 件平均の標準誤差は約 0.02 で、差が 0.02 未満のときは結論が揺らぎうることを前提として記録する。
 
 RMS（modifier あり / なし）と NTS も同じ実行から表として報告するが、1 つの主張に置ける判定基準は 1 つであるため、判定には用いない。各社の上位と下位の差も表で示すにとどめ、主張にはしない。
 
