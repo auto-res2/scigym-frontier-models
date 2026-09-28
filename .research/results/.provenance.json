@@ -197,6 +197,24 @@
         ".research/results/gpt-6-luna-large/metrics.json": "71a8fd152b3fd0dd761c8974c0de6dc56da06ed705becf697a235fd8b9069a62",
         ".research/results/gpt-6-luna-large/tokens.json": "da46b997dd6d161b5cc134a3179b1466a7dfda7946f131c6c99e3bb3b02f1c52"
       }
+    },
+    "gemini-3.1-pro-large": {
+      "execution_id": "f605f5e6-277c-4c8c-9945-fc452fdb67c9",
+      "backend": "seyval",
+      "commit_hash": "5a8b5947fb9390338bcf029c04e52a25882f6ea0",
+      "overrides": {
+        "run_id": "gemini-3.1-pro-large",
+        "mode": "full",
+        "airas_eval_tasks": "scigym_large"
+      },
+      "parameters": {},
+      "files": {
+        ".research/results/gemini-3.1-pro-large/eval_inputs/scigym_large.json.gz": "1ef5842f0e0b1e4e8fdb9e83cadfdcd10dfed77845ba9219b75095e2190004e8",
+        ".research/results/gemini-3.1-pro-large/evaluation/scigym_large.json": "9ff0eee82ef10590ca4fe5980f715c9fc4287c42d7f59364beda2146e2568c7d",
+        ".research/results/gemini-3.1-pro-large/instances.tar.gz": "379f6cef00e957772c9837c2e5b19abc3c9f47c812cc791228e0e7a359bb4184",
+        ".research/results/gemini-3.1-pro-large/metrics.json": "73a15547b6bd64a21abbb6767d806614528c1bd8951e2cee18aca51a6a57021f",
+        ".research/results/gemini-3.1-pro-large/tokens.json": "2b4f612b1b69da8a8c3e1503082707ae1d0f78b21a9c0fc581729f0761f8456b"
+      }
     }
   }
 }
