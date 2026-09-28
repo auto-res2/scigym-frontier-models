@@ -143,6 +143,24 @@
         ".research/results/claude-sonnet-5-large/metrics.json": "7cca7b6c229128bf768b2f2a4caf2c72faa031093ca93006dadf5601fdbb8ed1",
         ".research/results/claude-sonnet-5-large/tokens.json": "d72fe9c49f4e1247cd296977f50363f24b88ad0ab77b441e1b0543f45b8ad64e"
       }
+    },
+    "gpt-6-sol-large": {
+      "execution_id": "f59a5a17-9d6a-4ad5-8d0e-c1b0b5975e6d",
+      "backend": "seyval",
+      "commit_hash": "11f2b977eaa9a186b9e9e7247b14bef8ca882927",
+      "overrides": {
+        "run_id": "gpt-6-sol-large",
+        "mode": "full",
+        "airas_eval_tasks": "scigym_large"
+      },
+      "parameters": {},
+      "files": {
+        ".research/results/gpt-6-sol-large/eval_inputs/scigym_large.json.gz": "e3ee1c52191aff655c379219d8409e4cf194b1383057efeb6e0d9964fafadfe1",
+        ".research/results/gpt-6-sol-large/evaluation/scigym_large.json": "d90a05d8b8902ffe2114a23c8ea392405ed50c77bdcc5d910eb19554e3b1d33e",
+        ".research/results/gpt-6-sol-large/instances.tar.gz": "7fc3a1a8a2627e34020e57ca257accecfd5a00a42df95ea838d8e96cadb78234",
+        ".research/results/gpt-6-sol-large/metrics.json": "d4436f387b868512b836f70cea8a2638d2d5fc5dd1f67de69d9dd4c7623d7b1b",
+        ".research/results/gpt-6-sol-large/tokens.json": "6715cab7f1f5ce63518b793da369e299f774e8af1bf27940914569d433db19a6"
+      }
     }
   }
 }
