@@ -19,23 +19,23 @@
       }
     },
     "gemini-3.8-flash": {
-      "execution_id": "05179d79-8347-416e-b229-2616f538295a",
+      "execution_id": "505a50e0-a23b-44bf-8434-d033dd366e2f",
       "backend": "seyval",
-      "commit_hash": "0c3bd753a4e1814ac07264400e9c7fc9b83f796a",
+      "commit_hash": "0801150138e7e2203f2ab1db0cc3f53a2c1da974",
       "overrides": {
-        "airas_secret_names": "GH_PERSONAL_ACCESS_TOKEN,SEYVAL_API_KEY",
+        "airas_secret_names": "ANTHROPIC_API_KEY,AWS_ACCESS_KEY_ID,AWS_BEARER_TOKEN_BEDROCK,AWS_SECRET_ACCESS_KEY,GEMINI_API_KEY,GH_PERSONAL_ACCESS_TOKEN,HF_TOKEN,NVIDIA_API_KEY,OPENAI_API_KEY,RIKYU_API_KEY,SEYVAL_API_KEY,VERCEL_AI_GATEWAY_API_KEY,WANDB_API_KEY",
         "run_id": "gemini-3.8-flash",
         "mode": "sanity",
         "airas_eval_tasks": "scigym_small"
       },
       "parameters": {},
       "files": {
-        ".research/results/gemini-3.8-flash/eval_inputs/scigym_small.json.gz": "3850e755cb94c625a931912774a1b346c6d1c55e94ea956c191dd3b5e799dc3f",
-        ".research/results/gemini-3.8-flash/evaluation/scigym_small.json": "1d7b23d1a838281988ed7dbcecd05771c9f72cfcdcbf01da5c1cc7a5f1b0cf40",
-        ".research/results/gemini-3.8-flash/instances.tar.gz": "790aa1e3f4307feb526e9a121a4e604ff6b7934d5a9e62180c0aa1c407b612d6",
-        ".research/results/gemini-3.8-flash/metrics.json": "7325d0c194a2d5b64694f771224c3aabaa4fef5389f6dbc75ba3cadbfad1d8e7",
-        ".research/results/gemini-3.8-flash/observed.json": "385ae75f062ebccd63a4bfbab57bc8cb7bcdfb825c8711f364c968ac30148b60",
-        ".research/results/gemini-3.8-flash/tokens.json": "a86fe4506f5b849b002abe6981be4043a2f937ff7803975762b26e3c98aad81a"
+        ".research/results/gemini-3.8-flash/eval_inputs/scigym_small.json.gz": "3ef0b1d3b70b39487f969fa6d45c2c8f059ab938f4d3e7f5e987d32768424499",
+        ".research/results/gemini-3.8-flash/evaluation/scigym_small.json": "8f8a1938ae535b8a2e01a541abc7974378df39c17adc20fa15b21d2a5838ec0b",
+        ".research/results/gemini-3.8-flash/instances.tar.gz": "20a9da37d78771397575e1ea43148a5c0710a56a65bbdcba5bc2ebf9f1fec76d",
+        ".research/results/gemini-3.8-flash/metrics.json": "c9f86bee92a246270666cf91396d28a87240775102ce822f586725bb8f96c134",
+        ".research/results/gemini-3.8-flash/observed.json": "8b84512e3c610eac4d1ad24b9d5ec73b9f68889bd9248536028735c7bf3d33a8",
+        ".research/results/gemini-3.8-flash/tokens.json": "3a1256f65a352db5cab5e33764920093cd1b7294f9df9d40c8f32c4f432c4131"
       }
     },
     "gpt-6-luna": {
