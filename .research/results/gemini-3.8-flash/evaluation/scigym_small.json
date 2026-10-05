@@ -5,25 +5,25 @@
     "n_valid_submissions": 1.0
   },
   "metrics": {
-    "reaction_f1": 0.6666666666666666,
-    "reaction_f1_vs_best_published": 0.32836666666666664,
+    "reaction_f1": 0.5714285714285715,
+    "reaction_f1_vs_best_published": 0.23312857142857152,
     "reaction_f1_with_modifiers": 0.0,
-    "reaction_precision": 1.0,
+    "reaction_precision": 0.6666666666666666,
     "reaction_precision_with_modifiers": 0.0,
     "reaction_recall": 0.5,
     "reaction_recall_with_modifiers": 0.0,
-    "topology_f1": 0.3636363636363636,
+    "topology_f1": 0.5,
     "topology_f1_modifier_product": 0.0,
     "topology_f1_reactant_modifier": 0.0,
-    "topology_f1_reactant_product": 0.6666666666666666,
+    "topology_f1_reactant_product": 0.5714285714285715,
     "topology_precision": 1.0,
-    "topology_recall": 0.2222222222222222,
-    "trajectory_smape": 0.0031039289620135224,
-    "trajectory_smape_vs_best_published": -0.3180960710379865
+    "topology_recall": 0.3333333333333333,
+    "trajectory_smape": 0.010011100681722635,
+    "trajectory_smape_vs_best_published": -0.31118889931827737
   },
   "omitted_optional_inputs": [],
   "provenance": {
-    "inputs_sha256": "aa15b69c5559e05de696581c02682ef3c0804935fb604534b036ae3a03f9dbf4",
+    "inputs_sha256": "61a342d7ae4e2fbdd5d2a0ae9983d6914fc7a1151c02d443f9e04a22cef33c7c",
     "task_signature": "scigym_small/v1@139c6084495c",
     "versions": {
       "airas-eval": "0.13.1",
