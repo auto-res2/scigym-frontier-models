@@ -1,2 +1,4 @@
 model: google/gemini-3.8-flash
 split: small
+observe_packages: scigym
+observe_components: scigym.controller.Controller.run_benchmark,scigym.controller.Controller._process_action,scigym.controller.Controller._conduct_experiment,scigym.controller.Controller._execute_code,scigym.controller.Controller._eval_model,scigym.actions.experiment.Experiment.call_simulator,scigym.actions.code.Code.execute_request,openai.resources.chat.completions.completions.Completions.create
