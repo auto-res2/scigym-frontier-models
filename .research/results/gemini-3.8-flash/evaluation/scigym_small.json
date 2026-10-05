@@ -12,18 +12,18 @@
     "reaction_precision_with_modifiers": 0.0,
     "reaction_recall": 0.5,
     "reaction_recall_with_modifiers": 0.0,
-    "topology_f1": 0.8,
-    "topology_f1_modifier_product": 0.4444444444444445,
-    "topology_f1_reactant_modifier": 0.22222222222222224,
+    "topology_f1": 0.3636363636363636,
+    "topology_f1_modifier_product": 0.0,
+    "topology_f1_reactant_modifier": 0.0,
     "topology_f1_reactant_product": 0.6666666666666666,
     "topology_precision": 1.0,
-    "topology_recall": 0.6666666666666666,
-    "trajectory_smape": 0.0002757097228514774,
-    "trajectory_smape_vs_best_published": -0.3209242902771485
+    "topology_recall": 0.2222222222222222,
+    "trajectory_smape": 0.0031039289620135224,
+    "trajectory_smape_vs_best_published": -0.3180960710379865
   },
   "omitted_optional_inputs": [],
   "provenance": {
-    "inputs_sha256": "93e621a7d5df698088e53d07e41b2243371e9930f51e611f30dc451dc20627c9",
+    "inputs_sha256": "aa15b69c5559e05de696581c02682ef3c0804935fb604534b036ae3a03f9dbf4",
     "task_signature": "scigym_small/v1@139c6084495c",
     "versions": {
       "airas-eval": "0.13.1",
